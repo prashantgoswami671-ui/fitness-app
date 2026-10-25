@@ -1,34 +1,30 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
+import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useColorScheme } from 'react-native';
 import { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { initI18n } from '@/i18n';
 
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
-import AppTabs from '@/components/app-tabs';
+import { initI18n } from '@/i18n';
 
 SplashScreen.preventAutoHideAsync();
 
-function I18nInitializer() {
-  const { i18n } = useTranslation();
+export default function RootLayout() {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    initI18n().then(() => setReady(true));
+    initI18n()
+      .catch(() => {})
+      .finally(() => setReady(true));
   }, []);
 
   if (!ready) return null;
 
-  return <AppTabs />;
-}
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <>
       <AnimatedSplashOverlay />
-      <I18nInitializer />
-    </ThemeProvider>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="guide/[id]" />
+      </Stack>
+    </>
   );
 }

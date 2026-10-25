@@ -22,5 +22,9 @@ Planned later: multilingual form guides, nutrition tracking, educational videos.
 - Explain what you changed in a short list at the end.
 
 ## Current state
-- `src/app/index.tsx`: split picker, day picker, exercise picker by tier, workout logging with
-  steppers, double progression (`suggest` function, rep range 8-12, weight step 2.5 kg).
+- Routing: root Stack in `src/app/_layout.tsx` (initializes i18n before rendering) with a `(tabs)` group and `guide/[id]`.
+- `src/app/(tabs)/index.tsx`: split picker, day picker, exercise picker by tier, workout logging
+  with steppers, double progression (`suggest`, rep range 8-12, weight step 2.5 kg), Guide button.
+- `src/app/guide/[id].tsx`: exercise guide screen.
+- i18n: `src/i18n.ts`, translations in `src/locales/` (en, hi, es). All UI text uses translation keys.
+- Saved data keys use English exercise names for backward compatibility. Do not change them.
