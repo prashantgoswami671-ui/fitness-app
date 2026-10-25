@@ -22,9 +22,12 @@ Planned later: multilingual form guides, nutrition tracking, educational videos.
 - Explain what you changed in a short list at the end.
 
 ## Current state
-- Routing: root Stack in `src/app/_layout.tsx` (initializes i18n before rendering) with a `(tabs)` group and `guide/[id]`.
-- `src/app/(tabs)/index.tsx`: split picker, day picker, exercise picker by tier, workout logging
-  with steppers, double progression (`suggest`, rep range 8-12, weight step 2.5 kg), Guide button.
-- `src/app/guide/[id].tsx`: exercise guide screen.
-- i18n: `src/i18n.ts`, translations in `src/locales/` (en, hi, es). All UI text uses translation keys.
-- Saved data keys use English exercise names for backward compatibility. Do not change them.
+- Routing: root Stack in `src/app/_layout.tsx` (initializes i18n first) with a `(tabs)` group,
+  `guide/[id]` and `method/[id]`.
+- Tabs: Home (`(tabs)/index.tsx`), Nutrition (`(tabs)/nutrition.tsx`), Learn (`(tabs)/explore.tsx`).
+- Data: `src/data/exercises.ts`, `src/data/splits.ts`, `src/data/methods.ts`.
+- Home: split picker (search, chips, popular row), day picker, exercise picker by tier,
+  workout logging, double progression (`suggest`, rep range 8-12, weight step 2.5 kg).
+- i18n: `src/i18n.ts`, translations in `src/locales/` (en, hi, es). All UI text uses keys.
+- Storage keys: `fitness-state`, `fitness-language`, `fitness-nutrition`. Saved workout data
+  uses English exercise names as keys. Do not change them.
