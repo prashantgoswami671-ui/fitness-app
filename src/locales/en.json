@@ -643,5 +643,47 @@
   "learn": {
     "note": "Training methods are ways to perform your sets. They can be used with any split.",
     "methodNotFound": "This training method could not be found."
+  },
+  "customRoutines": {
+    "createRoutine": "Create custom routine",
+    "createRoutineHint": "Build your own days and exercise list.",
+    "createTitle": "Create custom routine",
+    "editTitle": "Edit custom routine",
+    "routineNamePlaceholder": "Routine name",
+    "dayNamePlaceholder": "Day name",
+    "dayNumber": "Day {{number}}",
+    "addDay": "Add day",
+    "moveUp": "Move up",
+    "moveDown": "Move down",
+    "deleteDay": "Delete day",
+    "muscleGroups": "Muscle groups",
+    "chooseExercises": "Add exercises",
+    "exerciseSearchPlaceholder": "Search exercises",
+    "daysCount": "{{count}} days",
+    "edit": "Edit",
+    "deleteRoutine": "Delete",
+    "deleteTitle": "Delete routine?",
+    "deleteConfirm": "Delete “{{name}}”? This cannot be undone.",
+    "cancelDelete": "Cancel",
+    "validationTitle": "Check your routine",
+    "routineNameRequired": "Enter a routine name.",
+    "dayRequired": "Add at least one day.",
+    "dayNameRequired": "Give every day a name.",
+    "dayNeedsExercises": "Each day needs at least one muscle group or exercise.",
+    "saveRoutine": "Save routine",
+    "saveErrorTitle": "Could not save routine",
+    "saveError": "Please try again."
+  },
+  "muscleGroups": {
+    "chest": "Chest",
+    "back": "Back",
+    "shoulders": "Shoulders",
+    "rearDelts": "Rear delts",
+    "triceps": "Triceps",
+    "biceps": "Biceps",
+    "quads": "Quads",
+    "hamstrings": "Hamstrings",
+    "glutes": "Glutes",
+    "calves": "Calves"
   }
 }

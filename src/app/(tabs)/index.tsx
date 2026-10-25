@@ -1,11 +1,13 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { router } from 'expo-router';
 import { EXERCISES, type Exercise } from '@/data/exercises';
 import { SPLITS, SPLIT_CATEGORIES, type Split, type SplitCategory, type SplitDay } from '@/data/splits';
+import { CUSTOM_SPLITS_STORAGE_KEY, type CustomSplit } from '@/data/custom-splits';
+import { CustomRoutineBuilder } from '@/components/custom-routine-builder';
 
 type Target = { sets: number; reps: number; weight: number };
 type Session = { date: string; weight: number; target: number; actual: number[] };
@@ -203,6 +205,9 @@ export default function Home() {
   const [targets, setTargets] = useState<Record<string, Target>>({});
   const [history, setHistory] = useState<Record<string, Session[]>>({});
   const [ready, setReady] = useState(false);
+  const [customReady, setCustomReady] = useState(false);
+  const [customSplits, setCustomSplits] = useState<CustomSplit[]>([]);
+  const [builder, setBuilder] = useState<CustomSplit | 'new' | null>(null);
 
   useEffect(() => {
     AsyncStorage.getItem('fitness-state')
@@ -216,6 +221,15 @@ export default function Home() {
       })
       .catch(() => {})
       .finally(() => setReady(true));
+  }, []);
+
+  useEffect(() => {
+    AsyncStorage.getItem(CUSTOM_SPLITS_STORAGE_KEY)
+      .then((raw) => {
+        if (raw) setCustomSplits(JSON.parse(raw) as CustomSplit[]);
+      })
+      .catch(() => {})
+      .finally(() => setCustomReady(true));
   }, []);
 
   useEffect(() => {
@@ -247,37 +261,94 @@ export default function Home() {
     return message;
   };
 
+  const saveCustomSplit = async (custom: CustomSplit) => {
+    const next = customSplits.some((item) => item.id === custom.id)
+      ? customSplits.map((item) => item.id === custom.id ? custom : item)
+      : [...customSplits, custom];
+    try {
+      await AsyncStorage.setItem(CUSTOM_SPLITS_STORAGE_KEY, JSON.stringify(next));
+      setCustomSplits(next);
+      setBuilder(null);
+    } catch {
+      Alert.alert(t('customRoutines.saveErrorTitle'), t('customRoutines.saveError'));
+    }
+  };
+
+  const deleteCustomSplit = (custom: CustomSplit) => {
+    Alert.alert(t('customRoutines.deleteTitle'), t('customRoutines.deleteConfirm', { name: custom.name }), [
+      { text: t('customRoutines.cancelDelete'), style: 'cancel' },
+      {
+        text: t('customRoutines.deleteRoutine'),
+        style: 'destructive',
+        onPress: async () => {
+          const next = customSplits.filter((item) => item.id !== custom.id);
+          try {
+            await AsyncStorage.setItem(CUSTOM_SPLITS_STORAGE_KEY, JSON.stringify(next));
+            setCustomSplits(next);
+          } catch {
+            Alert.alert(t('customRoutines.saveErrorTitle'), t('customRoutines.saveError'));
+          }
+        },
+      },
+    ]);
+  };
+
   const back = () => {
     if (logging) setLogging(false);
     else if (day) setDay(null);
     else setSplit(null);
   };
 
-  if (!ready) return <SafeAreaView style={s.screen} />;
+  if (!ready || !customReady) return <SafeAreaView style={s.screen} />;
 
   const currentSplit = split ? SPLITS.find((item) => item.id === split) ?? null : null;
+  const currentCustomSplit = split ? customSplits.find((item) => item.id === split) ?? null : null;
   const currentDay = currentSplit?.days.find((item) => item.id === day) ?? null;
-  const currentDayExercises = currentDay ? exercisesForDay(currentDay) : [];
+  const currentCustomDay = currentCustomSplit?.days.find((item) => item.id === day) ?? null;
+  const currentDayExercises = currentDay
+    ? exercisesForDay(currentDay)
+    : currentCustomDay
+      ? EXERCISES.filter((exercise) =>
+        currentCustomDay.muscleGroups.includes(exercise.primaryMuscleGroup) || currentCustomDay.exerciseIds.includes(exercise.id),
+      )
+      : [];
   const normalizedSearch = splitSearch.trim().toLocaleLowerCase();
   const myRoutines = category === 'my_routines';
   const matchingSplits = SPLITS.filter((item) =>
     item.nameKey && t(item.nameKey).toLocaleLowerCase().includes(normalizedSearch) &&
     (category === 'all' || (category !== 'my_routines' && item.categories.includes(category)))
   );
+  const matchingCustomSplits = customSplits.filter((item) =>
+    item.name.toLocaleLowerCase().includes(normalizedSearch) && (category === 'all' || myRoutines),
+  );
   const showFilteredResults = normalizedSearch !== '' || category !== 'all';
 
   return (
     <SafeAreaView style={s.screen}>
       <ScrollView contentContainerStyle={s.body} keyboardShouldPersistTaps="handled">
+        {builder !== null && (
+          <CustomRoutineBuilder
+            routine={builder === 'new' ? undefined : builder}
+            onCancel={() => setBuilder(null)}
+            onSave={saveCustomSplit}
+          />
+        )}
         {split && (
           <TouchableOpacity onPress={back}>
             <Text style={s.back}>{t('common.back')}</Text>
           </TouchableOpacity>
         )}
 
-        {!split && (
+        {!split && builder === null && (
           <>
             <Text style={s.title}>{t('common.chooseSplit')}</Text>
+            <TouchableOpacity style={s.createRoutineCard} onPress={() => setBuilder('new')}>
+              <View style={s.createIcon}><Text style={s.createIconText}>+</Text></View>
+              <View style={{ flex: 1, gap: 3 }}>
+                <Text style={s.cardText}>{t('customRoutines.createRoutine')}</Text>
+                <Text style={s.sub}>{t('customRoutines.createRoutineHint')}</Text>
+              </View>
+            </TouchableOpacity>
             <TextInput
               style={s.searchInput}
               value={splitSearch}
@@ -314,23 +385,34 @@ export default function Home() {
               <>
                 <Text style={s.section}>{t('splitPicker.results')}</Text>
                 {matchingSplits.map((item) => <SplitCard key={item.id} split={item} onPress={() => setSplit(item.id)} />)}
-                {(matchingSplits.length === 0 || myRoutines) && <Text style={s.sub}>{t('splitPicker.noResults')}</Text>}
+                {matchingCustomSplits.map((item) => (
+                  <View key={item.id} style={s.customRoutineRow}>
+                    <TouchableOpacity style={s.customRoutineMain} onPress={() => setSplit(item.id)}>
+                      <Text style={s.cardText} numberOfLines={1}>{item.name}</Text>
+                      <Text style={s.splitMeta}>{t('customRoutines.daysCount', { count: item.days.length })}</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => setBuilder(item)}><Text style={s.actionText}>{t('customRoutines.edit')}</Text></TouchableOpacity>
+                    <TouchableOpacity onPress={() => deleteCustomSplit(item)}><Text style={s.deleteText}>{t('customRoutines.deleteRoutine')}</Text></TouchableOpacity>
+                  </View>
+                ))}
+                {matchingSplits.length + matchingCustomSplits.length === 0 && <Text style={s.sub}>{t('splitPicker.noResults')}</Text>}
               </>
             )}
             <LanguageSwitcher />
           </>
         )}
 
-        {currentSplit && !day && (
+        {(currentSplit || currentCustomSplit) && !day && (
           <>
-            <Text style={s.title}>{t(currentSplit.nameKey)}</Text>
-            <Text style={s.sub}>{t(currentSplit.descriptionKey)}</Text>
-            {currentSplit.days.map((splitDay) => {
+            <Text style={s.title}>{currentCustomSplit ? currentCustomSplit.name : t(currentSplit!.nameKey)}</Text>
+            {currentSplit && <Text style={s.sub}>{t(currentSplit.descriptionKey)}</Text>}
+            {(currentSplit?.days ?? currentCustomSplit?.days ?? []).map((splitDay) => {
               const pickedCount = (picked[`${split}|${splitDay.id}`] ?? []).length;
+              const dayName = 'nameKey' in splitDay ? t(splitDay.nameKey) : splitDay.name;
               return (
                 <TouchableOpacity key={splitDay.id} style={s.card} onPress={() => setDay(splitDay.id)}>
                   <View>
-                    <Text style={s.cardText}>{t(splitDay.nameKey)}</Text>
+                    <Text style={s.cardText}>{dayName}</Text>
                     <Text style={s.sub}>{t('common.exercisesPicked', { count: pickedCount })}</Text>
                   </View>
                 </TouchableOpacity>
@@ -339,9 +421,9 @@ export default function Home() {
           </>
         )}
 
-        {currentSplit && currentDay && !logging && (
+        {(currentDay || currentCustomDay) && !logging && (
           <>
-            <Text style={s.title}>{t(currentDay.nameKey)}</Text>
+            <Text style={s.title}>{currentCustomDay ? currentCustomDay.name : t(currentDay!.nameKey)}</Text>
             <Text style={s.sub}>{t('common.tapToPick')}</Text>
             {(['S', 'A', 'B'] as const).map((tier) =>
               currentDayExercises
@@ -376,9 +458,9 @@ export default function Home() {
           </>
         )}
 
-        {currentSplit && currentDay && logging && (
+        {(currentDay || currentCustomDay) && logging && (
           <>
-            <Text style={s.title}>{t(currentDay.nameKey)} {t('common.workout')}</Text>
+            <Text style={s.title}>{currentCustomDay ? currentCustomDay.name : t(currentDay!.nameKey)} {t('common.workout')}</Text>
             {pickedNow.map((exerciseId) => {
               const exercise = currentDayExercises.find((e) => e.id === exerciseId);
               if (!exercise) return null;
@@ -422,6 +504,13 @@ const s = StyleSheet.create({
   categoryChipActive: { backgroundColor: '#2B7A0B' },
   categoryChipText: { color: '#444', fontWeight: '600', fontSize: 13 },
   categoryChipTextActive: { color: '#fff' },
+  createRoutineCard: { flexDirection: 'row', alignItems: 'center', gap: 12, padding: 15, borderRadius: 14, borderWidth: 1, borderColor: '#B9D8B4', backgroundColor: '#F3FAF1' },
+  createIcon: { width: 38, height: 38, borderRadius: 19, alignItems: 'center', justifyContent: 'center', backgroundColor: '#2B7A0B' },
+  createIconText: { color: '#fff', fontSize: 25, lineHeight: 29, fontWeight: '500' },
+  customRoutineRow: { flexDirection: 'row', alignItems: 'center', gap: 10, padding: 14, borderRadius: 14, backgroundColor: '#F2F3F5' },
+  customRoutineMain: { flex: 1, gap: 4 },
+  actionText: { color: '#2873B9', fontSize: 12, fontWeight: '700' },
+  deleteText: { color: '#B42318', fontSize: 12, fontWeight: '700' },
   badge: { width: 32, height: 32, borderRadius: 16, alignItems: 'center', justifyContent: 'center' },
   badgeText: { color: '#fff', fontWeight: '700' },
   check: { fontSize: 20, color: '#2B7A0B', width: 20 },

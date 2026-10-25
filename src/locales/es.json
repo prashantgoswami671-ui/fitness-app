@@ -643,5 +643,47 @@
   "learn": {
     "note": "Los métodos de entrenamiento son formas de realizar tus series. Puedes usarlos con cualquier rutina.",
     "methodNotFound": "No se encontró este método de entrenamiento."
+  },
+  "customRoutines": {
+    "createRoutine": "Crear rutina personalizada",
+    "createRoutineHint": "Crea tus propios días y ejercicios.",
+    "createTitle": "Crear rutina personalizada",
+    "editTitle": "Editar rutina personalizada",
+    "routineNamePlaceholder": "Nombre de la rutina",
+    "dayNamePlaceholder": "Nombre del día",
+    "dayNumber": "Día {{number}}",
+    "addDay": "Añadir día",
+    "moveUp": "Subir",
+    "moveDown": "Bajar",
+    "deleteDay": "Eliminar día",
+    "muscleGroups": "Grupos musculares",
+    "chooseExercises": "Añadir ejercicios",
+    "exerciseSearchPlaceholder": "Buscar ejercicios",
+    "daysCount": "{{count}} días",
+    "edit": "Editar",
+    "deleteRoutine": "Eliminar",
+    "deleteTitle": "¿Eliminar rutina?",
+    "deleteConfirm": "¿Eliminar «{{name}}»? No se puede deshacer.",
+    "cancelDelete": "Cancelar",
+    "validationTitle": "Revisa la rutina",
+    "routineNameRequired": "Escribe un nombre para la rutina.",
+    "dayRequired": "Añade al menos un día.",
+    "dayNameRequired": "Pon nombre a cada día.",
+    "dayNeedsExercises": "Cada día necesita al menos un grupo muscular o ejercicio.",
+    "saveRoutine": "Guardar rutina",
+    "saveErrorTitle": "No se pudo guardar la rutina",
+    "saveError": "Inténtalo de nuevo."
+  },
+  "muscleGroups": {
+    "chest": "Pecho",
+    "back": "Espalda",
+    "shoulders": "Hombros",
+    "rearDelts": "Deltoides posteriores",
+    "triceps": "Tríceps",
+    "biceps": "Bíceps",
+    "quads": "Cuádriceps",
+    "hamstrings": "Isquiotibiales",
+    "glutes": "Glúteos",
+    "calves": "Pantorrillas"
   }
 }

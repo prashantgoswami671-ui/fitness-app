@@ -643,5 +643,47 @@
   "learn": {
     "note": "ट्रेनिंग तरीके आपके सेट करने के तरीके हैं। इन्हें किसी भी स्प्लिट के साथ इस्तेमाल किया जा सकता है।",
     "methodNotFound": "यह ट्रेनिंग तरीका नहीं मिला।"
+  },
+  "customRoutines": {
+    "createRoutine": "कस्टम रूटीन बनाएँ",
+    "createRoutineHint": "अपने दिन और व्यायाम सूची बनाएँ।",
+    "createTitle": "कस्टम रूटीन बनाएँ",
+    "editTitle": "कस्टम रूटीन संपादित करें",
+    "routineNamePlaceholder": "रूटीन का नाम",
+    "dayNamePlaceholder": "दिन का नाम",
+    "dayNumber": "दिन {{number}}",
+    "addDay": "दिन जोड़ें",
+    "moveUp": "ऊपर करें",
+    "moveDown": "नीचे करें",
+    "deleteDay": "दिन हटाएँ",
+    "muscleGroups": "मांसपेशी समूह",
+    "chooseExercises": "व्यायाम जोड़ें",
+    "exerciseSearchPlaceholder": "व्यायाम खोजें",
+    "daysCount": "{{count}} दिन",
+    "edit": "संपादित करें",
+    "deleteRoutine": "हटाएँ",
+    "deleteTitle": "रूटीन हटाएँ?",
+    "deleteConfirm": "“{{name}}” हटाएँ? इसे वापस नहीं किया जा सकता।",
+    "cancelDelete": "रद्द करें",
+    "validationTitle": "रूटीन जाँचें",
+    "routineNameRequired": "रूटीन का नाम दर्ज करें।",
+    "dayRequired": "कम से कम एक दिन जोड़ें।",
+    "dayNameRequired": "हर दिन को नाम दें।",
+    "dayNeedsExercises": "हर दिन में कम से कम एक मांसपेशी समूह या व्यायाम होना चाहिए।",
+    "saveRoutine": "रूटीन सेव करें",
+    "saveErrorTitle": "रूटीन सेव नहीं हुई",
+    "saveError": "कृपया फिर से कोशिश करें।"
+  },
+  "muscleGroups": {
+    "chest": "छाती",
+    "back": "पीठ",
+    "shoulders": "कंधे",
+    "rearDelts": "पिछले डेल्टॉइड",
+    "triceps": "ट्राइसेप्स",
+    "biceps": "बाइसेप्स",
+    "quads": "क्वाड्रिसेप्स",
+    "hamstrings": "हैमस्ट्रिंग",
+    "glutes": "ग्लूट्स",
+    "calves": "पिंडलियाँ"
   }
 }
