@@ -4,13 +4,8 @@ import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { router } from 'expo-router';
-
-type Exercise = {
-  id: string;
-  name: string;
-  tier: 'S' | 'A' | 'B';
-  reason: string;
-};
+import { EXERCISES, type Exercise } from '@/data/exercises';
+import { SPLITS, SPLIT_CATEGORIES, type Split, type SplitCategory, type SplitDay } from '@/data/splits';
 
 type Target = { sets: number; reps: number; weight: number };
 type Session = { date: string; weight: number; target: number; actual: number[] };
@@ -18,61 +13,6 @@ type Saved = {
   picked: Record<string, string[]>;
   targets: Record<string, Target>;
   history: Record<string, Session[]>;
-};
-
-const SPLITS: Record<string, Record<string, Exercise[]>> = {
-  'pushPullLegs': {
-    push: [
-      { id: 'incline_db_press', name: '', tier: 'S', reason: '' },
-      { id: 'flat_bb_bench', name: '', tier: 'S', reason: '' },
-      { id: 'cable_lateral_raise', name: '', tier: 'A', reason: '' },
-      { id: 'overhead_triceps_ext', name: '', tier: 'A', reason: '' },
-      { id: 'pushups', name: '', tier: 'B', reason: '' },
-    ],
-    pull: [
-      { id: 'lat_pulldown', name: '', tier: 'S', reason: '' },
-      { id: 'chest_supported_row', name: '', tier: 'S', reason: '' },
-      { id: 'incline_db_curl', name: '', tier: 'A', reason: '' },
-      { id: 'face_pull', name: '', tier: 'A', reason: '' },
-      { id: 'barbell_curl', name: '', tier: 'B', reason: '' },
-    ],
-    legs: [
-      { id: 'squat', name: '', tier: 'S', reason: '' },
-      { id: 'romanian_deadlift', name: '', tier: 'S', reason: '' },
-      { id: 'leg_press', name: '', tier: 'A', reason: '' },
-      { id: 'seated_leg_curl', name: '', tier: 'A', reason: '' },
-      { id: 'standing_calf_raise', name: '', tier: 'B', reason: '' },
-    ],
-  },
-  'upperLower': {
-    upper: [
-      { id: 'incline_db_press', name: '', tier: 'S', reason: '' },
-      { id: 'lat_pulldown', name: '', tier: 'S', reason: '' },
-      { id: 'seated_cable_row', name: '', tier: 'A', reason: '' },
-      { id: 'cable_lateral_raise', name: '', tier: 'A', reason: '' },
-      { id: 'dumbbell_curl', name: '', tier: 'B', reason: '' },
-    ],
-    lower: [
-      { id: 'squat', name: '', tier: 'S', reason: '' },
-      { id: 'romanian_deadlift', name: '', tier: 'S', reason: '' },
-      { id: 'leg_press', name: '', tier: 'A', reason: '' },
-      { id: 'leg_curl', name: '', tier: 'A', reason: '' },
-      { id: 'calf_raise', name: '', tier: 'B', reason: '' },
-    ],
-  },
-};
-
-const SPLIT_DISPLAY_NAMES = {
-  pushPullLegs: 'splits.pushPullLegs',
-  upperLower: 'splits.upperLower',
-};
-
-const DAY_DISPLAY_NAMES = {
-  push: 'splits.push',
-  pull: 'splits.pull',
-  legs: 'splits.legs',
-  upper: 'splits.upper',
-  lower: 'splits.lower',
 };
 
 const TIER_COLOR = { S: '#E8B400', A: '#4C9AFF', B: '#8A8F98' };
@@ -99,6 +39,28 @@ function suggest(t: Target, actual: number[], tFunc: (key: string, options?: any
     next: t,
     message: tFunc('suggest.stayAtWeight', { actual: actual.join(', '), weight: t.weight, targetReps: t.reps }),
   };
+}
+
+function exercisesForDay(day: SplitDay): Exercise[] {
+  if ('focusLifts' in day && day.focusLifts) {
+    return EXERCISES.filter((exercise) => day.focusLifts.includes(exercise.id));
+  }
+  if ('muscleGroups' in day && day.muscleGroups) {
+    return EXERCISES.filter((exercise) => day.muscleGroups.includes(exercise.primaryMuscleGroup));
+  }
+  return [];
+}
+
+function SplitCard({ split, onPress, compact = false }: { split: Split; onPress: () => void; compact?: boolean }) {
+  const { t } = useTranslation();
+  return (
+    <TouchableOpacity style={[s.card, s.splitCard, compact && s.popularCard]} onPress={onPress}>
+      <View style={{ flex: 1, gap: 4 }}>
+        <Text style={s.cardText} numberOfLines={1}>{t(split.nameKey)}</Text>
+        <Text style={s.splitMeta}>{t('splitPicker.splitMeta', { days: split.daysPerWeek, level: t(`levels.${split.level}`) })}</Text>
+      </View>
+    </TouchableOpacity>
+  );
 }
 
 function Stepper(props: {
@@ -234,6 +196,8 @@ export default function Home() {
   const { t, i18n } = useTranslation();
   const [split, setSplit] = useState<string | null>(null);
   const [day, setDay] = useState<string | null>(null);
+  const [splitSearch, setSplitSearch] = useState('');
+  const [category, setCategory] = useState<SplitCategory | 'all' | 'my_routines'>('all');
   const [logging, setLogging] = useState(false);
   const [picked, setPicked] = useState<Record<string, string[]>>({});
   const [targets, setTargets] = useState<Record<string, Target>>({});
@@ -291,7 +255,16 @@ export default function Home() {
 
   if (!ready) return <SafeAreaView style={s.screen} />;
 
-  const currentSplitExercises = split ? SPLITS[split] : null;
+  const currentSplit = split ? SPLITS.find((item) => item.id === split) ?? null : null;
+  const currentDay = currentSplit?.days.find((item) => item.id === day) ?? null;
+  const currentDayExercises = currentDay ? exercisesForDay(currentDay) : [];
+  const normalizedSearch = splitSearch.trim().toLocaleLowerCase();
+  const myRoutines = category === 'my_routines';
+  const matchingSplits = SPLITS.filter((item) =>
+    item.nameKey && t(item.nameKey).toLocaleLowerCase().includes(normalizedSearch) &&
+    (category === 'all' || (category !== 'my_routines' && item.categories.includes(category)))
+  );
+  const showFilteredResults = normalizedSearch !== '' || category !== 'all';
 
   return (
     <SafeAreaView style={s.screen}>
@@ -305,25 +278,59 @@ export default function Home() {
         {!split && (
           <>
             <Text style={s.title}>{t('common.chooseSplit')}</Text>
+            <TextInput
+              style={s.searchInput}
+              value={splitSearch}
+              onChangeText={setSplitSearch}
+              placeholder={t('splitPicker.searchPlaceholder')}
+              accessibilityLabel={t('splitPicker.searchPlaceholder')}
+            />
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={s.categoryRow}>
+              {(['all', ...SPLIT_CATEGORIES, 'my_routines'] as const).map((item) => (
+                <TouchableOpacity
+                  key={item}
+                  style={[s.categoryChip, category === item && s.categoryChipActive]}
+                  onPress={() => setCategory(item)}>
+                  <Text style={[s.categoryChipText, category === item && s.categoryChipTextActive]}>
+                    {item === 'all' ? t('splitPicker.all') : item === 'my_routines' ? t('splitPicker.myRoutines') : t(`categories.${item}`)}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+            {!showFilteredResults ? (
+              <>
+                <Text style={s.section}>{t('splitPicker.popular')}</Text>
+                <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={s.popularRow}>
+                  {SPLITS.filter((item) => item.popular).map((item) => (
+                    <SplitCard key={item.id} split={item} compact onPress={() => setSplit(item.id)} />
+                  ))}
+                </ScrollView>
+                <Text style={s.section}>{t('splitPicker.moreSplits')}</Text>
+                {SPLITS.filter((item) => !item.popular).map((item) => (
+                  <SplitCard key={item.id} split={item} onPress={() => setSplit(item.id)} />
+                ))}
+              </>
+            ) : (
+              <>
+                <Text style={s.section}>{t('splitPicker.results')}</Text>
+                {matchingSplits.map((item) => <SplitCard key={item.id} split={item} onPress={() => setSplit(item.id)} />)}
+                {(matchingSplits.length === 0 || myRoutines) && <Text style={s.sub}>{t('splitPicker.noResults')}</Text>}
+              </>
+            )}
             <LanguageSwitcher />
-            {(Object.keys(SPLITS) as Array<keyof typeof SPLITS>).map((splitKey) => (
-              <TouchableOpacity key={splitKey} style={s.card} onPress={() => setSplit(splitKey)}>
-                <Text style={s.cardText}>{t(SPLIT_DISPLAY_NAMES[splitKey as keyof typeof SPLIT_DISPLAY_NAMES])}</Text>
-              </TouchableOpacity>
-            ))}
           </>
         )}
 
-        {split && !day && (
+        {currentSplit && !day && (
           <>
-            <Text style={s.title}>{t(SPLIT_DISPLAY_NAMES[split as keyof typeof SPLIT_DISPLAY_NAMES])}</Text>
-            {(Object.keys(currentSplitExercises!) as Array<keyof typeof currentSplitExercises>).map((dayKey) => {
-              const dayExercises = currentSplitExercises![dayKey];
-              const pickedCount = (picked[`${split}|${dayKey}`] ?? []).length;
+            <Text style={s.title}>{t(currentSplit.nameKey)}</Text>
+            <Text style={s.sub}>{t(currentSplit.descriptionKey)}</Text>
+            {currentSplit.days.map((splitDay) => {
+              const pickedCount = (picked[`${split}|${splitDay.id}`] ?? []).length;
               return (
-                <TouchableOpacity key={dayKey} style={s.card} onPress={() => setDay(dayKey)}>
+                <TouchableOpacity key={splitDay.id} style={s.card} onPress={() => setDay(splitDay.id)}>
                   <View>
-                    <Text style={s.cardText}>{t(DAY_DISPLAY_NAMES[dayKey as keyof typeof DAY_DISPLAY_NAMES])}{t('common.day')}</Text>
+                    <Text style={s.cardText}>{t(splitDay.nameKey)}</Text>
                     <Text style={s.sub}>{t('common.exercisesPicked', { count: pickedCount })}</Text>
                   </View>
                 </TouchableOpacity>
@@ -332,12 +339,12 @@ export default function Home() {
           </>
         )}
 
-        {split && day && !logging && (
+        {currentSplit && currentDay && !logging && (
           <>
-            <Text style={s.title}>{t(DAY_DISPLAY_NAMES[day as keyof typeof DAY_DISPLAY_NAMES])}{t('common.day')}</Text>
+            <Text style={s.title}>{t(currentDay.nameKey)}</Text>
             <Text style={s.sub}>{t('common.tapToPick')}</Text>
             {(['S', 'A', 'B'] as const).map((tier) =>
-              currentSplitExercises![day as keyof typeof currentSplitExercises]
+              currentDayExercises
                 .filter((e) => e.tier === tier)
                 .map((exercise) => {
                   const on = pickedNow.includes(exercise.id);
@@ -369,11 +376,11 @@ export default function Home() {
           </>
         )}
 
-        {split && day && logging && (
+        {currentSplit && currentDay && logging && (
           <>
-            <Text style={s.title}>{t(DAY_DISPLAY_NAMES[day as keyof typeof DAY_DISPLAY_NAMES])} {t('common.workout')}</Text>
+            <Text style={s.title}>{t(currentDay.nameKey)} {t('common.workout')}</Text>
             {pickedNow.map((exerciseId) => {
-              const exercise = currentSplitExercises![day as keyof typeof currentSplitExercises].find((e) => e.id === exerciseId);
+              const exercise = currentDayExercises.find((e) => e.id === exerciseId);
               if (!exercise) return null;
               return (
                 <ExerciseCard
@@ -402,9 +409,19 @@ const s = StyleSheet.create({
     flexDirection: 'row', alignItems: 'center', gap: 12,
     padding: 16, borderRadius: 14, backgroundColor: '#F2F3F5',
   },
+  splitCard: { paddingVertical: 12 },
+  popularCard: { width: 190, minHeight: 76, marginRight: 10 },
+  popularRow: { paddingVertical: 2 },
   cardOn: { backgroundColor: '#DCEBFF' },
   cardText: { fontSize: 17, fontWeight: '600' },
   sub: { fontSize: 13, color: '#666' },
+  splitMeta: { fontSize: 12, fontWeight: '600', color: '#4C9AFF', marginTop: 2 },
+  searchInput: { height: 46, borderRadius: 12, backgroundColor: '#F2F3F5', paddingHorizontal: 14, fontSize: 16 },
+  categoryRow: { flexDirection: 'row', gap: 8, paddingVertical: 2 },
+  categoryChip: { paddingHorizontal: 14, paddingVertical: 9, borderRadius: 18, backgroundColor: '#F2F3F5' },
+  categoryChipActive: { backgroundColor: '#2B7A0B' },
+  categoryChipText: { color: '#444', fontWeight: '600', fontSize: 13 },
+  categoryChipTextActive: { color: '#fff' },
   badge: { width: 32, height: 32, borderRadius: 16, alignItems: 'center', justifyContent: 'center' },
   badgeText: { color: '#fff', fontWeight: '700' },
   check: { fontSize: 20, color: '#2B7A0B', width: 20 },
