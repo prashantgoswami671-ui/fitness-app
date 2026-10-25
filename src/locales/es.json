@@ -451,5 +451,63 @@
     "hindi": "हिन्दी",
     "spanish": "Español",
     "current": "Actual: {{lang}}"
+  },
+  "nutrition": {
+    "title": "Nutrición",
+    "today": "Hoy",
+    "previousDay": "Día anterior",
+    "nextDay": "Día siguiente",
+    "editGoals": "Objetivos diarios",
+    "goals": "Objetivos diarios",
+    "addFood": "Añadir alimento",
+    "emptyMeal": "Aún no hay alimentos registrados.",
+    "delete": "Eliminar",
+    "deleteFood": "Eliminar {{name}}",
+    "close": "Cerrar",
+    "cancel": "Cancelar",
+    "saveFood": "Guardar alimento",
+    "saveGoals": "Guardar objetivos",
+    "addFoodTo": "Añadir alimento a {{meal}}",
+    "totalAgainstGoal": "{{current}} / {{goal}} {{unit}}",
+    "mealSummary": "{{calories}} kcal · P {{protein}} g · C {{carbs}} g · G {{fat}} g",
+    "foodDetails": "{{quantity}} {{unit}} · {{calories}} kcal · P {{protein}} g · C {{carbs}} g · G {{fat}} g",
+    "wholeQuantityHint": "Introduce los valores nutricionales de toda la cantidad indicada.",
+    "meals": {
+      "breakfast": "Desayuno",
+      "lunch": "Almuerzo",
+      "dinner": "Cena",
+      "snacks": "Aperitivos"
+    },
+    "macros": {
+      "calories": "Calorías",
+      "protein": "Proteína",
+      "carbs": "Carbohidratos",
+      "fat": "Grasa"
+    },
+    "units": {
+      "kcal": "kcal",
+      "grams": "g"
+    },
+    "fields": {
+      "name": "Nombre del alimento",
+      "namePlaceholder": "p. ej., Avena",
+      "quantity": "Cantidad",
+      "quantityPlaceholder": "p. ej., 100",
+      "unit": "Unidad",
+      "unitPlaceholder": "p. ej., g, pieza",
+      "calories": "Calorías (kcal)",
+      "protein": "Proteína (g)",
+      "carbs": "Carbohidratos (g)",
+      "fat": "Grasa (g)",
+      "caloriesGoal": "Calorías diarias (kcal)",
+      "proteinGoal": "Proteína diaria (g)",
+      "carbsGoal": "Carbohidratos diarios (g)",
+      "fatGoal": "Grasa diaria (g)"
+    },
+    "errors": {
+      "nameRequired": "Introduce el nombre del alimento.",
+      "unitRequired": "Introduce una unidad.",
+      "numbersNonNegative": "Introduce un número igual o superior a 0 en cada campo numérico."
+    }
   }
 }

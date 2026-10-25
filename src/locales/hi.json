@@ -451,5 +451,63 @@
     "hindi": "हिन्दी",
     "spanish": "Español",
     "current": "वर्तमान: {{lang}}"
+  },
+  "nutrition": {
+    "title": "पोषण",
+    "today": "आज",
+    "previousDay": "पिछला दिन",
+    "nextDay": "अगला दिन",
+    "editGoals": "दैनिक लक्ष्य",
+    "goals": "दैनिक लक्ष्य",
+    "addFood": "खाना जोड़ें",
+    "emptyMeal": "अभी तक कोई खाना दर्ज नहीं है।",
+    "delete": "हटाएं",
+    "deleteFood": "{{name}} हटाएं",
+    "close": "बंद करें",
+    "cancel": "रद्द करें",
+    "saveFood": "खाना सेव करें",
+    "saveGoals": "लक्ष्य सेव करें",
+    "addFoodTo": "{{meal}} में खाना जोड़ें",
+    "totalAgainstGoal": "{{current}} / {{goal}} {{unit}}",
+    "mealSummary": "{{calories}} kcal · P {{protein}} g · C {{carbs}} g · F {{fat}} g",
+    "foodDetails": "{{quantity}} {{unit}} · {{calories}} kcal · P {{protein}} g · C {{carbs}} g · F {{fat}} g",
+    "wholeQuantityHint": "ऊपर दी गई पूरी मात्रा के पोषण मान दर्ज करें।",
+    "meals": {
+      "breakfast": "नाश्ता",
+      "lunch": "दोपहर का खाना",
+      "dinner": "रात का खाना",
+      "snacks": "स्नैक्स"
+    },
+    "macros": {
+      "calories": "कैलोरी",
+      "protein": "प्रोटीन",
+      "carbs": "कार्ब्स",
+      "fat": "फैट"
+    },
+    "units": {
+      "kcal": "kcal",
+      "grams": "g"
+    },
+    "fields": {
+      "name": "खाने का नाम",
+      "namePlaceholder": "जैसे ओटमील",
+      "quantity": "मात्रा",
+      "quantityPlaceholder": "जैसे 100",
+      "unit": "इकाई",
+      "unitPlaceholder": "जैसे g, पीस",
+      "calories": "कैलोरी (kcal)",
+      "protein": "प्रोटीन (g)",
+      "carbs": "कार्ब्स (g)",
+      "fat": "फैट (g)",
+      "caloriesGoal": "दैनिक कैलोरी (kcal)",
+      "proteinGoal": "दैनिक प्रोटीन (g)",
+      "carbsGoal": "दैनिक कार्ब्स (g)",
+      "fatGoal": "दैनिक फैट (g)"
+    },
+    "errors": {
+      "nameRequired": "खाने का नाम दर्ज करें।",
+      "unitRequired": "इकाई दर्ज करें।",
+      "numbersNonNegative": "हर संख्यात्मक फ़ील्ड में 0 या उससे अधिक संख्या दर्ज करें।"
+    }
   }
 }

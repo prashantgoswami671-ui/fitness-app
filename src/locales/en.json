@@ -451,5 +451,63 @@
     "hindi": "हिन्दी",
     "spanish": "Español",
     "current": "Current: {{lang}}"
+  },
+  "nutrition": {
+    "title": "Nutrition",
+    "today": "Today",
+    "previousDay": "Previous day",
+    "nextDay": "Next day",
+    "editGoals": "Daily goals",
+    "goals": "Daily goals",
+    "addFood": "Add food",
+    "emptyMeal": "No foods logged yet.",
+    "delete": "Delete",
+    "deleteFood": "Delete {{name}}",
+    "close": "Close",
+    "cancel": "Cancel",
+    "saveFood": "Save food",
+    "saveGoals": "Save goals",
+    "addFoodTo": "Add food to {{meal}}",
+    "totalAgainstGoal": "{{current}} / {{goal}} {{unit}}",
+    "mealSummary": "{{calories}} kcal · P {{protein}} g · C {{carbs}} g · F {{fat}} g",
+    "foodDetails": "{{quantity}} {{unit}} · {{calories}} kcal · P {{protein}} g · C {{carbs}} g · F {{fat}} g",
+    "wholeQuantityHint": "Enter nutrition values for the whole quantity above.",
+    "meals": {
+      "breakfast": "Breakfast",
+      "lunch": "Lunch",
+      "dinner": "Dinner",
+      "snacks": "Snacks"
+    },
+    "macros": {
+      "calories": "Calories",
+      "protein": "Protein",
+      "carbs": "Carbs",
+      "fat": "Fat"
+    },
+    "units": {
+      "kcal": "kcal",
+      "grams": "g"
+    },
+    "fields": {
+      "name": "Food name",
+      "namePlaceholder": "e.g. Oatmeal",
+      "quantity": "Quantity",
+      "quantityPlaceholder": "e.g. 100",
+      "unit": "Unit",
+      "unitPlaceholder": "e.g. g, piece",
+      "calories": "Calories (kcal)",
+      "protein": "Protein (g)",
+      "carbs": "Carbs (g)",
+      "fat": "Fat (g)",
+      "caloriesGoal": "Daily calories (kcal)",
+      "proteinGoal": "Daily protein (g)",
+      "carbsGoal": "Daily carbs (g)",
+      "fatGoal": "Daily fat (g)"
+    },
+    "errors": {
+      "nameRequired": "Enter a food name.",
+      "unitRequired": "Enter a unit.",
+      "numbersNonNegative": "Enter a number of 0 or more in every numeric field."
+    }
   }
 }
