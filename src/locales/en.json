@@ -1,0 +1,455 @@
+{
+  "common": {
+    "back": "< Back",
+    "save": "Save sets",
+    "startWorkout": "Start workout ({{count}})",
+    "tapToPick": "Tap to pick your exercises",
+    "target": "Target: {{sets}} x {{reps}} at {{weight}} kg",
+    "whatYouDid": "What you actually did",
+    "lastTime": "Last time: {{weight}} kg x {{reps}} (target {{target}})",
+    "enterReps": "Enter the reps for every set first.",
+    "sets": "Sets",
+    "reps": "Reps",
+    "kg": "Kg",
+    "day": " day",
+    "exercisesPicked": "{{count}} exercises picked",
+    "chooseSplit": "Choose your split"
+  },
+  "splits": {
+    "pushPullLegs": "Push / Pull / Legs",
+    "upperLower": "Upper / Lower",
+    "push": "Push",
+    "pull": "Pull",
+    "legs": "Legs",
+    "upper": "Upper",
+    "lower": "Lower"
+  },
+  "tiers": {
+    "S": "S",
+    "A": "A",
+    "B": "B"
+  },
+  "exercises": {
+    "incline_db_press": {
+      "name": "Incline Dumbbell Press",
+      "reason": "Great upper chest stimulus"
+    },
+    "flat_bb_bench": {
+      "name": "Flat Barbell Bench Press",
+      "reason": "Heavy compound for chest and triceps"
+    },
+    "cable_lateral_raise": {
+      "name": "Cable Lateral Raise",
+      "reason": "Constant tension on side delts"
+    },
+    "overhead_triceps_ext": {
+      "name": "Overhead Triceps Extension",
+      "reason": "Stretches the long head of the triceps"
+    },
+    "pushups": {
+      "name": "Push-ups",
+      "reason": "Convenient but hard to load"
+    },
+    "lat_pulldown": {
+      "name": "Lat Pulldown",
+      "reason": "Easy to load, strong lat stimulus"
+    },
+    "chest_supported_row": {
+      "name": "Chest-Supported Row",
+      "reason": "Targets back with little lower-back fatigue"
+    },
+    "incline_db_curl": {
+      "name": "Incline Dumbbell Curl",
+      "reason": "Biceps worked in a stretched position"
+    },
+    "face_pull": {
+      "name": "Face Pull",
+      "reason": "Rear delts and shoulder health"
+    },
+    "barbell_curl": {
+      "name": "Barbell Curl",
+      "reason": "Solid, but less stretch on the biceps"
+    },
+    "squat": {
+      "name": "Squat",
+      "reason": "Big quad and glute builder"
+    },
+    "romanian_deadlift": {
+      "name": "Romanian Deadlift",
+      "reason": "Strong hamstring stretch"
+    },
+    "leg_press": {
+      "name": "Leg Press",
+      "reason": "Heavy quad work with low technique demand"
+    },
+    "seated_leg_curl": {
+      "name": "Seated Leg Curl",
+      "reason": "Direct hamstring isolation"
+    },
+    "standing_calf_raise": {
+      "name": "Standing Calf Raise",
+      "reason": "Basic calf work"
+    },
+    "seated_cable_row": {
+      "name": "Seated Cable Row",
+      "reason": "Mid-back thickness"
+    },
+    "dumbbell_curl": {
+      "name": "Dumbbell Curl",
+      "reason": "Basic biceps work"
+    },
+    "leg_curl": {
+      "name": "Leg Curl",
+      "reason": "Hamstring isolation"
+    },
+    "calf_raise": {
+      "name": "Calf Raise",
+      "reason": "Basic calf work"
+    }
+  },
+  "suggest": {
+    "hitMaxReps": "You hit {{maxReps}} reps on every set. Add weight: {{weight}} kg, back to 8 reps.",
+    "targetHit": "Target hit on every set. Stay at {{weight}} kg and aim for {{reps}} reps next time.",
+    "stayAtWeight": "You got {{actual}}. Stay at {{weight}} kg and aim for {{targetReps}} reps on every set."
+  },
+  "guide": {
+    "title": "{{name}} Guide",
+    "targetMuscles": "Target Muscles",
+    "primary": "Primary",
+    "secondary": "Secondary",
+    "steps": "How to Perform",
+    "mistakes": "Common Mistakes",
+    "tip": "Beginner Tip",
+    "back": "Back to Workout",
+    "incline_db_press": {
+      "primary": "Upper Chest (Clavicular Pectoralis Major)",
+      "secondary": "Front Delts, Triceps",
+      "steps": [
+        "Set an adjustable bench to 30-45 degrees incline.",
+        "Sit with dumbbells on your thighs, then lie back and press them to shoulder width.",
+        "Lower the dumbbells with control until your elbows are at about 90 degrees.",
+        "Press back up, squeezing your upper chest at the top.",
+        "Keep your shoulder blades retracted and feet planted throughout."
+      ],
+      "mistakes": [
+        "Setting the bench too steep (over 45°) shifts work to front delts.",
+        "Flaring elbows out to 90° strains the shoulder joint.",
+        "Bouncing the dumbbells off the chest reduces muscle tension."
+      ],
+      "tip": "Start lighter than your flat bench press; the incline reduces mechanical advantage."
+    },
+    "flat_bb_bench": {
+      "primary": "Chest (Pectoralis Major), Triceps",
+      "secondary": "Front Delts",
+      "steps": [
+        "Lie on a flat bench with eyes under the barbell.",
+        "Grip the bar slightly wider than shoulder width, wrists straight.",
+        "Unrack, lower to mid-chest with elbows at ~45-75° from torso.",
+        "Press up in a slight arc back over your shoulders.",
+        "Keep shoulder blades pinched and feet driving into the floor."
+      ],
+      "mistakes": [
+        "Elbows flared to 90° increases shoulder impingement risk.",
+        "Bouncing the bar off the chest reduces pec engagement.",
+        "Losing upper-back tightness destabilizes the press."
+      ],
+      "tip": "Drive with your legs to create full-body tension and protect your shoulders."
+    },
+    "cable_lateral_raise": {
+      "primary": "Side Delts (Lateral Deltoid)",
+      "secondary": "Front Delts, Traps (minimal)",
+      "steps": [
+        "Set cable at lowest position, stand sideways to the stack.",
+        "Grip handle with outside hand, arm across body.",
+        "Raise arm out to side until elbow reaches shoulder height.",
+        "Pause briefly, then lower with control.",
+        "Keep a slight bend in the elbow throughout."
+      ],
+      "mistakes": [
+        "Leaning away from the cable reduces side delt tension.",
+        "Raising above shoulder height shifts work to traps.",
+        "Using momentum instead of controlled movement."
+      ],
+      "tip": "Cables provide constant tension — don't let the weight stack touch down between reps."
+    },
+    "overhead_triceps_ext": {
+      "primary": "Triceps (Long Head)",
+      "secondary": "None significant",
+      "steps": [
+        "Sit or stand, hold one dumbbell overhead with both hands.",
+        "Keep elbows pointed forward, upper arms by ears.",
+        "Lower the dumbbell behind your head by bending elbows.",
+        "Stretch until you feel a deep stretch in the triceps.",
+        "Extend arms back up, squeezing the triceps at the top."
+      ],
+      "mistakes": [
+        "Flaring elbows out reduces long-head stretch.",
+        "Arching the lower back compensates for limited shoulder mobility.",
+        "Using too much weight limits range of motion."
+      ],
+      "tip": "If shoulder mobility is limited, do this one arm at a time with a lighter dumbbell."
+    },
+    "pushups": {
+      "primary": "Chest, Triceps, Front Delts",
+      "secondary": "Core, Serratus Anterior",
+      "steps": [
+        "Start in plank position, hands slightly wider than shoulders.",
+        "Lower body until chest nearly touches the floor.",
+        "Keep elbows at ~45° from torso, core tight.",
+        "Push back up to full arm extension.",
+        "Maintain a straight line from head to heels throughout."
+      ],
+      "mistakes": [
+        "Sagging hips or piking up breaks core tension.",
+        "Flaring elbows wide stresses the shoulders.",
+        "Incomplete range of motion (not going low enough)."
+      ],
+      "tip": "Elevate hands on a bench if full push-ups are too hard; progress to the floor over time."
+    },
+    "lat_pulldown": {
+      "primary": "Lats (Latissimus Dorsi)",
+      "secondary": "Biceps, Rear Delts, Lower Traps",
+      "steps": [
+        "Sit at the machine, thighs under pads, grip bar wide.",
+        "Lean back slightly (~15°), chest up, shoulder blades down.",
+        "Pull the bar to upper chest, driving elbows down and back.",
+        "Squeeze lats at the bottom, pause briefly.",
+        "Return with control, allowing full stretch at the top."
+      ],
+      "mistakes": [
+        "Pulling behind the neck strains the shoulder joint.",
+        "Leaning back excessively turns it into a row.",
+        "Using momentum / swinging the torso."
+      ],
+      "tip": "Think 'pull elbows to pockets' rather than 'pull bar down' to engage lats better."
+    },
+    "chest_supported_row": {
+      "primary": "Mid Back (Rhomboids, Mid Traps), Lats",
+      "secondary": "Rear Delts, Biceps",
+      "steps": [
+        "Set chest pad height so your chest rests comfortably.",
+        "Grip handles, arms extended, shoulder blades protracted.",
+        "Row by driving elbows back, retracting shoulder blades.",
+        "Pull until hands are near hips, squeeze mid-back.",
+        "Lower with control, allowing full protraction at the bottom."
+      ],
+      "mistakes": [
+        "Pulling with arms only, not retracting shoulder blades.",
+        "Chest coming off the pad reduces stability.",
+        "Shrugging traps up instead of depressing them."
+      ],
+      "tip": "The chest support removes lower-back fatigue — focus purely on mid-back contraction."
+    },
+    "incline_db_curl": {
+      "primary": "Biceps (Long Head)",
+      "secondary": "Forearms",
+      "steps": [
+        "Set bench to 45-60° incline, sit back with dumbbells.",
+        "Let arms hang straight down, palms facing forward.",
+        "Curl dumbbells up, keeping elbows stationary behind torso.",
+        "Squeeze biceps at top, lower with control.",
+        "Get a full stretch at the bottom each rep."
+      ],
+      "mistakes": [
+        "Bringing elbows forward loses the stretch on the long head.",
+        "Swinging the weights uses momentum, not biceps.",
+        "Not lowering fully misses the stretched-position benefit."
+      ],
+      "tip": "The incline stretches the long head — that's where the growth happens. Don't cheat the stretch."
+    },
+    "face_pull": {
+      "primary": "Rear Delts, Lower/Mid Traps",
+      "secondary": "Rotator Cuff (External Rotators)",
+      "steps": [
+        "Set cable at face height, rope attachment.",
+        "Step back, arms extended, slight stagger stance.",
+        "Pull rope toward face, separating hands, elbows high.",
+        "Rotate hands back so thumbs point behind you.",
+        "Squeeze rear delts and hold briefly, return slowly."
+      ],
+      "mistakes": [
+        "Pulling to neck/chin instead of face level.",
+        "Dropping elbows low turns it into a row.",
+        "Using too much weight, losing external rotation."
+      ],
+      "tip": "Light weight, high reps (15-20), perfect form — this is for shoulder health, not ego."
+    },
+    "barbell_curl": {
+      "primary": "Biceps (Both Heads)",
+      "secondary": "Forearms, Front Delts (minor)",
+      "steps": [
+        "Stand tall, barbell at thighs, grip shoulder-width.",
+        "Keep elbows pinned to sides, curl bar to shoulders.",
+        "Squeeze biceps hard at the top.",
+        "Lower with control, don't let gravity drop it.",
+        "Keep wrists neutral, not bent back."
+      ],
+      "mistakes": [
+        "Swinging torso/hips to move the weight.",
+        "Elbows drifting forward reduces biceps tension.",
+        "Curling only halfway down misses the stretch."
+      ],
+      "tip": "Strict form > heavy weight. Your biceps are small — they don't need momentum."
+    },
+    "squat": {
+      "primary": "Quads, Glutes",
+      "secondary": "Adductors, Core, Lower Back",
+      "steps": [
+        "Set bar on upper traps (high-bar) or rear delts (low-bar).",
+        "Feet shoulder-width, toes out 15-30°, brace core.",
+        "Descend by sitting back and down, knees tracking toes.",
+        "Go to at least parallel (hip crease below knee).",
+        "Drive up through mid-foot, chest up, knees out."
+      ],
+      "mistakes": [
+        "Knees caving in (valgus) stresses the knee joint.",
+        "Heels rising shifts load to knees and reduces glute drive.",
+        "Rounding the lower back under load risks injury."
+      ],
+      "tip": "Learn to brace: big breath into belly, push abs out like you're taking a punch."
+    },
+    "romanian_deadlift": {
+      "primary": "Hamstrings, Glutes",
+      "secondary": "Lower Back, Adductors, Forearms",
+      "steps": [
+        "Hold bar at hip width, feet hip-width, slight knee bend.",
+        "Hinge at hips, push butt back, bar slides down thighs.",
+        "Keep back flat, chest up, go until you feel hamstring stretch.",
+        "Stop when torso is ~parallel or stretch is maximal.",
+        "Drive hips forward to stand, squeeze glutes at top."
+      ],
+      "mistakes": [
+        "Bending knees too much turns it into a conventional deadlift.",
+        "Rounding the back instead of hinging at hips.",
+        "Not going deep enough — the stretch is the stimulus."
+      ],
+      "tip": "Think 'push butt back to touch the wall behind you' — that cues the hip hinge."
+    },
+    "leg_press": {
+      "primary": "Quads, Glutes",
+      "secondary": "Adductors, Calves",
+      "steps": [
+        "Sit with back flat against pad, feet shoulder-width on platform.",
+        "Lower sled by bending knees until ~90° or slightly deeper.",
+        "Keep knees tracking toes, don't let them cave.",
+        "Press through mid-foot, stop just short of lockout.",
+        "Control the descent, don't crash the weight stack."
+      ],
+      "mistakes": [
+        "Placing feet too high shifts work to glutes/hams, off quads.",
+        "Locking out knees at top removes tension and risks joint stress.",
+        "Lower back rounding off the pad under heavy load."
+      ],
+      "tip": "Foot placement matters: lower = more quads, higher = more glutes/hams."
+    },
+    "seated_leg_curl": {
+      "primary": "Hamstrings",
+      "secondary": "Calves (Gastrocnemius)",
+      "steps": [
+        "Sit, back against pad, ankles on roller, knee at machine pivot.",
+        "Curl heels toward glutes, driving through heels.",
+        "Squeeze hamstrings at full contraction.",
+        "Return slowly, resisting the weight on the way up.",
+        "Keep hips pinned to the seat throughout."
+      ],
+      "mistakes": [
+        "Hips lifting off the pad reduces hamstring isolation.",
+        "Dorsiflexing ankles (toes up) shifts work to calves.",
+        "Fast, uncontrolled negatives waste the eccentric."
+      ],
+      "tip": "Point toes slightly (plantarflex) to bias hamstrings over calves."
+    },
+    "standing_calf_raise": {
+      "primary": "Calves (Gastrocnemius, Soleus)",
+      "secondary": "None significant",
+      "steps": [
+        "Stand on platform edge, heels hanging off, balls of feet on.",
+        "Lower heels until you feel a deep stretch in calves.",
+        "Press up onto tiptoes as high as possible.",
+        "Hold the top contraction for 1-2 seconds.",
+        "Lower slowly, don't bounce out of the bottom."
+      ],
+      "mistakes": [
+        "Bouncing reps uses Achilles tendon elasticity, not muscle.",
+        "Not going high enough — full plantarflexion is key.",
+        "Knees bending turns it into a soleus-only movement."
+      ],
+      "tip": "Straight knees = gastrocnemius focus. Add seated calf raises for soleus."
+    },
+    "seated_cable_row": {
+      "primary": "Mid Back (Rhomboids, Mid Traps), Lats",
+      "secondary": "Rear Delts, Biceps, Forearms",
+      "steps": [
+        "Sit, feet on platform, knees slightly bent, grab handle.",
+        "Start with arms extended, shoulder blades protracted.",
+        "Pull handle to lower ribs, driving elbows back.",
+        "Retract shoulder blades hard at the end.",
+        "Return with control, allowing full stretch forward."
+      ],
+      "mistakes": [
+        "Leaning back excessively turns it into a hip hinge.",
+        "Shrugging shoulders up instead of pulling back.",
+        "Not getting full protraction at the start."
+      ],
+      "tip": "Pause 1 second at the peak contraction — mid-back responds well to time under tension."
+    },
+    "dumbbell_curl": {
+      "primary": "Biceps (Both Heads)",
+      "secondary": "Forearms",
+      "steps": [
+        "Stand or sit, dumbbells at sides, palms facing forward.",
+        "Curl both dumbbells up, keeping elbows at sides.",
+        "Supinate (rotate pinkies up) as you curl for peak contraction.",
+        "Squeeze at top, lower with control.",
+        "Full extension at bottom for stretch."
+      ],
+      "mistakes": [
+        "Swinging dumbbells with shoulders/hips.",
+        "Elbows drifting forward reduces tension.",
+        "Not supinating misses the biceps' rotational function."
+      ],
+      "tip": "Supinate hard at the top — the biceps both flexes the elbow AND supinates the forearm."
+    },
+    "leg_curl": {
+      "primary": "Hamstrings",
+      "secondary": "Calves",
+      "steps": [
+        "Lie face down, ankles under roller, knees just off pad.",
+        "Curl heels to glutes, hips pressed into pad.",
+        "Squeeze hamstrings at top.",
+        "Lower slowly, don't kick the weight down.",
+        "Keep toes pointed (plantarflexed) throughout."
+      ],
+      "mistakes": [
+        "Hips lifting off the pad = glutes taking over.",
+        "Dorsiflexed ankles (toes up) shifts to calves.",
+        "Fast eccentric wastes hamstring growth stimulus."
+      ],
+      "tip": "If your gym only has lying curl, it's fine — just keep hips glued down."
+    },
+    "calf_raise": {
+      "primary": "Calves (Gastrocnemius, Soleus)",
+      "secondary": "None significant",
+      "steps": [
+        "Stand on raised surface, heels hanging, hold for balance.",
+        "Lower heels deep for full stretch.",
+        "Press up onto tiptoes, hold peak contraction.",
+        "Lower slowly, 2-3 seconds down.",
+        "Keep knees straight (or slightly bent for soleus bias)."
+      ],
+      "mistakes": [
+        "Bouncing reps — the Achilles does the work, not the muscle.",
+        "Partial range — you need full stretch AND full contraction.",
+        "Bending knees too much on a standing raise shifts to soleus."
+      ],
+      "tip": "Do straight-leg for gastroc, bent-knee (seated) for soleus. Both matter for full calves."
+    }
+  },
+  "language": {
+    "switcherTitle": "Language",
+    "english": "English",
+    "hindi": "हिन्दी",
+    "spanish": "Español",
+    "current": "Current: {{lang}}"
+  }
+}

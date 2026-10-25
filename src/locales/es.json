@@ -1,0 +1,455 @@
+{
+  "common": {
+    "back": "< Atrás",
+    "save": "Guardar series",
+    "startWorkout": "Iniciar entrenamiento ({{count}})",
+    "tapToPick": "Toca para elegir tus ejercicios",
+    "target": "Objetivo: {{sets}} x {{reps}} @ {{weight}} kg",
+    "whatYouDid": "Lo que hiciste realmente",
+    "lastTime": "La última vez: {{weight}} kg x {{reps}} (objetivo {{target}})",
+    "enterReps": "Introduce las repeticiones de cada serie primero.",
+    "sets": "Series",
+    "reps": "Reps",
+    "kg": "Kg",
+    "day": " día",
+    "exercisesPicked": "{{count}} ejercicios elegidos",
+    "chooseSplit": "Elige tu división"
+  },
+  "splits": {
+    "pushPullLegs": "Empuje / Tracción / Piernas",
+    "upperLower": "Superior / Inferior",
+    "push": "Empuje",
+    "pull": "Tracción",
+    "legs": "Piernas",
+    "upper": "Superior",
+    "lower": "Inferior"
+  },
+  "tiers": {
+    "S": "S",
+    "A": "A",
+    "B": "B"
+  },
+  "exercises": {
+    "incline_db_press": {
+      "name": "Press Inclinado con Mancuernas",
+      "reason": "Gran estímulo para pecho superior"
+    },
+    "flat_bb_bench": {
+      "name": "Press de Banca Plano con Barra",
+      "reason": "Compuesto pesado para pecho y tríceps"
+    },
+    "cable_lateral_raise": {
+      "name": "Elevación Lateral en Polea",
+      "reason": "Tensión constante en deltoides laterales"
+    },
+    "overhead_triceps_ext": {
+      "name": "Extensión de Tríceps por Encima de la Cabeza",
+      "reason": "Estira la cabeza larga del tríceps"
+    },
+    "pushups": {
+      "name": "Flexiones",
+      "reason": "Cómodas pero difíciles de cargar"
+    },
+    "lat_pulldown": {
+      "name": "Jalón al Pecho (Lat Pulldown)",
+      "reason": "Fácil de cargar, fuerte estímulo en dorsales"
+    },
+    "chest_supported_row": {
+      "name": "Remo con Apoyo en Pecho",
+      "reason": "Trabaja la espalda con poca fatiga lumbar"
+    },
+    "incline_db_curl": {
+      "name": "Curl de Bíceps Inclinado con Mancuernas",
+      "reason": "Bíceps trabajado en posición estirada"
+    },
+    "face_pull": {
+      "name": "Face Pull",
+      "reason": "Deltoides posteriores y salud del hombro"
+    },
+    "barbell_curl": {
+      "name": "Curl con Barra",
+      "reason": "Sólido, pero menos estiramiento en bíceps"
+    },
+    "squat": {
+      "name": "Sentadilla",
+      "reason": "Gran constructor de cuádriceps y glúteos"
+    },
+    "romanian_deadlift": {
+      "name": "Peso Muerto Rumano",
+      "reason": "Fuerte estiramiento de isquiotibiales"
+    },
+    "leg_press": {
+      "name": "Prensa de Piernas",
+      "reason": "Trabajo pesado de cuádriceps con baja demanda técnica"
+    },
+    "seated_leg_curl": {
+      "name": "Curl de Pierna Sentado",
+      "reason": "Aislamiento directo de isquiotibiales"
+    },
+    "standing_calf_raise": {
+      "name": "Elevación de Talones de Pie",
+      "reason": "Trabajo básico de pantorrillas"
+    },
+    "seated_cable_row": {
+      "name": "Remo en Polea Sentado",
+      "reason": "Grosor de la zona media de la espalda"
+    },
+    "dumbbell_curl": {
+      "name": "Curl con Mancuernas",
+      "reason": "Trabajo básico de bíceps"
+    },
+    "leg_curl": {
+      "name": "Curl de Pierna",
+      "reason": "Aislamiento de isquiotibiales"
+    },
+    "calf_raise": {
+      "name": "Elevación de Talones",
+      "reason": "Trabajo básico de pantorrillas"
+    }
+  },
+  "suggest": {
+    "hitMaxReps": "Lograste {{maxReps}} reps en todas las series. Sube peso: {{weight}} kg, vuelve a 8 reps.",
+    "targetHit": "Objetivo alcanzado en todas las series. Quédate en {{weight}} kg y apunta a {{reps}} reps la próxima vez.",
+    "stayAtWeight": "Hiciste {{actual}}. Quédate en {{weight}} kg y apunta a {{targetReps}} reps en cada serie."
+  },
+  "guide": {
+    "title": "Guía de {{name}}",
+    "targetMuscles": "Músculos Objetivo",
+    "primary": "Primarios",
+    "secondary": "Secundarios",
+    "steps": "Cómo Ejecutarlo",
+    "mistakes": "Errores Comunes",
+    "tip": "Consejo para Principiantes",
+    "back": "Volver al Entrenamiento",
+    "incline_db_press": {
+      "primary": "Pecho Superior (Pectoral Mayor Clavicular)",
+      "secondary": "Deltoides Anteriores, Tríceps",
+      "steps": [
+        "Ajusta el banco a 30-45 grados de inclinación.",
+        "Siéntate con las mancuernas en los muslos, recuéstate y presiónalas a ancho de hombros.",
+        "Baja las mancuernas con control hasta que los codos estén a unos 90 grados.",
+        "Presiona arriba, apretando el pecho superior en la parte superior.",
+        "Mantén las escápulas retraídas y los pies plantados todo el tiempo."
+      ],
+      "mistakes": [
+        "Poner el banco muy inclinado (más de 45°) traslada el trabajo a deltoides anteriores.",
+        "Abrir los codos a 90° tensiona la articulación del hombro.",
+        "Botar las mancuernas en el pecho reduce la tensión muscular."
+      ],
+      "tip": "Empieza con menos peso que en press de banca plano; la inclinación reduce la ventaja mecánica."
+    },
+    "flat_bb_bench": {
+      "primary": "Pecho (Pectoral Mayor), Tríceps",
+      "secondary": "Deltoides Anteriores",
+      "steps": [
+        "Túmbate en banca plana con los ojos bajo la barra.",
+        "Agárrala un poco más ancho que los hombros, muñecas rectas.",
+        "Desencaja, baja al pecho medio con codos a ~45-75° del torso.",
+        "Presiona arriba en un ligero arco sobre los hombros.",
+        "Mantén escápulas juntas y pies empujando el suelo."
+      ],
+      "mistakes": [
+        "Codos abiertos a 90° aumenta riesgo de pinzamiento de hombro.",
+        "Botar la barra en el pecho reduce activación del pectoral.",
+        "Perder tensión en la espalda alta desestabiliza el press."
+      ],
+      "tip": "Empuja con las piernas para crear tensión corporal completa y proteger los hombros."
+    },
+    "cable_lateral_raise": {
+      "primary": "Deltoides Laterales",
+      "secondary": "Deltoides Anteriores, Trapecios (mínimo)",
+      "steps": [
+        "Pon la polea en la posición más baja, ponte de lado a la pila.",
+        "Agarra la manija con la mano exterior, brazo cruzado frente al cuerpo.",
+        "Sube el brazo lateralmente hasta que el codo alcance la altura del hombro.",
+        "Pausa brevemente, luego baja con control.",
+        "Mantén una ligera flexión en el codo todo el tiempo."
+      ],
+      "mistakes": [
+        "Inclinarse lejos de la polea reduce tensión en deltoides lateral.",
+        "Subir por encima de la altura del hombro pasa trabajo a trapecios.",
+        "Usar impulso en lugar de movimiento controlado."
+      ],
+      "tip": "Las poleas dan tensión constante — no dejes que la pila toque entre repeticiones."
+    },
+    "overhead_triceps_ext": {
+      "primary": "Tríceps (Cabeza Larga)",
+      "secondary": "Ninguno significativo",
+      "steps": [
+        "Siéntate o ponte de pie, sostén una mancuerna por encima de la cabeza con ambas manos.",
+        "Mantén codos apuntando adelante, brazos pegados a las orejas.",
+        "Baja la mancuerna detrás de la cabeza flexionando codos.",
+        "Estira hasta sentir un estiramiento profundo en el tríceps.",
+        "Extiende los brazos arriba, aprieta el tríceps arriba."
+      ],
+      "mistakes": [
+        "Abrir codos hacia afuera reduce estiramiento de cabeza larga.",
+        "Arquear la zona lumbar compensa movilidad limitada de hombro.",
+        "Usar demasiado peso limita el rango de movimiento."
+      ],
+      "tip": "Si la movilidad de hombro es limitada, hazlo a un brazo con mancuerna más ligera."
+    },
+    "pushups": {
+      "primary": "Pecho, Tríceps, Deltoides Anteriores",
+      "secondary": "Core, Serrato Anterior",
+      "steps": [
+        "Empieza en plancha, manos ligeramente más anchas que hombros.",
+        "Baja el cuerpo hasta que el pecho casi toque el suelo.",
+        "Mantén codos a ~45° del torso, core apretado.",
+        "Empuja arriba hasta extensión completa de brazos.",
+        "Mantén línea recta de cabeza a talones todo el tiempo."
+      ],
+      "mistakes": [
+        "Caderas caídas o pike rompen tensión del core.",
+        "Codos muy abiertos estresan los hombros.",
+        "Rango de movimiento incompleto (no bajar lo suficiente)."
+      ],
+      "tip": "Eleva las manos en un banco si las flexiones completas son muy difíciles; progresa al suelo con el tiempo."
+    },
+    "lat_pulldown": {
+      "primary": "Dorsales (Dorsal Ancho)",
+      "secondary": "Bíceps, Deltoides Posteriores, Trapecios Inferiores",
+      "steps": [
+        "Siéntate en la máquina, muslos bajo almohadillas, agarra la barra ancho.",
+        "Inclínate ligeramente atrás (~15°), pecho arriba, escápulas abajo.",
+        "Jala la barra al pecho superior, llevando codos abajo y atrás.",
+        "Aprieta dorsales abajo, pausa breve.",
+        "Sube con control, permitiendo estiramiento completo arriba."
+      ],
+      "mistakes": [
+        "Jalar detrás del cuello tensiona la articulación del hombro.",
+        "Inclinarse demasiado atrás lo convierte en un remo.",
+        "Usar impulso / balancear el torso."
+      ],
+      "tip": "Piensa 'lleva codos a los bolsillos' en vez de 'jala la barra abajo' para activar mejor los dorsales."
+    },
+    "chest_supported_row": {
+      "primary": "Zona Media Espalda (Romboides, Trapecio Medio), Dorsales",
+      "secondary": "Deltoides Posteriores, Bíceps",
+      "steps": [
+        "Ajusta altura del apoyo de pecho para que descanse cómodo.",
+        "Agarra manijas, brazos extendidos, escápulas protraídas.",
+        "Rema llevando codos atrás, retrae escápulas.",
+        "Jala hasta que manos estén cerca de caderas, aprieta zona media.",
+        "Baja con control, permitiendo protracción completa abajo."
+      ],
+      "mistakes": [
+        "Tirar solo con brazos, no retraer escápulas.",
+        "Pecho separándose del apoyo reduce estabilidad.",
+        "Encoger trapecios arriba en vez de deprimirlos."
+      ],
+      "tip": "El apoyo en pecho quita fatiga lumbar — enfócate puro en contracción de zona media."
+    },
+    "incline_db_curl": {
+      "primary": "Bíceps (Cabeza Larga)",
+      "secondary": "Antebrazos",
+      "steps": [
+        "Pon banco a 45-60° inclinación, siéntate atrás con mancuernas.",
+        "Deja brazos colgar rectos, palmas hacia adelante.",
+        "Curva mancuernas arriba, manteniendo codos fijos detrás del torso.",
+        "Aprieta bíceps arriba, baja con control.",
+        "Consigue estiramiento completo abajo cada repetición."
+      ],
+      "mistakes": [
+        "Llevar codos adelante pierde estiramiento en cabeza larga.",
+        "Balancear pesos usa impulso, no bíceps.",
+        "No bajar del todo pierde el beneficio de posición estirada."
+      ],
+      "tip": "La inclinación estira la cabeza larga — ahí está la hipertrofia. No hagas trampa en el estiramiento."
+    },
+    "face_pull": {
+      "primary": "Deltoides Posteriores, Trapecios Inferiores/Medios",
+      "secondary": "Manguito Rotador (Rotadores Externos)",
+      "steps": [
+        "Pon polea a altura de cara, accesorio de cuerda.",
+        "Retrocede, brazos extendidos, ligera zancada escalonada.",
+        "Jala cuerda hacia la cara, separando manos, codos altos.",
+        "Rota manos atrás para que pulgares apunten atrás.",
+        "Aprieta deltoides posteriores y mantén, vuelve lento."
+      ],
+      "mistakes": [
+        "Jalar a cuello/mentón en vez de altura de cara.",
+        "Bajar codos lo convierte en remo.",
+        "Usar mucho peso, perdiendo rotación externa."
+      ],
+      "tip": "Peso ligero, muchas reps (15-20), forma perfecta — es para salud del hombro, no para ego."
+    },
+    "barbell_curl": {
+      "primary": "Bíceps (Ambas Cabezas)",
+      "secondary": "Antebrazos, Deltoides Anteriores (mínimo)",
+      "steps": [
+        "Ponte erguido, barra en muslos, agarre ancho de hombros.",
+        "Mantén codos pegados a los lados, curva barra a hombros.",
+        "Aprieta bíceps fuerte arriba.",
+        "Baja con control, no dejes que la gravedad la tire.",
+        "Mantén muñecas neutras, no dobladas atrás."
+      ],
+      "mistakes": [
+        "Balancear torso/caderas para mover el peso.",
+        "Codos yendo adelante reduce tensión en bíceps.",
+        "Curvar solo a media bajada pierde el estiramiento."
+      ],
+      "tip": "Forma estricta > peso pesado. Tus bíceps son pequeños — no necesitan impulso."
+    },
+    "squat": {
+      "primary": "Cuádriceps, Glúteos",
+      "secondary": "Aductores, Core, Zona Lumbar",
+      "steps": [
+        "Pon barra en trapecios altos (high-bar) o deltoides posteriores (low-bar).",
+        "Pies ancho de hombros, puntas 15-30° fuera, core braced.",
+        "Desciende sentándote atrás y abajo, rodillas siguiendo puntas.",
+        "Llega al menos a paralelo (pliegue cadera bajo rodilla).",
+        "Sube empujando medio pie, pecho arriba, rodillas fuera."
+      ],
+      "mistakes": [
+        "Rodillas hacia adentro (valgo) estresa la rodilla.",
+        "Talones subiendo pasa carga a rodillas y reduce empuje glúteo.",
+        "Redondear zona lumbar bajo carga rischia lesión."
+      ],
+      "tip": "Aprende a hacer bracing: gran respiración al vientre, empuja abs fuera como si recibieras un puñetazo."
+    },
+    "romanian_deadlift": {
+      "primary": "Isquiotibiales, Glúteos",
+      "secondary": "Zona Lumbar, Aductores, Antebrazos",
+      "steps": [
+        "Agarra barra a ancho de caderas, pies ancho caderas, ligera flexión rodilla.",
+        "Haz hinge en caderas, empuja glúteos atrás, barra desliza por muslos.",
+        "Mantén espalda plana, pecho arriba, ve hasta sentir estiramiento isquios.",
+        "Para cuando torso ~paralelo o estiramiento es máximo.",
+        "Empuja caderas adelante para subir, aprieta glúteos arriba."
+      ],
+      "mistakes": [
+        "Flexionar mucho rodillas lo convierte en peso muerto convencional.",
+        "Redondear espalda en vez de hacer hinge en caderas.",
+        "No bajar suficiente — el estiramiento es el estímulo."
+      ],
+      "tip": "Piensa 'empuja glúteos atrás para tocar la pared detrás' — eso cue el hinge de cadera."
+    },
+    "leg_press": {
+      "primary": "Cuádriceps, Glúteos",
+      "secondary": "Aductores, Pantorrillas",
+      "steps": [
+        "Siéntate con espalda pegada al respaldo, pies ancho hombros en plataforma.",
+        "Baja trineo flexionando rodillas hasta ~90° o ligeramente más.",
+        "Mantén rodillas siguiendo puntas, no dejes que caigan adentro.",
+        "Presiona con medio pie, para justo antes del bloqueo.",
+        "Controla la bajada, no golpees la pila de pesos."
+      ],
+      "mistakes": [
+        "Pies muy arriba pasa trabajo a glúteos/isquios, quita cuádriceps.",
+        "Bloquear rodillas arriba quita tensión y rischia estrés articular.",
+        "Zona lumbar redondeándose del respaldo bajo carga pesada."
+      ],
+      "tip": "La colocación de pies importa: bajos = más cuádriceps, altos = más glúteos/isquios."
+    },
+    "seated_leg_curl": {
+      "primary": "Isquiotibiales",
+      "secondary": "Pantorrillas (Gastrocnemio)",
+      "steps": [
+        "Siéntate, espalda contra respaldo, tobillos en rodillo, rodilla en pivote máquina.",
+        "Curva talones a glúteos, empujando con talones.",
+        "Aprieta isquios en contracción completa.",
+        "Vuelve lento, resistiendo el peso en la subida.",
+        "Mantén caderas pegadas al asiento todo el tiempo."
+      ],
+      "mistakes": [
+        "Caderas levantándose del respaldo reduce aislamiento isquios.",
+        "Dorsiflexionar tobillos (puntas arriba) pasa trabajo a pantorrillas.",
+        "Negativas rápidas e incontroladas desperdician el excéntrico."
+      ],
+      "tip": "Punta pies ligeramente (plantarflexión) para bias isquios sobre pantorrillas."
+    },
+    "standing_calf_raise": {
+      "primary": "Pantorrillas (Gastrocnemio, Sóleo)",
+      "secondary": "Ninguno significativo",
+      "steps": [
+        "Ponte en borde de plataforma, talones colgando, metatarsos apoyados.",
+        "Baja talones hasta sentir estiramiento profundo en pantorrillas.",
+        "Presiona arriba sobre puntas lo más alto posible.",
+        "Mantén contracción superior 1-2 segundos.",
+        "Baja lento, no rebotes desde abajo."
+      ],
+      "mistakes": [
+        "Rebotear repeticiones usa elasticidad del tendón de Aquiles, no músculo.",
+        "No subir suficiente — la plantarflexión completa es clave.",
+        "Flexionar rodillas lo convierte en movimiento solo de sóleo."
+      ],
+      "tip": "Rodillas rectas = foco en gastrocnemio. Añade elevaciones sentadas para sóleo."
+    },
+    "seated_cable_row": {
+      "primary": "Zona Media Espalda (Romboides, Trapecio Medio), Dorsales",
+      "secondary": "Deltoides Posteriores, Bíceps, Antebrazos",
+      "steps": [
+        "Siéntate, pies en plataforma, rodillas ligeramente flexionadas, agarra manija.",
+        "Empieza con brazos extendidos, escápulas protraídas.",
+        "Jala manija a costillas bajas, llevando codos atrás.",
+        "Retrae escápulas fuerte al final.",
+        "Vuelve con control, permitiendo estiramiento completo adelante."
+      ],
+      "mistakes": [
+        "Inclinarse demasiado atrás lo convierte en hinge de cadera.",
+        "Encoger hombros arriba en vez de jalar atrás.",
+        "No conseguir protracción completa al inicio."
+      ],
+      "tip": "Pausa 1 segundo en contracción pico — zona media responde bien a tiempo bajo tensión."
+    },
+    "dumbbell_curl": {
+      "primary": "Bíceps (Ambas Cabezas)",
+      "secondary": "Antebrazos",
+      "steps": [
+        "De pie o sentado, mancuernas a los lados, palmas hacia adelante.",
+        "Curva ambas mancuernas arriba, manteniendo codos en los lados.",
+        "Supina (rota meñiques arriba) al curvar para contracción pico.",
+        "Aprieta arriba, baja con control.",
+        "Extensión completa abajo para estiramiento."
+      ],
+      "mistakes": [
+        "Balancear mancuernas con hombros/caderas.",
+        "Codos yendo adelante reduce tensión.",
+        "No supinar pierde la función rotacional del bíceps."
+      ],
+      "tip": "Supina fuerte arriba — el bíceps flexiona el codo Y supina el antebrazo."
+    },
+    "leg_curl": {
+      "primary": "Isquiotibiales",
+      "secondary": "Pantorrillas",
+      "steps": [
+        "Túmbate boca abajo, tobillos bajo rodillo, rodillas justo fuera del apoyo.",
+        "Curva talones a glúteos, caderas presionadas en apoyo.",
+        "Aprieta isquios arriba.",
+        "Baja lento, no patinees el peso abajo.",
+        "Mantén puntas apuntadas (plantarflexionadas) todo el tiempo."
+      ],
+      "mistakes": [
+        "Caderas levantándose del apoyo = glúteos toman el relevo.",
+        "Tobillos dorsiflexionados (puntas arriba) pasa a pantorrillas.",
+        "Excéntrico rápido desperdicia estímulo de crecimiento isquios."
+      ],
+      "tip": "Si tu gimnasio solo tiene curl tumbado, vale — solo mantén caderas pegadas."
+    },
+    "calf_raise": {
+      "primary": "Pantorrillas (Gastrocnemio, Sóleo)",
+      "secondary": "Ninguno significativo",
+      "steps": [
+        "Ponte en superficie elevada, talones colgando, agárrate para balance.",
+        "Baja talones profundo para estiramiento completo.",
+        "Presiona arriba sobre puntas, mantén contracción pico.",
+        "Baja lento, 2-3 segundos abajo.",
+        "Mantén rodillas rectas (o ligeramente flexionadas para bias sóleo)."
+      ],
+      "mistakes": [
+        "Rebotear repeticiones — el Aquiles hace el trabajo, no el músculo.",
+        "Rango parcial — necesitas estiramiento Y contracción completos.",
+        "Flexionar mucho rodillas en elevación de pie pasa a sóleo."
+      ],
+      "tip": "Pierna recta para gastroc, rodilla flexionada (sentado) para sóleo. Ambos importan para pantorrillas completas."
+    }
+  },
+  "language": {
+    "switcherTitle": "Idioma",
+    "english": "English",
+    "hindi": "हिन्दी",
+    "spanish": "Español",
+    "current": "Actual: {{lang}}"
+  }
+}
