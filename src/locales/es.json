@@ -122,6 +122,192 @@
     "calf_raise": {
       "name": "Elevación de Talones",
       "reason": "Trabajo básico de pantorrillas"
+    },
+    "flat_db_press": {
+      "name": "Press Plano con Mancuernas"
+    },
+    "incline_bb_press": {
+      "name": "Press Inclinado con Barra"
+    },
+    "cable_fly": {
+      "name": "Aperturas en Polea"
+    },
+    "pec_deck": {
+      "name": "Pec Deck (Máquina de Aperturas)"
+    },
+    "dips": {
+      "name": "Fondos en Paralelas"
+    },
+    "pullups": {
+      "name": "Dominadas"
+    },
+    "barbell_row": {
+      "name": "Remo con Barra"
+    },
+    "one_arm_db_row": {
+      "name": "Remo a Una Mano con Mancuerna"
+    },
+    "straight_arm_pulldown": {
+      "name": "Jalón con Brazos Rectos"
+    },
+    "t_bar_row": {
+      "name": "Remo en Barra T"
+    },
+    "overhead_press": {
+      "name": "Press Militar"
+    },
+    "seated_db_press": {
+      "name": "Press de Hombros Sentado con Mancuernas"
+    },
+    "db_lateral_raise": {
+      "name": "Elevación Lateral con Mancuernas"
+    },
+    "machine_lateral_raise": {
+      "name": "Elevación Lateral en Máquina"
+    },
+    "front_raise": {
+      "name": "Elevación Frontal"
+    },
+    "arnold_press": {
+      "name": "Press Arnold"
+    },
+    "upright_row": {
+      "name": "Remo al Mentón"
+    },
+    "hammer_curl": {
+      "name": "Curl Martillo"
+    },
+    "preacher_curl": {
+      "name": "Curl Predicador"
+    },
+    "cable_curl": {
+      "name": "Curl en Polea"
+    },
+    "concentration_curl": {
+      "name": "Curl Concentrado"
+    },
+    "ez_bar_curl": {
+      "name": "Curl con Barra EZ"
+    },
+    "triceps_pushdown": {
+      "name": "Extensión de Tríceps en Polea"
+    },
+    "skull_crusher": {
+      "name": "Rompecráneos"
+    },
+    "close_grip_bench": {
+      "name": "Press de Banca con Agarre Cerrado"
+    },
+    "bench_dips": {
+      "name": "Fondos en Banco"
+    },
+    "db_kickback": {
+      "name": "Patada de Tríceps con Mancuerna"
+    },
+    "machine_triceps_dip": {
+      "name": "Fondos en Máquina de Tríceps"
+    },
+    "cable_overhead_triceps_ext": {
+      "name": "Extensión de Tríceps en Polea sobre la Cabeza"
+    },
+    "front_squat": {
+      "name": "Sentadilla Frontal"
+    },
+    "hack_squat": {
+      "name": "Sentadilla Hack"
+    },
+    "leg_extension": {
+      "name": "Extensión de Cuádriceps"
+    },
+    "bulgarian_split_squat": {
+      "name": "Sentadilla Búlgara"
+    },
+    "walking_lunge": {
+      "name": "Zancadas Caminando"
+    },
+    "goblet_squat": {
+      "name": "Sentadilla Goblet"
+    },
+    "stiff_leg_deadlift": {
+      "name": "Peso Muerto Piernas Rígidas"
+    },
+    "lying_leg_curl": {
+      "name": "Curl de Pierna Tumbado"
+    },
+    "good_morning": {
+      "name": "Buenos Días"
+    },
+    "nordic_curl": {
+      "name": "Curl Nórdico"
+    },
+    "cable_pull_through": {
+      "name": "Jalón entre Piernas en Polea (Pull-Through)"
+    },
+    "hip_thrust": {
+      "name": "Empuje de Cadera con Barra (Hip Thrust)"
+    },
+    "glute_bridge": {
+      "name": "Puente de Glúteos"
+    },
+    "cable_kickback": {
+      "name": "Patada de Glúteo en Polea"
+    },
+    "hip_abduction": {
+      "name": "Máquina de Abducción de Cadera"
+    },
+    "sumo_deadlift": {
+      "name": "Peso Muerto Sumo"
+    },
+    "db_step_up": {
+      "name": "Subida al Cajón con Mancuernas"
+    },
+    "glute_ham_raise": {
+      "name": "Glute-Ham Raise"
+    },
+    "reverse_hyperextension": {
+      "name": "Hiperextensión Inversa"
+    },
+    "seated_calf_raise": {
+      "name": "Elevación de Talones Sentado"
+    },
+    "leg_press_calf_raise": {
+      "name": "Elevación de Talones en Prensa"
+    },
+    "smith_calf_raise": {
+      "name": "Elevación de Talones en Máquina Smith"
+    },
+    "db_calf_raise": {
+      "name": "Elevación de Talones con Mancuerna"
+    },
+    "single_leg_calf_raise": {
+      "name": "Elevación de Talones a Una Pierna"
+    },
+    "donkey_calf_raise": {
+      "name": "Elevación de Talones Donkey"
+    },
+    "hanging_leg_raise": {
+      "name": "Elevación de Piernas Colgado"
+    },
+    "cable_crunch": {
+      "name": "Crunch en Polea"
+    },
+    "ab_wheel_rollout": {
+      "name": "Rueda Abdominal"
+    },
+    "plank": {
+      "name": "Plancha"
+    },
+    "decline_situp": {
+      "name": "Abdominales en Banco Declinado"
+    },
+    "machine_crunch": {
+      "name": "Crunch en Máquina"
+    },
+    "russian_twist": {
+      "name": "Giro Ruso"
+    },
+    "dead_bug": {
+      "name": "Dead Bug (Bicho Muerto)"
     }
   },
   "suggest": {
@@ -460,7 +646,8 @@
         "Flexionar mucho rodillas en elevación de pie pasa a sóleo."
       ],
       "tip": "Pierna recta para gastroc, rodilla flexionada (sentado) para sóleo. Ambos importan para pantorrillas completas."
-    }
+    },
+    "comingSoon": "Guía próximamente"
   },
   "language": {
     "switcherTitle": "Idioma",
@@ -684,6 +871,21 @@
     "quads": "Cuádriceps",
     "hamstrings": "Isquiotibiales",
     "glutes": "Glúteos",
-    "calves": "Pantorrillas"
+    "calves": "Pantorrillas",
+    "abs": "Abdominales"
+  },
+  "equipment": {
+    "barbell": "Barra",
+    "dumbbell": "Mancuernas",
+    "cable": "Polea",
+    "machine": "Máquina",
+    "bodyweight": "Peso corporal"
+  },
+  "exerciseFilters": {
+    "searchPlaceholder": "Buscar ejercicios",
+    "muscleGroup": "Grupo muscular",
+    "equipment": "Equipo",
+    "all": "Todos",
+    "noResults": "Ningún ejercicio coincide con estos filtros."
   }
 }

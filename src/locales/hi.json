@@ -122,6 +122,192 @@
     "calf_raise": {
       "name": "काफ रेज़",
       "reason": "बेसिक काफ वर्क"
+    },
+    "flat_db_press": {
+      "name": "फ्लैट डंबेल प्रेस"
+    },
+    "incline_bb_press": {
+      "name": "इंक्लाइन बारबेल बेंच प्रेस"
+    },
+    "cable_fly": {
+      "name": "केबल फ्लाई"
+    },
+    "pec_deck": {
+      "name": "पेक डेक"
+    },
+    "dips": {
+      "name": "डिप्स"
+    },
+    "pullups": {
+      "name": "पुल-अप्स"
+    },
+    "barbell_row": {
+      "name": "बारबेल रो"
+    },
+    "one_arm_db_row": {
+      "name": "वन-आर्म डंबेल रो"
+    },
+    "straight_arm_pulldown": {
+      "name": "स्ट्रेट-आर्म पुलडाउन"
+    },
+    "t_bar_row": {
+      "name": "टी-बार रो"
+    },
+    "overhead_press": {
+      "name": "ओवरहेड प्रेस"
+    },
+    "seated_db_press": {
+      "name": "सीटेड डंबेल शोल्डर प्रेस"
+    },
+    "db_lateral_raise": {
+      "name": "डंबेल लेटरल रेज़"
+    },
+    "machine_lateral_raise": {
+      "name": "मशीन लेटरल रेज़"
+    },
+    "front_raise": {
+      "name": "फ्रंट रेज़"
+    },
+    "arnold_press": {
+      "name": "आर्नोल्ड प्रेस"
+    },
+    "upright_row": {
+      "name": "अपराइट रो"
+    },
+    "hammer_curl": {
+      "name": "हैमर कर्ल"
+    },
+    "preacher_curl": {
+      "name": "प्रीचर कर्ल"
+    },
+    "cable_curl": {
+      "name": "केबल कर्ल"
+    },
+    "concentration_curl": {
+      "name": "कॉन्संट्रेशन कर्ल"
+    },
+    "ez_bar_curl": {
+      "name": "ईज़ी-बार कर्ल"
+    },
+    "triceps_pushdown": {
+      "name": "ट्राइसेप्स पुशडाउन"
+    },
+    "skull_crusher": {
+      "name": "स्कल क्रशर"
+    },
+    "close_grip_bench": {
+      "name": "क्लोज़-ग्रिप बेंच प्रेस"
+    },
+    "bench_dips": {
+      "name": "बेंच डिप्स"
+    },
+    "db_kickback": {
+      "name": "डंबेल किकबैक"
+    },
+    "machine_triceps_dip": {
+      "name": "मशीन ट्राइसेप्स डिप"
+    },
+    "cable_overhead_triceps_ext": {
+      "name": "केबल ओवरहेड ट्राइसेप्स एक्सटेंशन"
+    },
+    "front_squat": {
+      "name": "फ्रंट स्क्वाट"
+    },
+    "hack_squat": {
+      "name": "हैक स्क्वाट"
+    },
+    "leg_extension": {
+      "name": "लेग एक्सटेंशन"
+    },
+    "bulgarian_split_squat": {
+      "name": "बल्गेरियन स्प्लिट स्क्वाट"
+    },
+    "walking_lunge": {
+      "name": "वॉकिंग लंज"
+    },
+    "goblet_squat": {
+      "name": "गोब्लेट स्क्वाट"
+    },
+    "stiff_leg_deadlift": {
+      "name": "स्टिफ-लेग डेडलिफ्ट"
+    },
+    "lying_leg_curl": {
+      "name": "लाइंग लेग कर्ल"
+    },
+    "good_morning": {
+      "name": "गुड मॉर्निंग"
+    },
+    "nordic_curl": {
+      "name": "नॉर्डिक कर्ल"
+    },
+    "cable_pull_through": {
+      "name": "केबल पुल-थ्रू"
+    },
+    "hip_thrust": {
+      "name": "बारबेल हिप थ्रस्ट"
+    },
+    "glute_bridge": {
+      "name": "ग्लूट ब्रिज"
+    },
+    "cable_kickback": {
+      "name": "केबल ग्लूट किकबैक"
+    },
+    "hip_abduction": {
+      "name": "हिप एब्डक्शन मशीन"
+    },
+    "sumo_deadlift": {
+      "name": "सुमो डेडलिफ्ट"
+    },
+    "db_step_up": {
+      "name": "डंबेल स्टेप-अप"
+    },
+    "glute_ham_raise": {
+      "name": "ग्लूट-हैम रेज़"
+    },
+    "reverse_hyperextension": {
+      "name": "रिवर्स हाइपरएक्सटेंशन"
+    },
+    "seated_calf_raise": {
+      "name": "सीटेड काफ रेज़"
+    },
+    "leg_press_calf_raise": {
+      "name": "लेग प्रेस काफ रेज़"
+    },
+    "smith_calf_raise": {
+      "name": "स्मिथ मशीन काफ रेज़"
+    },
+    "db_calf_raise": {
+      "name": "डंबेल काफ रेज़"
+    },
+    "single_leg_calf_raise": {
+      "name": "सिंगल-लेग काफ रेज़"
+    },
+    "donkey_calf_raise": {
+      "name": "डोंकी काफ रेज़"
+    },
+    "hanging_leg_raise": {
+      "name": "हैंगिंग लेग रेज़"
+    },
+    "cable_crunch": {
+      "name": "केबल क्रंच"
+    },
+    "ab_wheel_rollout": {
+      "name": "एब व्हील रोलआउट"
+    },
+    "plank": {
+      "name": "प्लैंक"
+    },
+    "decline_situp": {
+      "name": "डिक्लाइन सिट-अप"
+    },
+    "machine_crunch": {
+      "name": "मशीन क्रंच"
+    },
+    "russian_twist": {
+      "name": "रशियन ट्विस्ट"
+    },
+    "dead_bug": {
+      "name": "डेड बग"
     }
   },
   "suggest": {
@@ -460,7 +646,8 @@
         "स्टैंडिंग रेज़ पर घुटने बहुत मोड़ना सोलियस पर शिफ्ट करता है।"
       ],
       "tip": "गैस्ट्रोकेनमियस के लिए स्ट्रेट-लेग, सोलियस के लिए बेंट-नी (सीटेड)। दोनों फुल काफ्स के लिए जरूरी हैं।"
-    }
+    },
+    "comingSoon": "गाइड जल्द आ रही है"
   },
   "language": {
     "switcherTitle": "भाषा",
@@ -684,6 +871,21 @@
     "quads": "क्वाड्रिसेप्स",
     "hamstrings": "हैमस्ट्रिंग",
     "glutes": "ग्लूट्स",
-    "calves": "पिंडलियाँ"
+    "calves": "पिंडलियाँ",
+    "abs": "एब्स"
+  },
+  "equipment": {
+    "barbell": "बारबेल",
+    "dumbbell": "डंबेल",
+    "cable": "केबल",
+    "machine": "मशीन",
+    "bodyweight": "बॉडीवेट"
+  },
+  "exerciseFilters": {
+    "searchPlaceholder": "व्यायाम खोजें",
+    "muscleGroup": "मसल ग्रुप",
+    "equipment": "उपकरण",
+    "all": "सभी",
+    "noResults": "इन फ़िल्टर से कोई व्यायाम नहीं मिला।"
   }
 }

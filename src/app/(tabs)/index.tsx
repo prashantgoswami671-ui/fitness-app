@@ -4,7 +4,7 @@ import { Alert, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View 
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { router } from 'expo-router';
-import { EXERCISES, type Exercise } from '@/data/exercises';
+import { EXERCISES, type Equipment, type Exercise, type MuscleGroup } from '@/data/exercises';
 import { SPLITS, SPLIT_CATEGORIES, type Split, type SplitCategory, type SplitDay } from '@/data/splits';
 import { CUSTOM_SPLITS_STORAGE_KEY, type CustomSplit } from '@/data/custom-splits';
 import { CustomRoutineBuilder } from '@/components/custom-routine-builder';
@@ -21,6 +21,11 @@ const TIER_COLOR = { S: '#E8B400', A: '#4C9AFF', B: '#8A8F98' };
 const DEFAULT_TARGET: Target = { sets: 3, reps: 8, weight: 20 };
 const REP_MAX = 12;
 const WEIGHT_STEP = 2.5;
+const MUSCLE_GROUP_ORDER: MuscleGroup[] = [
+  'chest', 'back', 'shoulders', 'rearDelts', 'biceps', 'triceps',
+  'quads', 'hamstrings', 'glutes', 'calves', 'abs',
+];
+const EQUIPMENT_ORDER: Equipment[] = ['barbell', 'dumbbell', 'cable', 'machine', 'bodyweight'];
 
 function suggest(t: Target, actual: number[], tFunc: (key: string, options?: any) => string): { next: Target; message: string } {
   if (actual.every((r) => r >= REP_MAX)) {
@@ -199,6 +204,9 @@ export default function Home() {
   const [split, setSplit] = useState<string | null>(null);
   const [day, setDay] = useState<string | null>(null);
   const [splitSearch, setSplitSearch] = useState('');
+  const [exerciseSearch, setExerciseSearch] = useState('');
+  const [muscleFilter, setMuscleFilter] = useState<MuscleGroup | 'all'>('all');
+  const [equipmentFilter, setEquipmentFilter] = useState<Equipment | 'all'>('all');
   const [category, setCategory] = useState<SplitCategory | 'all' | 'my_routines'>('all');
   const [logging, setLogging] = useState(false);
   const [picked, setPicked] = useState<Record<string, string[]>>({});
@@ -293,6 +301,13 @@ export default function Home() {
     ]);
   };
 
+  const openDay = (dayId: string) => {
+    setExerciseSearch('');
+    setMuscleFilter('all');
+    setEquipmentFilter('all');
+    setDay(dayId);
+  };
+
   const back = () => {
     if (logging) setLogging(false);
     else if (day) setDay(null);
@@ -312,6 +327,22 @@ export default function Home() {
         currentCustomDay.muscleGroups.includes(exercise.primaryMuscleGroup) || currentCustomDay.exerciseIds.includes(exercise.id),
       )
       : [];
+  const normalizedExerciseSearch = exerciseSearch.trim().toLocaleLowerCase();
+  const availableMuscleGroups = MUSCLE_GROUP_ORDER.filter((group) =>
+    currentDayExercises.some((exercise) => exercise.primaryMuscleGroup === group),
+  );
+  const availableEquipment = EQUIPMENT_ORDER.filter((equipment) =>
+    currentDayExercises.some((exercise) => exercise.equipment === equipment),
+  );
+  const filteredDayExercises = currentDayExercises.filter((exercise) => {
+    if (muscleFilter !== 'all' && exercise.primaryMuscleGroup !== muscleFilter) return false;
+    if (equipmentFilter !== 'all' && exercise.equipment !== equipmentFilter) return false;
+    if (normalizedExerciseSearch === '') return true;
+    return (
+      exercise.name.toLocaleLowerCase().includes(normalizedExerciseSearch) ||
+      t(`exercises.${exercise.id}.name`).toLocaleLowerCase().includes(normalizedExerciseSearch)
+    );
+  });
   const normalizedSearch = splitSearch.trim().toLocaleLowerCase();
   const myRoutines = category === 'my_routines';
   const matchingSplits = SPLITS.filter((item) =>
@@ -410,7 +441,7 @@ export default function Home() {
               const pickedCount = (picked[`${split}|${splitDay.id}`] ?? []).length;
               const dayName = 'nameKey' in splitDay ? t(splitDay.nameKey) : splitDay.name;
               return (
-                <TouchableOpacity key={splitDay.id} style={s.card} onPress={() => setDay(splitDay.id)}>
+                <TouchableOpacity key={splitDay.id} style={s.card} onPress={() => openDay(splitDay.id)}>
                   <View>
                     <Text style={s.cardText}>{dayName}</Text>
                     <Text style={s.sub}>{t('common.exercisesPicked', { count: pickedCount })}</Text>
@@ -425,13 +456,47 @@ export default function Home() {
           <>
             <Text style={s.title}>{currentCustomDay ? currentCustomDay.name : t(currentDay!.nameKey)}</Text>
             <Text style={s.sub}>{t('common.tapToPick')}</Text>
+            <TextInput
+              style={s.searchInput}
+              value={exerciseSearch}
+              onChangeText={setExerciseSearch}
+              placeholder={t('exerciseFilters.searchPlaceholder')}
+              accessibilityLabel={t('exerciseFilters.searchPlaceholder')}
+            />
+            <Text style={s.filterLabel}>{t('exerciseFilters.muscleGroup')}</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={s.categoryRow}>
+              {(['all', ...availableMuscleGroups] as Array<MuscleGroup | 'all'>).map((item) => (
+                <TouchableOpacity
+                  key={item}
+                  style={[s.categoryChip, muscleFilter === item && s.categoryChipActive]}
+                  onPress={() => setMuscleFilter(item)}>
+                  <Text style={[s.categoryChipText, muscleFilter === item && s.categoryChipTextActive]}>
+                    {item === 'all' ? t('exerciseFilters.all') : t(`muscleGroups.${item}`)}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+            <Text style={s.filterLabel}>{t('exerciseFilters.equipment')}</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={s.categoryRow}>
+              {(['all', ...availableEquipment] as Array<Equipment | 'all'>).map((item) => (
+                <TouchableOpacity
+                  key={item}
+                  style={[s.categoryChip, equipmentFilter === item && s.categoryChipActive]}
+                  onPress={() => setEquipmentFilter(item)}>
+                  <Text style={[s.categoryChipText, equipmentFilter === item && s.categoryChipTextActive]}>
+                    {item === 'all' ? t('exerciseFilters.all') : t(`equipment.${item}`)}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+            {filteredDayExercises.length === 0 && <Text style={s.sub}>{t('exerciseFilters.noResults')}</Text>}
             {(['S', 'A', 'B'] as const).map((tier) =>
-              currentDayExercises
+              filteredDayExercises
                 .filter((e) => e.tier === tier)
                 .map((exercise) => {
                   const on = pickedNow.includes(exercise.id);
                   const exerciseName = t(`exercises.${exercise.id}.name`);
-                  const exerciseReason = t(`exercises.${exercise.id}.reason`);
+                  const exerciseReason = t(`exercises.${exercise.id}.reason`, { defaultValue: '' });
                   return (
                     <TouchableOpacity
                       key={exercise.id}
@@ -443,7 +508,7 @@ export default function Home() {
                       </View>
                       <View style={{ flex: 1 }}>
                         <Text style={s.cardText}>{exerciseName}</Text>
-                        <Text style={s.sub}>{exerciseReason}</Text>
+                        {exerciseReason !== '' && <Text style={s.sub}>{exerciseReason}</Text>}
                       </View>
                       <Text style={s.check}>{on ? '✓' : ''}</Text>
                     </TouchableOpacity>
@@ -500,6 +565,7 @@ const s = StyleSheet.create({
   splitMeta: { fontSize: 12, fontWeight: '600', color: '#4C9AFF', marginTop: 2 },
   searchInput: { height: 46, borderRadius: 12, backgroundColor: '#F2F3F5', paddingHorizontal: 14, fontSize: 16 },
   categoryRow: { flexDirection: 'row', gap: 8, paddingVertical: 2 },
+  filterLabel: { fontSize: 13, fontWeight: '600', color: '#444', marginTop: 4 },
   categoryChip: { paddingHorizontal: 14, paddingVertical: 9, borderRadius: 18, backgroundColor: '#F2F3F5' },
   categoryChipActive: { backgroundColor: '#2B7A0B' },
   categoryChipText: { color: '#444', fontWeight: '600', fontSize: 13 },

@@ -17,7 +17,7 @@ export type CustomSplit = {
 
 export const MUSCLE_GROUPS: MuscleGroup[] = [
   'chest', 'back', 'shoulders', 'rearDelts', 'triceps', 'biceps',
-  'quads', 'hamstrings', 'glutes', 'calves',
+  'quads', 'hamstrings', 'glutes', 'calves', 'abs',
 ];
 
 export function createStableId(prefix: string): string {

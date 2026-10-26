@@ -122,6 +122,192 @@
     "calf_raise": {
       "name": "Calf Raise",
       "reason": "Basic calf work"
+    },
+    "flat_db_press": {
+      "name": "Flat Dumbbell Press"
+    },
+    "incline_bb_press": {
+      "name": "Incline Barbell Bench Press"
+    },
+    "cable_fly": {
+      "name": "Cable Fly"
+    },
+    "pec_deck": {
+      "name": "Pec Deck"
+    },
+    "dips": {
+      "name": "Dips"
+    },
+    "pullups": {
+      "name": "Pull-ups"
+    },
+    "barbell_row": {
+      "name": "Barbell Row"
+    },
+    "one_arm_db_row": {
+      "name": "One-Arm Dumbbell Row"
+    },
+    "straight_arm_pulldown": {
+      "name": "Straight-Arm Pulldown"
+    },
+    "t_bar_row": {
+      "name": "T-Bar Row"
+    },
+    "overhead_press": {
+      "name": "Overhead Press"
+    },
+    "seated_db_press": {
+      "name": "Seated Dumbbell Shoulder Press"
+    },
+    "db_lateral_raise": {
+      "name": "Dumbbell Lateral Raise"
+    },
+    "machine_lateral_raise": {
+      "name": "Machine Lateral Raise"
+    },
+    "front_raise": {
+      "name": "Front Raise"
+    },
+    "arnold_press": {
+      "name": "Arnold Press"
+    },
+    "upright_row": {
+      "name": "Upright Row"
+    },
+    "hammer_curl": {
+      "name": "Hammer Curl"
+    },
+    "preacher_curl": {
+      "name": "Preacher Curl"
+    },
+    "cable_curl": {
+      "name": "Cable Curl"
+    },
+    "concentration_curl": {
+      "name": "Concentration Curl"
+    },
+    "ez_bar_curl": {
+      "name": "EZ-Bar Curl"
+    },
+    "triceps_pushdown": {
+      "name": "Triceps Pushdown"
+    },
+    "skull_crusher": {
+      "name": "Skull Crusher"
+    },
+    "close_grip_bench": {
+      "name": "Close-Grip Bench Press"
+    },
+    "bench_dips": {
+      "name": "Bench Dips"
+    },
+    "db_kickback": {
+      "name": "Dumbbell Kickback"
+    },
+    "machine_triceps_dip": {
+      "name": "Machine Triceps Dip"
+    },
+    "cable_overhead_triceps_ext": {
+      "name": "Cable Overhead Triceps Extension"
+    },
+    "front_squat": {
+      "name": "Front Squat"
+    },
+    "hack_squat": {
+      "name": "Hack Squat"
+    },
+    "leg_extension": {
+      "name": "Leg Extension"
+    },
+    "bulgarian_split_squat": {
+      "name": "Bulgarian Split Squat"
+    },
+    "walking_lunge": {
+      "name": "Walking Lunge"
+    },
+    "goblet_squat": {
+      "name": "Goblet Squat"
+    },
+    "stiff_leg_deadlift": {
+      "name": "Stiff-Leg Deadlift"
+    },
+    "lying_leg_curl": {
+      "name": "Lying Leg Curl"
+    },
+    "good_morning": {
+      "name": "Good Morning"
+    },
+    "nordic_curl": {
+      "name": "Nordic Curl"
+    },
+    "cable_pull_through": {
+      "name": "Cable Pull-Through"
+    },
+    "hip_thrust": {
+      "name": "Barbell Hip Thrust"
+    },
+    "glute_bridge": {
+      "name": "Glute Bridge"
+    },
+    "cable_kickback": {
+      "name": "Cable Glute Kickback"
+    },
+    "hip_abduction": {
+      "name": "Hip Abduction Machine"
+    },
+    "sumo_deadlift": {
+      "name": "Sumo Deadlift"
+    },
+    "db_step_up": {
+      "name": "Dumbbell Step-Up"
+    },
+    "glute_ham_raise": {
+      "name": "Glute-Ham Raise"
+    },
+    "reverse_hyperextension": {
+      "name": "Reverse Hyperextension"
+    },
+    "seated_calf_raise": {
+      "name": "Seated Calf Raise"
+    },
+    "leg_press_calf_raise": {
+      "name": "Leg Press Calf Raise"
+    },
+    "smith_calf_raise": {
+      "name": "Smith Machine Calf Raise"
+    },
+    "db_calf_raise": {
+      "name": "Dumbbell Calf Raise"
+    },
+    "single_leg_calf_raise": {
+      "name": "Single-Leg Calf Raise"
+    },
+    "donkey_calf_raise": {
+      "name": "Donkey Calf Raise"
+    },
+    "hanging_leg_raise": {
+      "name": "Hanging Leg Raise"
+    },
+    "cable_crunch": {
+      "name": "Cable Crunch"
+    },
+    "ab_wheel_rollout": {
+      "name": "Ab Wheel Rollout"
+    },
+    "plank": {
+      "name": "Plank"
+    },
+    "decline_situp": {
+      "name": "Decline Sit-Up"
+    },
+    "machine_crunch": {
+      "name": "Machine Crunch"
+    },
+    "russian_twist": {
+      "name": "Russian Twist"
+    },
+    "dead_bug": {
+      "name": "Dead Bug"
     }
   },
   "suggest": {
@@ -460,7 +646,8 @@
         "Bending knees too much on a standing raise shifts to soleus."
       ],
       "tip": "Do straight-leg for gastroc, bent-knee (seated) for soleus. Both matter for full calves."
-    }
+    },
+    "comingSoon": "Guide coming soon"
   },
   "language": {
     "switcherTitle": "Language",
@@ -684,6 +871,21 @@
     "quads": "Quads",
     "hamstrings": "Hamstrings",
     "glutes": "Glutes",
-    "calves": "Calves"
+    "calves": "Calves",
+    "abs": "Abs"
+  },
+  "equipment": {
+    "barbell": "Barbell",
+    "dumbbell": "Dumbbell",
+    "cable": "Cable",
+    "machine": "Machine",
+    "bodyweight": "Bodyweight"
+  },
+  "exerciseFilters": {
+    "searchPlaceholder": "Search exercises",
+    "muscleGroup": "Muscle group",
+    "equipment": "Equipment",
+    "all": "All",
+    "noResults": "No exercises match these filters."
   }
 }

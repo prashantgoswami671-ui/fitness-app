@@ -39,6 +39,7 @@ export default function GuideScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const [guide, setGuide] = useState<GuideData | null>(null);
   const [exerciseName, setExerciseName] = useState('');
+  const guideKey = id ? GUIDE_KEYS[id] : undefined;
 
   useEffect(() => {
     if (!id) return;
@@ -70,7 +71,25 @@ export default function GuideScreen() {
     setGuide(guideData);
   }, [id, t]);
 
-  if (!guide || !id) {
+  if (!id) {
+    return <SafeAreaView style={s.screen} />;
+  }
+
+  if (!guideKey) {
+    return (
+      <SafeAreaView style={s.screen}>
+        <ScrollView contentContainerStyle={s.body} keyboardShouldPersistTaps="handled">
+          <TouchableOpacity onPress={() => router.back()} style={s.backBtn}>
+            <Text style={s.backText}>{t('guide.back')}</Text>
+          </TouchableOpacity>
+          <Text style={s.title}>{t('guide.title', { name: t(`exercises.${id}.name`) })}</Text>
+          <Text style={s.comingSoon}>{t('guide.comingSoon')}</Text>
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
+
+  if (!guide) {
     return <SafeAreaView style={s.screen} />;
   }
 
@@ -132,6 +151,7 @@ const s = StyleSheet.create({
   backBtn: { marginBottom: 8 },
   backText: { fontSize: 16, color: '#4C9AFF' },
   title: { fontSize: 28, fontWeight: '700', marginBottom: 8 },
+  comingSoon: { fontSize: 16, color: '#666', lineHeight: 24 },
   section: { gap: 8 },
   sectionTitle: { fontSize: 18, fontWeight: '700', marginBottom: 4, color: '#333' },
   muscleRow: { flexDirection: 'row', gap: 16 },
