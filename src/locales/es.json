@@ -81,7 +81,8 @@
     },
     "incline_db_curl": {
       "name": "Curl de Bíceps Inclinado con Mancuernas",
-      "reason": "Bíceps trabajado en posición estirada"
+      "reason": "Bíceps trabajado en posición estirada",
+      "variationNote": "El banco inclinado estira los bíceps en la parte baja."
     },
     "face_pull": {
       "name": "Face Pull",
@@ -118,7 +119,8 @@
     },
     "dumbbell_curl": {
       "name": "Curl con Mancuernas",
-      "reason": "Trabajo básico de bíceps"
+      "reason": "Trabajo básico de bíceps",
+      "variationNote": "Una mancuerna en cada mano con recorrido libre."
     },
     "leg_curl": {
       "name": "Curl de Pierna",
@@ -188,13 +190,16 @@
       "name": "Remo al Mentón"
     },
     "hammer_curl": {
-      "name": "Curl Martillo"
+      "name": "Curl Martillo",
+      "variationNote": "Agarre neutro con las palmas mirándose."
     },
     "preacher_curl": {
-      "name": "Curl Predicador"
+      "name": "Curl Predicador",
+      "variationNote": "Los brazos descansan en una almohadilla, lo que limita el movimiento del hombro."
     },
     "cable_curl": {
-      "name": "Curl en Polea"
+      "name": "Curl en Polea",
+      "variationNote": "La polea mantiene tensión durante todo el curl."
     },
     "concentration_curl": {
       "name": "Curl Concentrado"
@@ -223,7 +228,8 @@
       "variationNote": "Fondos guiados por máquina con recorrido fijo y énfasis en tríceps."
     },
     "cable_overhead_triceps_ext": {
-      "name": "Extensión de Tríceps en Polea sobre la Cabeza"
+      "name": "Extensión de Tríceps en Polea sobre la Cabeza",
+      "variationNote": "La polea mantiene tensión durante la extensión sobre la cabeza."
     },
     "front_squat": {
       "name": "Sentadilla Frontal"
@@ -313,10 +319,12 @@
       "name": "Plancha"
     },
     "decline_situp": {
-      "name": "Abdominales en Banco Declinado"
+      "name": "Abdominales en Banco Declinado",
+      "variationNote": "El banco declinado aumenta el recorrido y la carga."
     },
     "machine_crunch": {
-      "name": "Crunch en Máquina"
+      "name": "Crunch en Máquina",
+      "variationNote": "La máquina guía el movimiento con un recorrido fijo."
     },
     "russian_twist": {
       "name": "Giro Ruso"
@@ -407,6 +415,129 @@
     "lean_away_cable_lateral_raise": {
       "name": "Elevación Lateral Inclinada en Polea",
       "variationNote": "Inclinarse lejos de la polea amplía el recorrido inferior."
+    },
+    "resistance_band_curl": {
+      "name": "Curl con Banda Elástica",
+      "variationNote": "Una banda elástica aporta resistencia durante todo el curl."
+    },
+    "resistance_band_overhead_ext": {
+      "name": "Extensión de Tríceps Sobre la Cabeza con Banda Elástica",
+      "variationNote": "Una banda elástica aporta resistencia en lugar de una pila de pesas o una mancuerna."
+    },
+    "single_arm_db_overhead_ext": {
+      "name": "Extensión Sobre la Cabeza a Una Mano con Mancuerna",
+      "variationNote": "Un brazo a la vez con una sola mancuerna."
+    },
+    "ez_bar_overhead_ext": {
+      "name": "Extensión de Tríceps Sobre la Cabeza con Barra EZ",
+      "variationNote": "La barra EZ permite un agarre ligeramente inclinado en la extensión sobre la cabeza."
+    },
+    "rope_pushdown": {
+      "name": "Extensión de Tríceps en Polea con Cuerda",
+      "variationNote": "El agarre de cuerda permite separar las manos al final."
+    },
+    "single_arm_cable_pushdown": {
+      "name": "Extensión de Tríceps a Una Mano en Polea",
+      "variationNote": "Un brazo a la vez con un solo agarre de polea."
+    },
+    "reverse_grip_pushdown": {
+      "name": "Extensión de Tríceps en Polea con Agarre Inverso",
+      "variationNote": "Las palmas miran hacia arriba en lugar de hacia abajo."
+    },
+    "resistance_band_pushdown": {
+      "name": "Extensión de Tríceps con Banda Elástica",
+      "variationNote": "Una banda elástica aporta resistencia en lugar de una polea."
+    },
+    "ez_bar_skull_crusher": {
+      "name": "Skull Crusher con Barra EZ",
+      "variationNote": "La barra EZ permite un agarre ligeramente inclinado en la extensión."
+    },
+    "db_skull_crusher": {
+      "name": "Skull Crusher con Mancuernas",
+      "variationNote": "Una mancuerna en cada mano en lugar de una barra."
+    },
+    "cable_skull_crusher": {
+      "name": "Skull Crusher en Polea",
+      "variationNote": "La polea mantiene tensión durante la extensión en lugar de una barra libre."
+    },
+    "smith_close_grip_press": {
+      "name": "Press Cerrado en Máquina Smith",
+      "variationNote": "Recorrido fijo de la barra en una máquina Smith."
+    },
+    "close_grip_db_press": {
+      "name": "Press Cerrado con Mancuernas",
+      "variationNote": "Las mancuernas permiten que cada brazo se mueva de forma independiente."
+    },
+    "close_grip_floor_press": {
+      "name": "Press Cerrado desde el Suelo",
+      "variationNote": "Se empuja desde el suelo, lo que limita el recorrido en la parte baja."
+    },
+    "crunch": {
+      "name": "Crunch"
+    },
+    "bicycle_crunch": {
+      "name": "Crunch Bicicleta",
+      "variationNote": "El movimiento alterno de rodilla a codo añade una rotación."
+    },
+    "resistance_band_crunch": {
+      "name": "Crunch con Banda Elástica",
+      "variationNote": "Una banda elástica añade carga al crunch."
+    },
+    "lying_leg_raise": {
+      "name": "Elevación de Piernas Tumbado",
+      "variationNote": "Tumbado boca arriba con piernas rectas; el suelo sostiene el cuerpo."
+    },
+    "hanging_knee_raise": {
+      "name": "Elevación de Rodillas Colgado",
+      "variationNote": "Colgado de una barra, subiendo las rodillas en lugar de las piernas rectas."
+    },
+    "captain_chair_leg_raise": {
+      "name": "Elevación de Piernas en Silla del Capitán",
+      "variationNote": "Antebrazos apoyados en almohadillas mientras las piernas suben."
+    },
+    "toes_to_bar": {
+      "name": "Toes-to-Bar (Pies a la Barra)",
+      "variationNote": "Elevación de piernas rectas colgado que lleva los pies a la barra."
+    },
+    "side_plank": {
+      "name": "Plancha Lateral",
+      "variationNote": "Posición de lado apoyado en un antebrazo."
+    },
+    "long_lever_plank": {
+      "name": "Plancha de Palanca Larga",
+      "variationNote": "Codos colocados más adelante que los hombros."
+    },
+    "weighted_plank": {
+      "name": "Plancha con Lastre",
+      "variationNote": "El peso añadido en la espalda aumenta la carga."
+    },
+    "plank_shoulder_tap": {
+      "name": "Plancha con Toque de Hombros",
+      "variationNote": "Levantar las manos de forma alterna reduce la base de apoyo."
+    },
+    "half_ab_wheel": {
+      "name": "Rodamiento Abdominal Parcial con Rueda",
+      "variationNote": "Se detiene antes de la extensión completa para un recorrido más corto."
+    },
+    "standing_ab_wheel": {
+      "name": "Rodamiento Abdominal de Pie con Rueda",
+      "variationNote": "Empieza de pie, con una palanca más larga."
+    },
+    "band_assisted_ab_wheel": {
+      "name": "Rodamiento Abdominal con Rueda Asistido por Banda",
+      "variationNote": "Una banda elástica asiste el rodamiento."
+    },
+    "standing_cable_crunch": {
+      "name": "Crunch de Pie en Polea",
+      "variationNote": "Se realiza de pie con una flexión de cadera en lugar de arrodillado."
+    },
+    "cable_oblique_crunch": {
+      "name": "Crunch Oblicuo en Polea",
+      "variationNote": "El torso rota hacia un lado para cargar los oblicuos."
+    },
+    "single_arm_cable_crunch": {
+      "name": "Crunch a Una Mano en Polea",
+      "variationNote": "Un agarre a la vez con una ligera rotación."
     }
   },
   "suggest": {
@@ -994,6 +1125,7 @@
   },
   "exercisePicker": {
     "variations_one": "{{count}} variante",
-    "variations_other": "{{count}} variantes"
+    "variations_other": "{{count}} variantes",
+    "comparedWith": "Comparado con {{name}}: {{note}}"
   }
 }

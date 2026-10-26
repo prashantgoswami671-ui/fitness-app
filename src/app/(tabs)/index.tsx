@@ -27,6 +27,7 @@ const LEVEL_COLOR: Record<ExerciseLevel, string> = {
   standard: '#4C9AFF',
   harder: '#C77700',
 };
+const LEVEL_ORDER: Record<ExerciseLevel, number> = { easier: 0, standard: 1, harder: 2 };
 const DEFAULT_TARGET: Target = { sets: 3, reps: 8, weight: 20 };
 const REP_MAX = 12;
 const WEIGHT_STEP = 2.5;
@@ -88,6 +89,14 @@ function LevelTag({ level }: { level: ExerciseLevel }) {
   );
 }
 
+function familyBaseOf(exercise: Exercise): Exercise | undefined {
+  return EXERCISES.find((item) => item.isBase && item.family === exercise.family);
+}
+
+function familyMembersOf(family: string): Exercise[] {
+  return EXERCISES.filter((item) => item.family === family);
+}
+
 function ExerciseRow({
   exercise,
   selected,
@@ -99,9 +108,15 @@ function ExerciseRow({
 }) {
   const { t } = useTranslation();
   const reason = t(`exercises.${exercise.id}.reason`, { defaultValue: '' });
-  const noteKey = exercise.variationNote;
-  const note = noteKey ? t(noteKey) : '';
-  const showLevel = !exercise.isBase || exercise.level !== 'standard';
+  const base = exercise.isBase ? undefined : familyBaseOf(exercise);
+  const baseName = base ? t(`exercises.${base.id}.name`) : '';
+  const note = exercise.variationNote ? t(exercise.variationNote) : '';
+  const noteText = note === ''
+    ? ''
+    : baseName === ''
+      ? note
+      : t('exercisePicker.comparedWith', { name: baseName, note });
+  const showLevel = familyMembersOf(exercise.family).length > 1;
 
   return (
     <TouchableOpacity style={[s.card, selected && s.cardOn]} onPress={onPress}>
@@ -113,7 +128,8 @@ function ExerciseRow({
           <Text style={s.cardText}>{t(`exercises.${exercise.id}.name`)}</Text>
           {showLevel && <LevelTag level={exercise.level} />}
         </View>
-        {note !== '' ? <Text style={s.sub}>{note}</Text> : reason !== '' ? <Text style={s.sub}>{reason}</Text> : null}
+        {baseName !== '' && <Text style={s.baseName}>{baseName}</Text>}
+        {noteText !== '' ? <Text style={s.sub}>{noteText}</Text> : reason !== '' ? <Text style={s.sub}>{reason}</Text> : null}
       </View>
       <Text style={s.check}>{selected ? '✓' : ''}</Text>
     </TouchableOpacity>
@@ -136,8 +152,15 @@ function FamilyCard({
   onToggleExercise: (exerciseId: string) => void;
 }) {
   const { t } = useTranslation();
+  const baseName = t(`exercises.${base.id}.name`);
   const baseReason = t(`exercises.${base.id}.reason`, { defaultValue: '' });
   const baseSelected = selectedIds.includes(base.id);
+  const ladder = [base, ...variations]
+    .map((exercise, index) => ({ exercise, index }))
+    .sort((a, b) =>
+      (LEVEL_ORDER[a.exercise.level] - LEVEL_ORDER[b.exercise.level]) || (a.index - b.index),
+    )
+    .map((item) => item.exercise);
 
   return (
     <View style={[s.familyBlock, baseSelected && s.cardOn]}>
@@ -146,7 +169,7 @@ function FamilyCard({
           <Text style={s.badgeText}>{base.tier}</Text>
         </View>
         <View style={{ flex: 1, gap: 4 }}>
-          <Text style={s.cardText}>{t(`exercises.${base.id}.name`)}</Text>
+          <Text style={s.cardText}>{baseName}</Text>
           {baseReason !== '' && <Text style={s.sub}>{baseReason}</Text>}
         </View>
         <Text style={s.check}>{baseSelected ? '✓' : ''}</Text>
@@ -160,10 +183,11 @@ function FamilyCard({
           {expanded ? '▾' : '▸'} {t('exercisePicker.variations', { count: variations.length })}
         </Text>
       </TouchableOpacity>
-      {expanded && variations.map((exercise) => {
+      {expanded && ladder.map((exercise) => {
         const selected = selectedIds.includes(exercise.id);
-        const noteKey = exercise.variationNote;
-        const note = noteKey ? t(noteKey) : '';
+        const isBaseRow = exercise.id === base.id;
+        const note = !isBaseRow && exercise.variationNote ? t(exercise.variationNote) : '';
+        const noteText = note === '' ? '' : t('exercisePicker.comparedWith', { name: baseName, note });
         return (
           <TouchableOpacity
             key={exercise.id}
@@ -174,7 +198,7 @@ function FamilyCard({
                 <Text style={s.variationName}>{t(`exercises.${exercise.id}.name`)}</Text>
                 <LevelTag level={exercise.level} />
               </View>
-              {note !== '' && <Text style={s.sub}>{note}</Text>}
+              {noteText !== '' && <Text style={s.sub}>{noteText}</Text>}
             </View>
             <Text style={s.check}>{selected ? '✓' : ''}</Text>
           </TouchableOpacity>
@@ -459,18 +483,25 @@ export default function Home() {
       t(`exercises.${exercise.id}.name`).toLocaleLowerCase().includes(normalizedExerciseSearch)
     );
   });
-  const filtersActive = normalizedExerciseSearch !== '' || muscleFilter !== 'all' || equipmentFilter !== 'all';
+  const flatResults = normalizedExerciseSearch !== '' || equipmentFilter !== 'all';
   const familyGroups = new Map<string, { base: Exercise; variations: Exercise[]; tier: 'S' | 'A' | 'B' }>();
-  if (!filtersActive) {
+  if (!flatResults) {
+    const membersByFamily = new Map<string, Exercise[]>();
     for (const exercise of filteredDayExercises) {
-      if (!exercise.isBase) continue;
-      const variations = filteredDayExercises.filter((item) => item.family === exercise.family && item.id !== exercise.id);
+      const members = membersByFamily.get(exercise.family) ?? [];
+      members.push(exercise);
+      membersByFamily.set(exercise.family, members);
+    }
+    for (const [family, members] of membersByFamily) {
+      const base = members.find((item) => item.isBase) ?? familyBaseOf(members[0]);
+      if (!base) continue;
+      const variations = familyMembersOf(family).filter((item) => item.id !== base.id);
       if (variations.length === 0) continue;
       const tier = variations.reduce<'S' | 'A' | 'B'>(
         (best, item) => TIER_RANK[item.tier] < TIER_RANK[best] ? item.tier : best,
-        exercise.tier,
+        base.tier,
       );
-      familyGroups.set(exercise.family, { base: exercise, variations, tier });
+      familyGroups.set(family, { base, variations, tier });
     }
   }
   const pickerEntries: Record<'S' | 'A' | 'B', PickerEntry[]> = { S: [], A: [], B: [] };
@@ -669,7 +700,7 @@ export default function Home() {
           <>
             <Text style={s.title}>{currentCustomDay ? currentCustomDay.name : t(currentDay!.nameKey)} {t('common.workout')}</Text>
             {pickedNow.map((exerciseId) => {
-              const exercise = currentDayExercises.find((e) => e.id === exerciseId);
+              const exercise = EXERCISES.find((e) => e.id === exerciseId);
               if (!exercise) return null;
               return (
                 <ExerciseCard
@@ -710,6 +741,7 @@ const s = StyleSheet.create({
   variationContent: { flex: 1, gap: 5 },
   variationTitleRow: { flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' },
   variationName: { fontSize: 15, fontWeight: '600', color: '#222' },
+  baseName: { fontSize: 12, fontWeight: '600', color: '#8A8F98' },
   levelTag: { paddingHorizontal: 8, paddingVertical: 3, borderRadius: 8 },
   levelTagText: { fontSize: 11, fontWeight: '700', color: '#fff' },
   cardText: { fontSize: 17, fontWeight: '600' },

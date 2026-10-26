@@ -81,7 +81,8 @@
     },
     "incline_db_curl": {
       "name": "Incline Dumbbell Curl",
-      "reason": "Biceps worked in a stretched position"
+      "reason": "Biceps worked in a stretched position",
+      "variationNote": "Incline bench stretches the biceps at the bottom."
     },
     "face_pull": {
       "name": "Face Pull",
@@ -118,7 +119,8 @@
     },
     "dumbbell_curl": {
       "name": "Dumbbell Curl",
-      "reason": "Basic biceps work"
+      "reason": "Basic biceps work",
+      "variationNote": "One dumbbell in each hand with a free arm path."
     },
     "leg_curl": {
       "name": "Leg Curl",
@@ -188,13 +190,16 @@
       "name": "Upright Row"
     },
     "hammer_curl": {
-      "name": "Hammer Curl"
+      "name": "Hammer Curl",
+      "variationNote": "Neutral grip with the palms facing each other."
     },
     "preacher_curl": {
-      "name": "Preacher Curl"
+      "name": "Preacher Curl",
+      "variationNote": "Upper arms rest on a pad, which limits shoulder movement."
     },
     "cable_curl": {
-      "name": "Cable Curl"
+      "name": "Cable Curl",
+      "variationNote": "Cable keeps tension through the whole curl."
     },
     "concentration_curl": {
       "name": "Concentration Curl"
@@ -223,7 +228,8 @@
       "variationNote": "Machine-guided dip with a fixed path and a triceps emphasis."
     },
     "cable_overhead_triceps_ext": {
-      "name": "Cable Overhead Triceps Extension"
+      "name": "Cable Overhead Triceps Extension",
+      "variationNote": "Cable keeps tension through the overhead extension."
     },
     "front_squat": {
       "name": "Front Squat"
@@ -313,10 +319,12 @@
       "name": "Plank"
     },
     "decline_situp": {
-      "name": "Decline Sit-Up"
+      "name": "Decline Sit-Up",
+      "variationNote": "Decline bench increases the range and the load."
     },
     "machine_crunch": {
-      "name": "Machine Crunch"
+      "name": "Machine Crunch",
+      "variationNote": "Machine guides the movement with a fixed path."
     },
     "russian_twist": {
       "name": "Russian Twist"
@@ -407,6 +415,129 @@
     "lean_away_cable_lateral_raise": {
       "name": "Lean-Away Cable Lateral Raise",
       "variationNote": "Leaning away from the cable increases the bottom range."
+    },
+    "resistance_band_curl": {
+      "name": "Resistance Band Curl",
+      "variationNote": "A resistance band provides resistance through the whole curl."
+    },
+    "resistance_band_overhead_ext": {
+      "name": "Resistance Band Overhead Triceps Extension",
+      "variationNote": "A resistance band provides resistance instead of a weight stack or dumbbell."
+    },
+    "single_arm_db_overhead_ext": {
+      "name": "Single-Arm Dumbbell Overhead Extension",
+      "variationNote": "One arm at a time with a single dumbbell."
+    },
+    "ez_bar_overhead_ext": {
+      "name": "EZ-Bar Overhead Triceps Extension",
+      "variationNote": "EZ-bar allows a slightly angled grip during the overhead extension."
+    },
+    "rope_pushdown": {
+      "name": "Rope Triceps Pushdown",
+      "variationNote": "Rope attachment lets the hands spread apart at the bottom."
+    },
+    "single_arm_cable_pushdown": {
+      "name": "Single-Arm Cable Pushdown",
+      "variationNote": "One arm at a time with a single cable handle."
+    },
+    "reverse_grip_pushdown": {
+      "name": "Reverse-Grip Triceps Pushdown",
+      "variationNote": "Palms face up instead of down during the pushdown."
+    },
+    "resistance_band_pushdown": {
+      "name": "Resistance Band Triceps Pushdown",
+      "variationNote": "A resistance band provides resistance instead of a cable stack."
+    },
+    "ez_bar_skull_crusher": {
+      "name": "EZ-Bar Skull Crusher",
+      "variationNote": "EZ-bar allows a slightly angled grip during the extension."
+    },
+    "db_skull_crusher": {
+      "name": "Dumbbell Skull Crusher",
+      "variationNote": "One dumbbell in each hand instead of a bar."
+    },
+    "cable_skull_crusher": {
+      "name": "Cable Skull Crusher",
+      "variationNote": "Cable keeps tension through the extension instead of a free bar."
+    },
+    "smith_close_grip_press": {
+      "name": "Smith Machine Close-Grip Press",
+      "variationNote": "Fixed bar path on a Smith machine."
+    },
+    "close_grip_db_press": {
+      "name": "Close-Grip Dumbbell Press",
+      "variationNote": "Dumbbells allow each arm to move independently."
+    },
+    "close_grip_floor_press": {
+      "name": "Close-Grip Floor Press",
+      "variationNote": "Pressed from the floor, which limits the range at the bottom."
+    },
+    "crunch": {
+      "name": "Crunch"
+    },
+    "bicycle_crunch": {
+      "name": "Bicycle Crunch",
+      "variationNote": "Alternating knee-to-elbow movement adds a twisting motion."
+    },
+    "resistance_band_crunch": {
+      "name": "Resistance Band Crunch",
+      "variationNote": "A resistance band adds load to the crunch."
+    },
+    "lying_leg_raise": {
+      "name": "Lying Leg Raise",
+      "variationNote": "Lying on the back with straight legs; the floor supports the body."
+    },
+    "hanging_knee_raise": {
+      "name": "Hanging Knee Raise",
+      "variationNote": "Hanging from a bar and raising the knees instead of straight legs."
+    },
+    "captain_chair_leg_raise": {
+      "name": "Captain's Chair Leg Raise",
+      "variationNote": "Forearms supported on pads while the legs raise."
+    },
+    "toes_to_bar": {
+      "name": "Toes-to-Bar",
+      "variationNote": "Hanging straight-leg raise that brings the feet to the bar."
+    },
+    "side_plank": {
+      "name": "Side Plank",
+      "variationNote": "Side position supported on one forearm."
+    },
+    "long_lever_plank": {
+      "name": "Long-Lever Plank",
+      "variationNote": "Elbows placed further forward than the shoulders."
+    },
+    "weighted_plank": {
+      "name": "Weighted Plank",
+      "variationNote": "Added weight on the back increases the load."
+    },
+    "plank_shoulder_tap": {
+      "name": "Plank Shoulder Tap",
+      "variationNote": "Alternating hand lifts reduce the base of support."
+    },
+    "half_ab_wheel": {
+      "name": "Half Ab Wheel Rollout",
+      "variationNote": "Stops short of full extension for a shorter range."
+    },
+    "standing_ab_wheel": {
+      "name": "Standing Ab Wheel Rollout",
+      "variationNote": "Starts from a standing position with a longer lever."
+    },
+    "band_assisted_ab_wheel": {
+      "name": "Resistance Band-Assisted Ab Wheel Rollout",
+      "variationNote": "A resistance band assists the rollout."
+    },
+    "standing_cable_crunch": {
+      "name": "Standing Cable Crunch",
+      "variationNote": "Performed standing with a hip hinge instead of kneeling."
+    },
+    "cable_oblique_crunch": {
+      "name": "Cable Oblique Crunch",
+      "variationNote": "Torso rotates to one side to load the obliques."
+    },
+    "single_arm_cable_crunch": {
+      "name": "Single-Arm Cable Crunch",
+      "variationNote": "One handle at a time with a slight twist."
     }
   },
   "suggest": {
@@ -994,6 +1125,7 @@
   },
   "exercisePicker": {
     "variations_one": "{{count}} variation",
-    "variations_other": "{{count}} variations"
+    "variations_other": "{{count}} variations",
+    "comparedWith": "Compared with {{name}}: {{note}}"
   }
 }
