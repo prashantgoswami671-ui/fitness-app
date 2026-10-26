@@ -98,7 +98,8 @@
     },
     "romanian_deadlift": {
       "name": "Peso Muerto Rumano",
-      "reason": "Fuerte estiramiento de isquiotibiales"
+      "reason": "Fuerte estiramiento de isquiotibiales",
+      "variationNote": "Flexión de cadera con las rodillas algo flexionadas y la barra cerca del cuerpo."
     },
     "leg_press": {
       "name": "Prensa de Piernas",
@@ -106,7 +107,8 @@
     },
     "seated_leg_curl": {
       "name": "Curl de Pierna Sentado",
-      "reason": "Aislamiento directo de isquiotibiales"
+      "reason": "Aislamiento directo de isquiotibiales",
+      "variationNote": "Posición sentada con las caderas flexionadas."
     },
     "standing_calf_raise": {
       "name": "Elevación de Talones de Pie",
@@ -232,34 +234,41 @@
       "variationNote": "La polea mantiene tensión durante la extensión sobre la cabeza."
     },
     "front_squat": {
-      "name": "Sentadilla Frontal"
+      "name": "Sentadilla Frontal",
+      "variationNote": "La barra descansa sobre la parte delantera de los hombros en lugar de la espalda alta."
     },
     "hack_squat": {
-      "name": "Sentadilla Hack"
+      "name": "Sentadilla Hack",
+      "variationNote": "El trineo de la máquina sostiene la espalda durante el movimiento."
     },
     "leg_extension": {
       "name": "Extensión de Cuádriceps"
     },
     "bulgarian_split_squat": {
-      "name": "Sentadilla Búlgara"
+      "name": "Sentadilla Búlgara",
+      "variationNote": "Pie trasero elevado en un banco, de modo que una pierna hace el trabajo."
     },
     "walking_lunge": {
       "name": "Zancadas Caminando"
     },
     "goblet_squat": {
-      "name": "Sentadilla Goblet"
+      "name": "Sentadilla Goblet",
+      "variationNote": "Una mancuerna en el pecho con el torso erguido."
     },
     "stiff_leg_deadlift": {
-      "name": "Peso Muerto Piernas Rígidas"
+      "name": "Peso Muerto Piernas Rígidas",
+      "variationNote": "Rodillas casi rectas durante la flexión."
     },
     "lying_leg_curl": {
-      "name": "Curl de Pierna Tumbado"
+      "name": "Curl de Pierna Tumbado",
+      "variationNote": "Boca abajo en la máquina."
     },
     "good_morning": {
       "name": "Buenos Días"
     },
     "nordic_curl": {
-      "name": "Curl Nórdico"
+      "name": "Curl Nórdico",
+      "variationNote": "Curl excéntrico con peso corporal y los tobillos fijados."
     },
     "cable_pull_through": {
       "name": "Jalón entre Piernas en Polea (Pull-Through)"
@@ -268,7 +277,8 @@
       "name": "Empuje de Cadera con Barra (Hip Thrust)"
     },
     "glute_bridge": {
-      "name": "Puente de Glúteos"
+      "name": "Puente de Glúteos",
+      "variationNote": "Hombros en el suelo, lo que da un recorrido más corto que el empuje de cadera."
     },
     "cable_kickback": {
       "name": "Patada de Glúteo en Polea"
@@ -289,10 +299,12 @@
       "name": "Hiperextensión Inversa"
     },
     "seated_calf_raise": {
-      "name": "Elevación de Talones Sentado"
+      "name": "Elevación de Talones Sentado",
+      "variationNote": "Sentado con las rodillas flexionadas, lo que desplaza la carga hacia el sóleo."
     },
     "leg_press_calf_raise": {
-      "name": "Elevación de Talones en Prensa"
+      "name": "Elevación de Talones en Prensa",
+      "variationNote": "Se realiza en la plataforma de la prensa con las piernas extendidas."
     },
     "smith_calf_raise": {
       "name": "Elevación de Talones en Máquina Smith"
@@ -301,10 +313,12 @@
       "name": "Elevación de Talones con Mancuerna"
     },
     "single_leg_calf_raise": {
-      "name": "Elevación de Talones a Una Pierna"
+      "name": "Elevación de Talones a Una Pierna",
+      "variationNote": "Una pierna a la vez, de modo que cada gemelo soporta todo el peso corporal."
     },
     "donkey_calf_raise": {
-      "name": "Elevación de Talones Donkey"
+      "name": "Elevación de Talones Donkey",
+      "variationNote": "Cadera flexionada hacia delante con el torso apoyado, similar a la elevación de pie."
     },
     "hanging_leg_raise": {
       "name": "Elevación de Piernas Colgado"
@@ -538,6 +552,81 @@
     "single_arm_cable_crunch": {
       "name": "Crunch a Una Mano en Polea",
       "variationNote": "Un agarre a la vez con una ligera rotación."
+    },
+    "smith_squat": {
+      "name": "Sentadilla en Máquina Smith",
+      "variationNote": "La máquina fija el recorrido de la barra, así que se necesita menos equilibrio."
+    },
+    "box_squat": {
+      "name": "Sentadilla al Cajón",
+      "variationNote": "Siéntate hacia un cajón para controlar la profundidad y pausar brevemente."
+    },
+    "bodyweight_squat": {
+      "name": "Sentadilla con Peso Corporal",
+      "variationNote": "Solo peso corporal, sin carga externa."
+    },
+    "reverse_lunge": {
+      "name": "Zancada Inversa",
+      "variationNote": "Paso hacia atrás en lugar de hacia delante, sin desplazarte."
+    },
+    "lateral_lunge": {
+      "name": "Zancada Lateral",
+      "variationNote": "Paso hacia el lado para trabajar las piernas en el plano lateral."
+    },
+    "barbell_lunge": {
+      "name": "Zancada con Barra",
+      "variationNote": "Barra sobre la espalda alta en lugar de mancuernas a los lados."
+    },
+    "single_leg_press": {
+      "name": "Prensa de Piernas a Una Pierna",
+      "variationNote": "Una pierna a la vez, de modo que cada pierna lleva toda la carga."
+    },
+    "narrow_stance_leg_press": {
+      "name": "Prensa de Piernas con Postura Estrecha",
+      "variationNote": "Pies más juntos sobre la plataforma."
+    },
+    "single_leg_extension": {
+      "name": "Extensión de Piernas a Una Pierna",
+      "variationNote": "Una pierna a la vez en la máquina."
+    },
+    "resistance_band_leg_extension": {
+      "name": "Extensión de Piernas con Banda Elástica",
+      "variationNote": "Una banda elástica sustituye el peso de la máquina."
+    },
+    "conventional_deadlift": {
+      "name": "Peso Muerto Convencional"
+    },
+    "trap_bar_deadlift": {
+      "name": "Peso Muerto con Barra Hexagonal",
+      "variationNote": "Agarres neutros y un inicio más alto acortan el recorrido."
+    },
+    "single_leg_rdl": {
+      "name": "Peso Muerto Rumano a Una Pierna",
+      "variationNote": "Equilibrio sobre una pierna, lo que exige más estabilidad."
+    },
+    "db_rdl": {
+      "name": "Peso Muerto Rumano con Mancuernas",
+      "variationNote": "Mancuernas en lugar de barra, lo que permite una carga más ligera."
+    },
+    "machine_hip_thrust": {
+      "name": "Empuje de Cadera en Máquina",
+      "variationNote": "La máquina guía el movimiento por un recorrido fijo."
+    },
+    "single_leg_hip_thrust": {
+      "name": "Empuje de Cadera a Una Pierna",
+      "variationNote": "Una pierna a la vez con la otra pierna levantada del suelo."
+    },
+    "banded_hip_thrust": {
+      "name": "Empuje de Cadera con Banda Elástica",
+      "variationNote": "Una banda elástica añade carga sobre las caderas."
+    },
+    "standing_leg_curl": {
+      "name": "Curl de Piernas de Pie",
+      "variationNote": "Se realiza de pie sobre una pierna en la máquina."
+    },
+    "stability_ball_leg_curl": {
+      "name": "Curl de Piernas con Pelota de Estabilidad",
+      "variationNote": "Talones en una pelota de estabilidad, caderas elevadas y rodillas que llevan la pelota hacia dentro."
     }
   },
   "suggest": {

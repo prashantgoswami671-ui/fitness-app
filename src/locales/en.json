@@ -98,7 +98,8 @@
     },
     "romanian_deadlift": {
       "name": "Romanian Deadlift",
-      "reason": "Strong hamstring stretch"
+      "reason": "Strong hamstring stretch",
+      "variationNote": "Hips hinge with a slight knee bend while the bar stays close."
     },
     "leg_press": {
       "name": "Leg Press",
@@ -106,7 +107,8 @@
     },
     "seated_leg_curl": {
       "name": "Seated Leg Curl",
-      "reason": "Direct hamstring isolation"
+      "reason": "Direct hamstring isolation",
+      "variationNote": "Seated position with the hips flexed."
     },
     "standing_calf_raise": {
       "name": "Standing Calf Raise",
@@ -232,34 +234,41 @@
       "variationNote": "Cable keeps tension through the overhead extension."
     },
     "front_squat": {
-      "name": "Front Squat"
+      "name": "Front Squat",
+      "variationNote": "Bar rests on the front of the shoulders instead of the upper back."
     },
     "hack_squat": {
-      "name": "Hack Squat"
+      "name": "Hack Squat",
+      "variationNote": "The machine sled supports the back through the movement."
     },
     "leg_extension": {
       "name": "Leg Extension"
     },
     "bulgarian_split_squat": {
-      "name": "Bulgarian Split Squat"
+      "name": "Bulgarian Split Squat",
+      "variationNote": "Rear foot elevated on a bench, so one leg does the work."
     },
     "walking_lunge": {
       "name": "Walking Lunge"
     },
     "goblet_squat": {
-      "name": "Goblet Squat"
+      "name": "Goblet Squat",
+      "variationNote": "One dumbbell held at the chest with an upright torso."
     },
     "stiff_leg_deadlift": {
-      "name": "Stiff-Leg Deadlift"
+      "name": "Stiff-Leg Deadlift",
+      "variationNote": "Knees kept almost straight through the hinge."
     },
     "lying_leg_curl": {
-      "name": "Lying Leg Curl"
+      "name": "Lying Leg Curl",
+      "variationNote": "Lying face down on the machine."
     },
     "good_morning": {
       "name": "Good Morning"
     },
     "nordic_curl": {
-      "name": "Nordic Curl"
+      "name": "Nordic Curl",
+      "variationNote": "Bodyweight eccentric curl with the ankles anchored."
     },
     "cable_pull_through": {
       "name": "Cable Pull-Through"
@@ -268,7 +277,8 @@
       "name": "Barbell Hip Thrust"
     },
     "glute_bridge": {
-      "name": "Glute Bridge"
+      "name": "Glute Bridge",
+      "variationNote": "Shoulders on the floor, giving a shorter range than a hip thrust."
     },
     "cable_kickback": {
       "name": "Cable Glute Kickback"
@@ -289,10 +299,12 @@
       "name": "Reverse Hyperextension"
     },
     "seated_calf_raise": {
-      "name": "Seated Calf Raise"
+      "name": "Seated Calf Raise",
+      "variationNote": "Seated with the knees bent, which shifts the load toward the soleus."
     },
     "leg_press_calf_raise": {
-      "name": "Leg Press Calf Raise"
+      "name": "Leg Press Calf Raise",
+      "variationNote": "Performed on the leg press platform with the legs extended."
     },
     "smith_calf_raise": {
       "name": "Smith Machine Calf Raise"
@@ -301,10 +313,12 @@
       "name": "Dumbbell Calf Raise"
     },
     "single_leg_calf_raise": {
-      "name": "Single-Leg Calf Raise"
+      "name": "Single-Leg Calf Raise",
+      "variationNote": "One leg at a time, so each calf takes the full bodyweight."
     },
     "donkey_calf_raise": {
-      "name": "Donkey Calf Raise"
+      "name": "Donkey Calf Raise",
+      "variationNote": "Hips hinged forward with the torso supported, similar to a standing raise."
     },
     "hanging_leg_raise": {
       "name": "Hanging Leg Raise"
@@ -538,6 +552,81 @@
     "single_arm_cable_crunch": {
       "name": "Single-Arm Cable Crunch",
       "variationNote": "One handle at a time with a slight twist."
+    },
+    "smith_squat": {
+      "name": "Smith Machine Squat",
+      "variationNote": "The machine fixes the bar path, so less balance is needed."
+    },
+    "box_squat": {
+      "name": "Box Squat",
+      "variationNote": "Sit back to a box to control depth and pause briefly."
+    },
+    "bodyweight_squat": {
+      "name": "Bodyweight Squat",
+      "variationNote": "Bodyweight only, with no external load."
+    },
+    "reverse_lunge": {
+      "name": "Reverse Lunge",
+      "variationNote": "Step backwards instead of forward, staying in place."
+    },
+    "lateral_lunge": {
+      "name": "Lateral Lunge",
+      "variationNote": "Step out to the side to work the legs in a side-to-side plane."
+    },
+    "barbell_lunge": {
+      "name": "Barbell Lunge",
+      "variationNote": "Bar across the upper back instead of dumbbells at the sides."
+    },
+    "single_leg_press": {
+      "name": "Single-Leg Leg Press",
+      "variationNote": "One leg at a time, so each leg takes the full load."
+    },
+    "narrow_stance_leg_press": {
+      "name": "Narrow-Stance Leg Press",
+      "variationNote": "Feet placed closer together on the platform."
+    },
+    "single_leg_extension": {
+      "name": "Single-Leg Leg Extension",
+      "variationNote": "One leg at a time on the machine."
+    },
+    "resistance_band_leg_extension": {
+      "name": "Resistance Band Leg Extension",
+      "variationNote": "A resistance band replaces the machine weight."
+    },
+    "conventional_deadlift": {
+      "name": "Conventional Deadlift"
+    },
+    "trap_bar_deadlift": {
+      "name": "Trap Bar Deadlift",
+      "variationNote": "Neutral handles and a higher start shorten the range."
+    },
+    "single_leg_rdl": {
+      "name": "Single-Leg Romanian Deadlift",
+      "variationNote": "Balanced on one leg, which adds a stability demand."
+    },
+    "db_rdl": {
+      "name": "Dumbbell Romanian Deadlift",
+      "variationNote": "Dumbbells instead of a barbell, allowing a lighter load."
+    },
+    "machine_hip_thrust": {
+      "name": "Machine Hip Thrust",
+      "variationNote": "The machine guides the movement on a fixed path."
+    },
+    "single_leg_hip_thrust": {
+      "name": "Single-Leg Hip Thrust",
+      "variationNote": "One leg at a time with the other leg off the floor."
+    },
+    "banded_hip_thrust": {
+      "name": "Resistance Band Hip Thrust",
+      "variationNote": "A resistance band adds load across the hips."
+    },
+    "standing_leg_curl": {
+      "name": "Standing Leg Curl",
+      "variationNote": "Performed standing on one leg at the machine."
+    },
+    "stability_ball_leg_curl": {
+      "name": "Stability Ball Leg Curl",
+      "variationNote": "Heels on a stability ball, hips bridged, knees curling the ball in."
     }
   },
   "suggest": {
