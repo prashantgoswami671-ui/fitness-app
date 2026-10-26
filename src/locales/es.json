@@ -49,7 +49,8 @@
   "exercises": {
     "incline_db_press": {
       "name": "Press Inclinado con Mancuernas",
-      "reason": "Gran estímulo para pecho superior"
+      "reason": "Gran estímulo para pecho superior",
+      "variationNote": "El ángulo inclinado desplaza el énfasis hacia la parte superior del pecho."
     },
     "flat_bb_bench": {
       "name": "Press de Banca Plano con Barra",
@@ -57,7 +58,8 @@
     },
     "cable_lateral_raise": {
       "name": "Elevación Lateral en Polea",
-      "reason": "Tensión constante en deltoides laterales"
+      "reason": "Tensión constante en deltoides laterales",
+      "variationNote": "La polea mantiene tensión durante todo el recorrido."
     },
     "overhead_triceps_ext": {
       "name": "Extensión de Tríceps por Encima de la Cabeza",
@@ -69,11 +71,13 @@
     },
     "lat_pulldown": {
       "name": "Jalón al Pecho (Lat Pulldown)",
-      "reason": "Fácil de cargar, fuerte estímulo en dorsales"
+      "reason": "Fácil de cargar, fuerte estímulo en dorsales",
+      "variationNote": "Jalón vertical sentado con pila de pesas y recorrido fijo."
     },
     "chest_supported_row": {
       "name": "Remo con Apoyo en Pecho",
-      "reason": "Trabaja la espalda con poca fatiga lumbar"
+      "reason": "Trabaja la espalda con poca fatiga lumbar",
+      "variationNote": "El apoyo en el pecho sostiene el torso y reduce la demanda lumbar."
     },
     "incline_db_curl": {
       "name": "Curl de Bíceps Inclinado con Mancuernas",
@@ -109,7 +113,8 @@
     },
     "seated_cable_row": {
       "name": "Remo en Polea Sentado",
-      "reason": "Grosor de la zona media de la espalda"
+      "reason": "Grosor de la zona media de la espalda",
+      "variationNote": "Remo sentado en polea con torso estable y tensión constante."
     },
     "dumbbell_curl": {
       "name": "Curl con Mancuernas",
@@ -124,16 +129,19 @@
       "reason": "Trabajo básico de pantorrillas"
     },
     "flat_db_press": {
-      "name": "Press Plano con Mancuernas"
+      "name": "Press Plano con Mancuernas",
+      "variationNote": "Press plano con mancuernas; cada brazo estabiliza de forma independiente."
     },
     "incline_bb_press": {
-      "name": "Press Inclinado con Barra"
+      "name": "Press Inclinado con Barra",
+      "variationNote": "Press inclinado con barra; ambas manos van sobre la misma barra."
     },
     "cable_fly": {
       "name": "Aperturas en Polea"
     },
     "pec_deck": {
-      "name": "Pec Deck (Máquina de Aperturas)"
+      "name": "Pec Deck (Máquina de Aperturas)",
+      "variationNote": "Apertura de recorrido fijo con los brazos apoyados en las almohadillas."
     },
     "dips": {
       "name": "Fondos en Paralelas"
@@ -145,31 +153,36 @@
       "name": "Remo con Barra"
     },
     "one_arm_db_row": {
-      "name": "Remo a Una Mano con Mancuerna"
+      "name": "Remo a Una Mano con Mancuerna",
+      "variationNote": "Un brazo a la vez con la mano libre apoyada en un banco."
     },
     "straight_arm_pulldown": {
       "name": "Jalón con Brazos Rectos"
     },
     "t_bar_row": {
-      "name": "Remo en Barra T"
+      "name": "Remo en Barra T",
+      "variationNote": "Remo con agarre en barra T; ambas manos comparten la carga."
     },
     "overhead_press": {
       "name": "Press Militar"
     },
     "seated_db_press": {
-      "name": "Press de Hombros Sentado con Mancuernas"
+      "name": "Press de Hombros Sentado con Mancuernas",
+      "variationNote": "Press sentado con respaldo y una mancuerna por brazo."
     },
     "db_lateral_raise": {
       "name": "Elevación Lateral con Mancuernas"
     },
     "machine_lateral_raise": {
-      "name": "Elevación Lateral en Máquina"
+      "name": "Elevación Lateral en Máquina",
+      "variationNote": "La máquina guía el recorrido del brazo con el torso fijo."
     },
     "front_raise": {
       "name": "Elevación Frontal"
     },
     "arnold_press": {
-      "name": "Press Arnold"
+      "name": "Press Arnold",
+      "variationNote": "Empieza con las palmas hacia dentro y rota hacia fuera durante el press."
     },
     "upright_row": {
       "name": "Remo al Mentón"
@@ -199,13 +212,15 @@
       "name": "Press de Banca con Agarre Cerrado"
     },
     "bench_dips": {
-      "name": "Fondos en Banco"
+      "name": "Fondos en Banco",
+      "variationNote": "Manos en un banco y pies en el suelo; parte del peso queda apoyada."
     },
     "db_kickback": {
       "name": "Patada de Tríceps con Mancuerna"
     },
     "machine_triceps_dip": {
-      "name": "Fondos en Máquina de Tríceps"
+      "name": "Fondos en Máquina de Tríceps",
+      "variationNote": "Fondos guiados por máquina con recorrido fijo y énfasis en tríceps."
     },
     "cable_overhead_triceps_ext": {
       "name": "Extensión de Tríceps en Polea sobre la Cabeza"
@@ -308,6 +323,90 @@
     },
     "dead_bug": {
       "name": "Dead Bug (Bicho Muerto)"
+    },
+    "decline_bb_press": {
+      "name": "Press de Banca Declinado con Barra",
+      "variationNote": "El ángulo declinado acorta el recorrido y enfatiza la parte inferior del pecho."
+    },
+    "decline_db_press": {
+      "name": "Press Declinado con Mancuernas",
+      "variationNote": "Ángulo declinado con mancuernas; cada brazo estabiliza de forma independiente."
+    },
+    "machine_chest_press": {
+      "name": "Press de Pecho en Máquina",
+      "variationNote": "Press guiado por máquina con recorrido fijo y sin necesidad de ayuda."
+    },
+    "knee_pushup": {
+      "name": "Flexiones con Rodillas",
+      "variationNote": "Las rodillas en el suelo soportan parte del peso corporal."
+    },
+    "incline_pushup": {
+      "name": "Flexiones Inclinadas",
+      "variationNote": "Manos elevadas, lo que reduce la carga."
+    },
+    "decline_pushup": {
+      "name": "Flexiones Declinadas",
+      "variationNote": "Pies elevados, lo que aumenta la carga."
+    },
+    "band_assisted_pushup": {
+      "name": "Flexiones Asistidas con Banda",
+      "variationNote": "Una banda elástica ayuda en el empuje desde abajo."
+    },
+    "diamond_pushup": {
+      "name": "Flexiones Diamante",
+      "variationNote": "Manos juntas formando un diamante; mayor participación de tríceps."
+    },
+    "deficit_pushup": {
+      "name": "Flexiones con Déficit",
+      "variationNote": "Manos sobre bloques elevados para un recorrido más profundo."
+    },
+    "machine_assisted_dip": {
+      "name": "Fondos Asistidos en Máquina",
+      "variationNote": "La plataforma de asistencia compensa parte del peso corporal."
+    },
+    "ring_dips": {
+      "name": "Fondos en Anillas",
+      "variationNote": "Las anillas se mueven libremente, por lo que se necesita más estabilización."
+    },
+    "weighted_dips": {
+      "name": "Fondos con Lastre",
+      "variationNote": "El peso añadido aumenta la carga."
+    },
+    "high_to_low_cable_fly": {
+      "name": "Aperturas en Polea de Arriba a Abajo",
+      "variationNote": "Poleas altas; los brazos bajan y se juntan."
+    },
+    "low_to_high_cable_fly": {
+      "name": "Aperturas en Polea de Abajo a Arriba",
+      "variationNote": "Poleas bajas; los brazos suben y se juntan."
+    },
+    "db_fly": {
+      "name": "Aperturas con Mancuernas",
+      "variationNote": "Las mancuernas siguen un arco libre sin el soporte de la polea."
+    },
+    "assisted_pullup": {
+      "name": "Dominadas Asistidas en Máquina",
+      "variationNote": "La asistencia de la máquina compensa parte del peso corporal."
+    },
+    "band_assisted_pullup": {
+      "name": "Dominadas Asistidas con Banda",
+      "variationNote": "Una banda elástica ayuda en el jalón."
+    },
+    "machine_shoulder_press": {
+      "name": "Press de Hombros en Máquina",
+      "variationNote": "Press guiado por máquina con recorrido fijo."
+    },
+    "push_press": {
+      "name": "Push Press (Press con Impulso)",
+      "variationNote": "Un breve impulso de piernas ayuda a iniciar el press sobre la cabeza."
+    },
+    "band_lateral_raise": {
+      "name": "Elevación Lateral con Banda",
+      "variationNote": "Una banda elástica aporta resistencia ligera."
+    },
+    "lean_away_cable_lateral_raise": {
+      "name": "Elevación Lateral Inclinada en Polea",
+      "variationNote": "Inclinarse lejos de la polea amplía el recorrido inferior."
     }
   },
   "suggest": {
@@ -887,5 +986,14 @@
     "equipment": "Equipo",
     "all": "Todos",
     "noResults": "Ningún ejercicio coincide con estos filtros."
+  },
+  "exerciseLevels": {
+    "easier": "Más fácil",
+    "standard": "Estándar",
+    "harder": "Más difícil"
+  },
+  "exercisePicker": {
+    "variations_one": "{{count}} variante",
+    "variations_other": "{{count}} variantes"
   }
 }

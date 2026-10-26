@@ -4,7 +4,7 @@ import { Alert, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View 
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { router } from 'expo-router';
-import { EXERCISES, type Equipment, type Exercise, type MuscleGroup } from '@/data/exercises';
+import { EXERCISES, type Equipment, type Exercise, type ExerciseLevel, type MuscleGroup } from '@/data/exercises';
 import { SPLITS, SPLIT_CATEGORIES, type Split, type SplitCategory, type SplitDay } from '@/data/splits';
 import { CUSTOM_SPLITS_STORAGE_KEY, type CustomSplit } from '@/data/custom-splits';
 import { CustomRoutineBuilder } from '@/components/custom-routine-builder';
@@ -16,8 +16,17 @@ type Saved = {
   targets: Record<string, Target>;
   history: Record<string, Session[]>;
 };
+type PickerEntry =
+  | { kind: 'family'; base: Exercise; variations: Exercise[] }
+  | { kind: 'exercise'; exercise: Exercise };
 
 const TIER_COLOR = { S: '#E8B400', A: '#4C9AFF', B: '#8A8F98' };
+const TIER_RANK = { S: 0, A: 1, B: 2 } as const;
+const LEVEL_COLOR: Record<ExerciseLevel, string> = {
+  easier: '#2E7D32',
+  standard: '#4C9AFF',
+  harder: '#C77700',
+};
 const DEFAULT_TARGET: Target = { sets: 3, reps: 8, weight: 20 };
 const REP_MAX = 12;
 const WEIGHT_STEP = 2.5;
@@ -67,6 +76,111 @@ function SplitCard({ split, onPress, compact = false }: { split: Split; onPress:
         <Text style={s.splitMeta}>{t('splitPicker.splitMeta', { days: split.daysPerWeek, level: t(`levels.${split.level}`) })}</Text>
       </View>
     </TouchableOpacity>
+  );
+}
+
+function LevelTag({ level }: { level: ExerciseLevel }) {
+  const { t } = useTranslation();
+  return (
+    <View style={[s.levelTag, { backgroundColor: LEVEL_COLOR[level] }]}>
+      <Text style={s.levelTagText}>{t(`exerciseLevels.${level}`)}</Text>
+    </View>
+  );
+}
+
+function ExerciseRow({
+  exercise,
+  selected,
+  onPress,
+}: {
+  exercise: Exercise;
+  selected: boolean;
+  onPress: () => void;
+}) {
+  const { t } = useTranslation();
+  const reason = t(`exercises.${exercise.id}.reason`, { defaultValue: '' });
+  const noteKey = exercise.variationNote;
+  const note = noteKey ? t(noteKey) : '';
+  const showLevel = !exercise.isBase || exercise.level !== 'standard';
+
+  return (
+    <TouchableOpacity style={[s.card, selected && s.cardOn]} onPress={onPress}>
+      <View style={[s.badge, { backgroundColor: TIER_COLOR[exercise.tier] }]}>
+        <Text style={s.badgeText}>{exercise.tier}</Text>
+      </View>
+      <View style={{ flex: 1, gap: 4 }}>
+        <View style={s.variationTitleRow}>
+          <Text style={s.cardText}>{t(`exercises.${exercise.id}.name`)}</Text>
+          {showLevel && <LevelTag level={exercise.level} />}
+        </View>
+        {note !== '' ? <Text style={s.sub}>{note}</Text> : reason !== '' ? <Text style={s.sub}>{reason}</Text> : null}
+      </View>
+      <Text style={s.check}>{selected ? '✓' : ''}</Text>
+    </TouchableOpacity>
+  );
+}
+
+function FamilyCard({
+  base,
+  variations,
+  expanded,
+  onToggleExpand,
+  selectedIds,
+  onToggleExercise,
+}: {
+  base: Exercise;
+  variations: Exercise[];
+  expanded: boolean;
+  onToggleExpand: () => void;
+  selectedIds: string[];
+  onToggleExercise: (exerciseId: string) => void;
+}) {
+  const { t } = useTranslation();
+  const baseReason = t(`exercises.${base.id}.reason`, { defaultValue: '' });
+  const baseSelected = selectedIds.includes(base.id);
+
+  return (
+    <View style={[s.familyBlock, baseSelected && s.cardOn]}>
+      <TouchableOpacity style={s.familyBaseRow} onPress={() => onToggleExercise(base.id)}>
+        <View style={[s.badge, { backgroundColor: TIER_COLOR[base.tier] }]}>
+          <Text style={s.badgeText}>{base.tier}</Text>
+        </View>
+        <View style={{ flex: 1, gap: 4 }}>
+          <Text style={s.cardText}>{t(`exercises.${base.id}.name`)}</Text>
+          {baseReason !== '' && <Text style={s.sub}>{baseReason}</Text>}
+        </View>
+        <Text style={s.check}>{baseSelected ? '✓' : ''}</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={s.familyExpander}
+        onPress={onToggleExpand}
+        accessibilityRole="button"
+        accessibilityLabel={t('exercisePicker.variations', { count: variations.length })}>
+        <Text style={s.familyExpanderText}>
+          {expanded ? '▾' : '▸'} {t('exercisePicker.variations', { count: variations.length })}
+        </Text>
+      </TouchableOpacity>
+      {expanded && variations.map((exercise) => {
+        const selected = selectedIds.includes(exercise.id);
+        const noteKey = exercise.variationNote;
+        const note = noteKey ? t(noteKey) : '';
+        return (
+          <TouchableOpacity
+            key={exercise.id}
+            style={[s.variationRow, selected && s.cardOn]}
+            onPress={() => onToggleExercise(exercise.id)}>
+            <View style={s.variationContent}>
+              <View style={s.variationTitleRow}>
+                <Text style={s.variationName}>{t(`exercises.${exercise.id}.name`)}</Text>
+                <LevelTag level={exercise.level} />
+              </View>
+              {note !== '' && <Text style={s.sub}>{note}</Text>}
+            </View>
+            <Text style={s.check}>{selected ? '✓' : ''}</Text>
+          </TouchableOpacity>
+        );
+      })}
+    </View>
   );
 }
 
@@ -207,6 +321,7 @@ export default function Home() {
   const [exerciseSearch, setExerciseSearch] = useState('');
   const [muscleFilter, setMuscleFilter] = useState<MuscleGroup | 'all'>('all');
   const [equipmentFilter, setEquipmentFilter] = useState<Equipment | 'all'>('all');
+  const [expandedFamilies, setExpandedFamilies] = useState<Record<string, boolean>>({});
   const [category, setCategory] = useState<SplitCategory | 'all' | 'my_routines'>('all');
   const [logging, setLogging] = useState(false);
   const [picked, setPicked] = useState<Record<string, string[]>>({});
@@ -305,6 +420,7 @@ export default function Home() {
     setExerciseSearch('');
     setMuscleFilter('all');
     setEquipmentFilter('all');
+    setExpandedFamilies({});
     setDay(dayId);
   };
 
@@ -343,6 +459,32 @@ export default function Home() {
       t(`exercises.${exercise.id}.name`).toLocaleLowerCase().includes(normalizedExerciseSearch)
     );
   });
+  const filtersActive = normalizedExerciseSearch !== '' || muscleFilter !== 'all' || equipmentFilter !== 'all';
+  const familyGroups = new Map<string, { base: Exercise; variations: Exercise[]; tier: 'S' | 'A' | 'B' }>();
+  if (!filtersActive) {
+    for (const exercise of filteredDayExercises) {
+      if (!exercise.isBase) continue;
+      const variations = filteredDayExercises.filter((item) => item.family === exercise.family && item.id !== exercise.id);
+      if (variations.length === 0) continue;
+      const tier = variations.reduce<'S' | 'A' | 'B'>(
+        (best, item) => TIER_RANK[item.tier] < TIER_RANK[best] ? item.tier : best,
+        exercise.tier,
+      );
+      familyGroups.set(exercise.family, { base: exercise, variations, tier });
+    }
+  }
+  const pickerEntries: Record<'S' | 'A' | 'B', PickerEntry[]> = { S: [], A: [], B: [] };
+  const renderedFamilies = new Set<string>();
+  for (const exercise of filteredDayExercises) {
+    const group = familyGroups.get(exercise.family);
+    if (group) {
+      if (renderedFamilies.has(exercise.family)) continue;
+      renderedFamilies.add(exercise.family);
+      pickerEntries[group.tier].push({ kind: 'family', base: group.base, variations: group.variations });
+    } else {
+      pickerEntries[exercise.tier].push({ kind: 'exercise', exercise });
+    }
+  }
   const normalizedSearch = splitSearch.trim().toLocaleLowerCase();
   const myRoutines = category === 'my_routines';
   const matchingSplits = SPLITS.filter((item) =>
@@ -491,29 +633,29 @@ export default function Home() {
             </ScrollView>
             {filteredDayExercises.length === 0 && <Text style={s.sub}>{t('exerciseFilters.noResults')}</Text>}
             {(['S', 'A', 'B'] as const).map((tier) =>
-              filteredDayExercises
-                .filter((e) => e.tier === tier)
-                .map((exercise) => {
-                  const on = pickedNow.includes(exercise.id);
-                  const exerciseName = t(`exercises.${exercise.id}.name`);
-                  const exerciseReason = t(`exercises.${exercise.id}.reason`, { defaultValue: '' });
-                  return (
-                    <TouchableOpacity
-                      key={exercise.id}
-                      style={[s.card, on && s.cardOn]}
-                      onPress={() => toggle(exercise.id)}
-                    >
-                      <View style={[s.badge, { backgroundColor: TIER_COLOR[tier] }]}>
-                        <Text style={s.badgeText}>{tier}</Text>
-                      </View>
-                      <View style={{ flex: 1 }}>
-                        <Text style={s.cardText}>{exerciseName}</Text>
-                        {exerciseReason !== '' && <Text style={s.sub}>{exerciseReason}</Text>}
-                      </View>
-                      <Text style={s.check}>{on ? '✓' : ''}</Text>
-                    </TouchableOpacity>
-                  );
-                })
+              pickerEntries[tier].map((entry) =>
+                entry.kind === 'family' ? (
+                  <FamilyCard
+                    key={entry.base.family}
+                    base={entry.base}
+                    variations={entry.variations}
+                    expanded={!!expandedFamilies[entry.base.family]}
+                    onToggleExpand={() => setExpandedFamilies((current) => ({
+                      ...current,
+                      [entry.base.family]: !current[entry.base.family],
+                    }))}
+                    selectedIds={pickedNow}
+                    onToggleExercise={toggle}
+                  />
+                ) : (
+                  <ExerciseRow
+                    key={entry.exercise.id}
+                    exercise={entry.exercise}
+                    selected={pickedNow.includes(entry.exercise.id)}
+                    onPress={() => toggle(entry.exercise.id)}
+                  />
+                )
+              )
             )}
             {pickedNow.length > 0 && (
               <TouchableOpacity style={s.primary} onPress={() => setLogging(true)}>
@@ -560,6 +702,16 @@ const s = StyleSheet.create({
   popularCard: { width: 190, minHeight: 76, marginRight: 10 },
   popularRow: { paddingVertical: 2 },
   cardOn: { backgroundColor: '#DCEBFF' },
+  familyBlock: { borderRadius: 14, backgroundColor: '#F2F3F5', overflow: 'hidden' },
+  familyBaseRow: { flexDirection: 'row', alignItems: 'center', gap: 12, padding: 16 },
+  familyExpander: { paddingHorizontal: 16, paddingBottom: 12, marginTop: -6 },
+  familyExpanderText: { fontSize: 13, fontWeight: '700', color: '#2873B9' },
+  variationRow: { flexDirection: 'row', alignItems: 'center', gap: 10, paddingHorizontal: 16, paddingVertical: 12, borderTopWidth: 1, borderTopColor: '#E3E5E8' },
+  variationContent: { flex: 1, gap: 5 },
+  variationTitleRow: { flexDirection: 'row', alignItems: 'center', gap: 8, flexWrap: 'wrap' },
+  variationName: { fontSize: 15, fontWeight: '600', color: '#222' },
+  levelTag: { paddingHorizontal: 8, paddingVertical: 3, borderRadius: 8 },
+  levelTagText: { fontSize: 11, fontWeight: '700', color: '#fff' },
   cardText: { fontSize: 17, fontWeight: '600' },
   sub: { fontSize: 13, color: '#666' },
   splitMeta: { fontSize: 12, fontWeight: '600', color: '#4C9AFF', marginTop: 2 },

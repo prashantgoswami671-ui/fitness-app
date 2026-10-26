@@ -49,7 +49,8 @@
   "exercises": {
     "incline_db_press": {
       "name": "Incline Dumbbell Press",
-      "reason": "Great upper chest stimulus"
+      "reason": "Great upper chest stimulus",
+      "variationNote": "Incline angle shifts emphasis toward the upper chest."
     },
     "flat_bb_bench": {
       "name": "Flat Barbell Bench Press",
@@ -57,7 +58,8 @@
     },
     "cable_lateral_raise": {
       "name": "Cable Lateral Raise",
-      "reason": "Constant tension on side delts"
+      "reason": "Constant tension on side delts",
+      "variationNote": "Cable keeps tension through the full range of the raise."
     },
     "overhead_triceps_ext": {
       "name": "Overhead Triceps Extension",
@@ -69,11 +71,13 @@
     },
     "lat_pulldown": {
       "name": "Lat Pulldown",
-      "reason": "Easy to load, strong lat stimulus"
+      "reason": "Easy to load, strong lat stimulus",
+      "variationNote": "Seated vertical pull with a weight stack and fixed path."
     },
     "chest_supported_row": {
       "name": "Chest-Supported Row",
-      "reason": "Targets back with little lower-back fatigue"
+      "reason": "Targets back with little lower-back fatigue",
+      "variationNote": "Chest pad supports the torso and reduces lower-back demand."
     },
     "incline_db_curl": {
       "name": "Incline Dumbbell Curl",
@@ -109,7 +113,8 @@
     },
     "seated_cable_row": {
       "name": "Seated Cable Row",
-      "reason": "Mid-back thickness"
+      "reason": "Mid-back thickness",
+      "variationNote": "Seated cable row with a stable torso and constant tension."
     },
     "dumbbell_curl": {
       "name": "Dumbbell Curl",
@@ -124,16 +129,19 @@
       "reason": "Basic calf work"
     },
     "flat_db_press": {
-      "name": "Flat Dumbbell Press"
+      "name": "Flat Dumbbell Press",
+      "variationNote": "Flat press with dumbbells; each arm stabilizes independently."
     },
     "incline_bb_press": {
-      "name": "Incline Barbell Bench Press"
+      "name": "Incline Barbell Bench Press",
+      "variationNote": "Incline angle with a barbell; both hands move on one bar."
     },
     "cable_fly": {
       "name": "Cable Fly"
     },
     "pec_deck": {
-      "name": "Pec Deck"
+      "name": "Pec Deck",
+      "variationNote": "Fixed-path fly with the arms supported by pads."
     },
     "dips": {
       "name": "Dips"
@@ -145,31 +153,36 @@
       "name": "Barbell Row"
     },
     "one_arm_db_row": {
-      "name": "One-Arm Dumbbell Row"
+      "name": "One-Arm Dumbbell Row",
+      "variationNote": "One arm at a time with the free hand braced on a bench."
     },
     "straight_arm_pulldown": {
       "name": "Straight-Arm Pulldown"
     },
     "t_bar_row": {
-      "name": "T-Bar Row"
+      "name": "T-Bar Row",
+      "variationNote": "Row with a T-bar handle; both hands share one load."
     },
     "overhead_press": {
       "name": "Overhead Press"
     },
     "seated_db_press": {
-      "name": "Seated Dumbbell Shoulder Press"
+      "name": "Seated Dumbbell Shoulder Press",
+      "variationNote": "Seated press with a back pad and one dumbbell per arm."
     },
     "db_lateral_raise": {
       "name": "Dumbbell Lateral Raise"
     },
     "machine_lateral_raise": {
-      "name": "Machine Lateral Raise"
+      "name": "Machine Lateral Raise",
+      "variationNote": "Machine guides the arm path with the torso fixed."
     },
     "front_raise": {
       "name": "Front Raise"
     },
     "arnold_press": {
-      "name": "Arnold Press"
+      "name": "Arnold Press",
+      "variationNote": "Starts with palms facing in and rotates outward during the press."
     },
     "upright_row": {
       "name": "Upright Row"
@@ -199,13 +212,15 @@
       "name": "Close-Grip Bench Press"
     },
     "bench_dips": {
-      "name": "Bench Dips"
+      "name": "Bench Dips",
+      "variationNote": "Hands on a bench and feet on the floor; part of the load is supported."
     },
     "db_kickback": {
       "name": "Dumbbell Kickback"
     },
     "machine_triceps_dip": {
-      "name": "Machine Triceps Dip"
+      "name": "Machine Triceps Dip",
+      "variationNote": "Machine-guided dip with a fixed path and a triceps emphasis."
     },
     "cable_overhead_triceps_ext": {
       "name": "Cable Overhead Triceps Extension"
@@ -308,6 +323,90 @@
     },
     "dead_bug": {
       "name": "Dead Bug"
+    },
+    "decline_bb_press": {
+      "name": "Decline Barbell Bench Press",
+      "variationNote": "Decline angle shortens the pressing range and emphasizes the lower chest."
+    },
+    "decline_db_press": {
+      "name": "Decline Dumbbell Press",
+      "variationNote": "Decline angle with dumbbells; each arm stabilizes independently."
+    },
+    "machine_chest_press": {
+      "name": "Machine Chest Press",
+      "variationNote": "Machine-guided press with a fixed path and no spotter needed."
+    },
+    "knee_pushup": {
+      "name": "Knee Push-ups",
+      "variationNote": "Knees on the floor support part of the body weight."
+    },
+    "incline_pushup": {
+      "name": "Incline Push-ups",
+      "variationNote": "Hands elevated, which reduces the load."
+    },
+    "decline_pushup": {
+      "name": "Decline Push-ups",
+      "variationNote": "Feet elevated, which increases the load."
+    },
+    "band_assisted_pushup": {
+      "name": "Band-Assisted Push-ups",
+      "variationNote": "A resistance band assists the push from below."
+    },
+    "diamond_pushup": {
+      "name": "Diamond Push-ups",
+      "variationNote": "Hands close together in a diamond shape; more triceps involvement."
+    },
+    "deficit_pushup": {
+      "name": "Deficit Push-ups",
+      "variationNote": "Hands on raised blocks for a deeper range of motion."
+    },
+    "machine_assisted_dip": {
+      "name": "Machine-Assisted Dips",
+      "variationNote": "Assist platform offsets part of the body weight."
+    },
+    "ring_dips": {
+      "name": "Ring Dips",
+      "variationNote": "Rings move freely, so more stabilization is required."
+    },
+    "weighted_dips": {
+      "name": "Weighted Dips",
+      "variationNote": "Added weight increases the load."
+    },
+    "high_to_low_cable_fly": {
+      "name": "High-to-Low Cable Fly",
+      "variationNote": "Pulleys set high; arms pull down and together."
+    },
+    "low_to_high_cable_fly": {
+      "name": "Low-to-High Cable Fly",
+      "variationNote": "Pulleys set low; arms pull up and together."
+    },
+    "db_fly": {
+      "name": "Dumbbell Fly",
+      "variationNote": "Dumbbells move in a free arc without cable support."
+    },
+    "assisted_pullup": {
+      "name": "Machine-Assisted Pull-ups",
+      "variationNote": "Machine assistance offsets part of the body weight."
+    },
+    "band_assisted_pullup": {
+      "name": "Band-Assisted Pull-ups",
+      "variationNote": "A resistance band assists the pull."
+    },
+    "machine_shoulder_press": {
+      "name": "Machine Shoulder Press",
+      "variationNote": "Machine-guided press with a fixed path."
+    },
+    "push_press": {
+      "name": "Push Press",
+      "variationNote": "A short leg drive helps start the overhead press."
+    },
+    "band_lateral_raise": {
+      "name": "Band Lateral Raise",
+      "variationNote": "A resistance band provides light resistance."
+    },
+    "lean_away_cable_lateral_raise": {
+      "name": "Lean-Away Cable Lateral Raise",
+      "variationNote": "Leaning away from the cable increases the bottom range."
     }
   },
   "suggest": {
@@ -887,5 +986,14 @@
     "equipment": "Equipment",
     "all": "All",
     "noResults": "No exercises match these filters."
+  },
+  "exerciseLevels": {
+    "easier": "Easier",
+    "standard": "Standard",
+    "harder": "Harder"
+  },
+  "exercisePicker": {
+    "variations_one": "{{count}} variation",
+    "variations_other": "{{count}} variations"
   }
 }

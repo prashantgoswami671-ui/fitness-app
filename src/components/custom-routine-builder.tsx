@@ -73,7 +73,8 @@ export function CustomRoutineBuilder({
       {days.map((day, index) => {
         const search = day.exerciseSearch.trim().toLocaleLowerCase();
         const visibleExercises = EXERCISES.filter((exercise) =>
-          t(`exercises.${exercise.id}.name`).toLocaleLowerCase().includes(search),
+          t(`exercises.${exercise.id}.name`).toLocaleLowerCase().includes(search) ||
+          exercise.name.toLocaleLowerCase().includes(search),
         );
         return (
           <View key={day.id} style={styles.dayCard}>
