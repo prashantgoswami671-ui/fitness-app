@@ -4,7 +4,10 @@ export type EvidenceSourceId =
   | 'sbs_incline_flat'
   | 'albarello2022'
   | 'chaves2020'
-  | 'vigotsky2022';
+  | 'vigotsky2022'
+  | 'lat_review'
+  | 'signorile2002'
+  | 'lat_pulldown_types2009';
 
 export type EvidenceSource = {
   id: EvidenceSourceId;
@@ -51,5 +54,25 @@ export const SOURCES: Record<EvidenceSourceId, EvidenceSource> = {
       'Longing for a Longitudinal Proxy: Acutely Measured Surface EMG Amplitude is not a Validated Predictor of Muscle Hypertrophy',
     year: 2022,
     url: 'https://pubmed.ncbi.nlm.nih.gov/35006527/',
+  },
+  lat_review: {
+    id: 'lat_review',
+    title:
+      'Electromyographic Analysis of Latissimus Dorsi Activation During Common Resistance Training Exercises: A Narrative Review',
+    year: 2026,
+    url: 'https://www.ncbi.nlm.nih.gov/pmc/articles/PMC13510307/',
+  },
+  signorile2002: {
+    id: 'signorile2002',
+    title:
+      'A comparative electromyographical investigation of muscle utilization patterns using various hand positions during the lat pull-down',
+    year: 2002,
+    url: 'https://pubmed.ncbi.nlm.nih.gov/12423182/',
+  },
+  lat_pulldown_types2009: {
+    id: 'lat_pulldown_types2009',
+    title: 'Electromyographic analysis of three different types of lat pull-down',
+    year: 2009,
+    url: 'https://pubmed.ncbi.nlm.nih.gov/19855327/',
   },
 };
