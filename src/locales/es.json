@@ -50,16 +50,19 @@
     "incline_db_press": {
       "name": "Press Inclinado con Mancuernas",
       "reason": "Gran estímulo para pecho superior",
-      "variationNote": "El ángulo inclinado desplaza el énfasis hacia la parte superior del pecho."
+      "variationNote": "El ángulo inclinado desplaza el énfasis hacia la parte superior del pecho.",
+      "ratingNote": "Trabaja el pecho superior con apoyo del banco."
     },
     "flat_bb_bench": {
       "name": "Press de Banca Plano con Barra",
-      "reason": "Compuesto pesado para pecho y tríceps"
+      "reason": "Compuesto pesado para pecho y tríceps",
+      "ratingNote": "Carga fuerte del pecho con un banco estable."
     },
     "cable_lateral_raise": {
       "name": "Elevación Lateral en Polea",
       "reason": "Tensión constante en deltoides laterales",
-      "variationNote": "La polea mantiene tensión durante todo el recorrido."
+      "variationNote": "La polea mantiene tensión durante todo el recorrido.",
+      "ratingNote": "Tensión constante de polea para el deltoides lateral."
     },
     "overhead_triceps_ext": {
       "name": "Extensión de Tríceps por Encima de la Cabeza",
@@ -67,17 +70,20 @@
     },
     "pushups": {
       "name": "Flexiones",
-      "reason": "Cómodas pero difíciles de cargar"
+      "reason": "Cómodas pero difíciles de cargar",
+      "ratingNote": "Trabajo accesible de pecho y tríceps en posición de plancha."
     },
     "lat_pulldown": {
       "name": "Jalón al Pecho (Lat Pulldown)",
       "reason": "Fácil de cargar, fuerte estímulo en dorsales",
-      "variationNote": "Jalón vertical sentado con pila de pesas y recorrido fijo."
+      "variationNote": "Jalón vertical sentado con pila de pesas y recorrido fijo.",
+      "ratingNote": "Tirón guiado con mucho apoyo y colocación sencilla."
     },
     "chest_supported_row": {
       "name": "Remo con Apoyo en Pecho",
       "reason": "Trabaja la espalda con poca fatiga lumbar",
-      "variationNote": "El apoyo en el pecho sostiene el torso y reduce la demanda lumbar."
+      "variationNote": "El apoyo en el pecho sostiene el torso y reduce la demanda lumbar.",
+      "ratingNote": "El apoyo en el pecho quita demanda a la zona lumbar."
     },
     "incline_db_curl": {
       "name": "Curl de Bíceps Inclinado con Mancuernas",
@@ -117,7 +123,8 @@
     "seated_cable_row": {
       "name": "Remo en Polea Sentado",
       "reason": "Grosor de la zona media de la espalda",
-      "variationNote": "Remo sentado en polea con torso estable y tensión constante."
+      "variationNote": "Remo sentado en polea con torso estable y tensión constante.",
+      "ratingNote": "Remo apoyado con tensión constante de polea."
     },
     "dumbbell_curl": {
       "name": "Curl con Mancuernas",
@@ -134,62 +141,79 @@
     },
     "flat_db_press": {
       "name": "Press Plano con Mancuernas",
-      "variationNote": "Press plano con mancuernas; cada brazo estabiliza de forma independiente."
+      "variationNote": "Press plano con mancuernas; cada brazo estabiliza de forma independiente.",
+      "ratingNote": "Buena carga de pecho con brazos independientes y banco estable."
     },
     "incline_bb_press": {
       "name": "Press Inclinado con Barra",
-      "variationNote": "Press inclinado con barra; ambas manos van sobre la misma barra."
+      "variationNote": "Press inclinado con barra; ambas manos van sobre la misma barra.",
+      "ratingNote": "Carga fuerte del pecho superior, pero la barra exige control."
     },
     "cable_fly": {
-      "name": "Aperturas en Polea"
+      "name": "Aperturas en Polea",
+      "ratingNote": "Tensión de polea en todo el recorrido con estabilidad moderada."
     },
     "pec_deck": {
       "name": "Pec Deck (Máquina de Aperturas)",
-      "variationNote": "Apertura de recorrido fijo con los brazos apoyados en las almohadillas."
+      "variationNote": "Apertura de recorrido fijo con los brazos apoyados en las almohadillas.",
+      "ratingNote": "Aísla el pecho con un gran apoyo de máquina."
     },
     "dips": {
-      "name": "Fondos en Paralelas"
+      "name": "Fondos en Paralelas",
+      "ratingNote": "Fuerte carga de pecho y tríceps en barras paralelas."
     },
     "pullups": {
-      "name": "Dominadas"
+      "name": "Dominadas",
+      "ratingNote": "Alto estímulo de espalda con peso corporal y estabilidad limitada."
     },
     "barbell_row": {
-      "name": "Remo con Barra"
+      "name": "Remo con Barra",
+      "ratingNote": "Carga pesada de espalda, pero la posición inclinada exige control."
     },
     "one_arm_db_row": {
       "name": "Remo a Una Mano con Mancuerna",
-      "variationNote": "Un brazo a la vez con la mano libre apoyada en un banco."
+      "variationNote": "Un brazo a la vez con la mano libre apoyada en un banco.",
+      "ratingNote": "El apoyo en banco estabiliza el remo a una mano."
     },
     "straight_arm_pulldown": {
-      "name": "Jalón con Brazos Rectos"
+      "name": "Jalón con Brazos Rectos",
+      "ratingNote": "Aísla los dorsales con apoyo de polea."
     },
     "t_bar_row": {
       "name": "Remo en Barra T",
-      "variationNote": "Remo con agarre en barra T; ambas manos comparten la carga."
+      "variationNote": "Remo con agarre en barra T; ambas manos comparten la carga.",
+      "ratingNote": "Remo pesado con recorrido fijo pero posición inclinada."
     },
     "overhead_press": {
-      "name": "Press Militar"
+      "name": "Press Militar",
+      "ratingNote": "Carga los hombros por encima de la cabeza con barra libre."
     },
     "seated_db_press": {
       "name": "Press de Hombros Sentado con Mancuernas",
-      "variationNote": "Press sentado con respaldo y una mancuerna por brazo."
+      "variationNote": "Press sentado con respaldo y una mancuerna por brazo.",
+      "ratingNote": "Apoyo en banco con press de mancuernas independiente."
     },
     "db_lateral_raise": {
-      "name": "Elevación Lateral con Mancuernas"
+      "name": "Elevación Lateral con Mancuernas",
+      "ratingNote": "Trabajo directo del deltoides lateral con carga ligera y controlable."
     },
     "machine_lateral_raise": {
       "name": "Elevación Lateral en Máquina",
-      "variationNote": "La máquina guía el recorrido del brazo con el torso fijo."
+      "variationNote": "La máquina guía el recorrido del brazo con el torso fijo.",
+      "ratingNote": "El apoyo de máquina mantiene estable el recorrido del brazo."
     },
     "front_raise": {
-      "name": "Elevación Frontal"
+      "name": "Elevación Frontal",
+      "ratingNote": "Trabaja el deltoides frontal, que el press ya entrena."
     },
     "arnold_press": {
       "name": "Press Arnold",
-      "variationNote": "Empieza con las palmas hacia dentro y rota hacia fuera durante el press."
+      "variationNote": "Empieza con las palmas hacia dentro y rota hacia fuera durante el press.",
+      "ratingNote": "La rotación añade demanda de coordinación al press."
     },
     "upright_row": {
-      "name": "Remo al Mentón"
+      "name": "Remo al Mentón",
+      "ratingNote": "Acerca la barra al cuerpo, lo que a muchas personas resulta incómodo."
     },
     "hammer_curl": {
       "name": "Curl Martillo",
@@ -348,31 +372,38 @@
     },
     "decline_bb_press": {
       "name": "Press de Banca Declinado con Barra",
-      "variationNote": "El ángulo declinado acorta el recorrido y enfatiza la parte inferior del pecho."
+      "variationNote": "El ángulo declinado acorta el recorrido y enfatiza la parte inferior del pecho.",
+      "ratingNote": "Carga de pecho con recorrido más corto y banco estable."
     },
     "decline_db_press": {
       "name": "Press Declinado con Mancuernas",
-      "variationNote": "Ángulo declinado con mancuernas; cada brazo estabiliza de forma independiente."
+      "variationNote": "Ángulo declinado con mancuernas; cada brazo estabiliza de forma independiente.",
+      "ratingNote": "Ángulo declinado cómodo con mancuernas independientes."
     },
     "machine_chest_press": {
       "name": "Press de Pecho en Máquina",
-      "variationNote": "Press guiado por máquina con recorrido fijo y sin necesidad de ayuda."
+      "variationNote": "Press guiado por máquina con recorrido fijo y sin necesidad de ayuda.",
+      "ratingNote": "Recorrido guiado que lo hace estable y fácil de aprender."
     },
     "knee_pushup": {
       "name": "Flexiones con Rodillas",
-      "variationNote": "Las rodillas en el suelo soportan parte del peso corporal."
+      "variationNote": "Las rodillas en el suelo soportan parte del peso corporal.",
+      "ratingNote": "Flexión más fácil con menos peso corporal que mover."
     },
     "incline_pushup": {
       "name": "Flexiones Inclinadas",
-      "variationNote": "Manos elevadas, lo que reduce la carga."
+      "variationNote": "Manos elevadas, lo que reduce la carga.",
+      "ratingNote": "Manos más altas hacen la flexión más fácil."
     },
     "decline_pushup": {
       "name": "Flexiones Declinadas",
-      "variationNote": "Pies elevados, lo que aumenta la carga."
+      "variationNote": "Pies elevados, lo que aumenta la carga.",
+      "ratingNote": "Pies elevados aumentan la carga del tren superior."
     },
     "band_assisted_pushup": {
       "name": "Flexiones Asistidas con Banda",
-      "variationNote": "Una banda elástica ayuda en el empuje desde abajo."
+      "variationNote": "Una banda elástica ayuda en el empuje desde abajo.",
+      "ratingNote": "Una banda asiste la flexión, así que se levanta menos peso."
     },
     "diamond_pushup": {
       "name": "Flexiones Diamante",
@@ -380,55 +411,68 @@
     },
     "deficit_pushup": {
       "name": "Flexiones con Déficit",
-      "variationNote": "Manos sobre bloques elevados para un recorrido más profundo."
+      "variationNote": "Manos sobre bloques elevados para un recorrido más profundo.",
+      "ratingNote": "Más recorrido abajo hace más difícil el control."
     },
     "machine_assisted_dip": {
       "name": "Fondos Asistidos en Máquina",
-      "variationNote": "La plataforma de asistencia compensa parte del peso corporal."
+      "variationNote": "La plataforma de asistencia compensa parte del peso corporal.",
+      "ratingNote": "Fondos asistidos con un montaje de máquina estable."
     },
     "ring_dips": {
       "name": "Fondos en Anillas",
-      "variationNote": "Las anillas se mueven libremente, por lo que se necesita más estabilización."
+      "variationNote": "Las anillas se mueven libremente, por lo que se necesita más estabilización.",
+      "ratingNote": "Fondos muy exigentes porque las anillas se mueven."
     },
     "weighted_dips": {
       "name": "Fondos con Lastre",
-      "variationNote": "El peso añadido aumenta la carga."
+      "variationNote": "El peso añadido aumenta la carga.",
+      "ratingNote": "Añade carga a los fondos con menos estabilidad."
     },
     "high_to_low_cable_fly": {
       "name": "Aperturas en Polea de Arriba a Abajo",
-      "variationNote": "Poleas altas; los brazos bajan y se juntan."
+      "variationNote": "Poleas altas; los brazos bajan y se juntan.",
+      "ratingNote": "Apertura en polea inclinada para el pecho inferior."
     },
     "low_to_high_cable_fly": {
       "name": "Aperturas en Polea de Abajo a Arriba",
-      "variationNote": "Poleas bajas; los brazos suben y se juntan."
+      "variationNote": "Poleas bajas; los brazos suben y se juntan.",
+      "ratingNote": "Apertura en polea inclinada para el pecho superior."
     },
     "db_fly": {
       "name": "Aperturas con Mancuernas",
-      "variationNote": "Las mancuernas siguen un arco libre sin el soporte de la polea."
+      "variationNote": "Las mancuernas siguen un arco libre sin el soporte de la polea.",
+      "ratingNote": "Ejercicio de aislamiento que exige control en el estiramiento."
     },
     "assisted_pullup": {
       "name": "Dominadas Asistidas en Máquina",
-      "variationNote": "La asistencia de la máquina compensa parte del peso corporal."
+      "variationNote": "La asistencia de la máquina compensa parte del peso corporal.",
+      "ratingNote": "La asistencia de máquina hace las dominadas más accesibles."
     },
     "band_assisted_pullup": {
       "name": "Dominadas Asistidas con Banda",
-      "variationNote": "Una banda elástica ayuda en el jalón."
+      "variationNote": "Una banda elástica ayuda en el jalón.",
+      "ratingNote": "Una banda reduce el peso corporal en las dominadas."
     },
     "machine_shoulder_press": {
       "name": "Press de Hombros en Máquina",
-      "variationNote": "Press guiado por máquina con recorrido fijo."
+      "variationNote": "Press guiado por máquina con recorrido fijo.",
+      "ratingNote": "Recorrido fijo que hace el press estable y sencillo."
     },
     "push_press": {
       "name": "Push Press (Press con Impulso)",
-      "variationNote": "Un breve impulso de piernas ayuda a iniciar el press sobre la cabeza."
+      "variationNote": "Un breve impulso de piernas ayuda a iniciar el press sobre la cabeza.",
+      "ratingNote": "El impulso de piernas mueve más peso pero exige timing y equilibrio."
     },
     "band_lateral_raise": {
       "name": "Elevación Lateral con Banda",
-      "variationNote": "Una banda elástica aporta resistencia ligera."
+      "variationNote": "Una banda elástica aporta resistencia ligera.",
+      "ratingNote": "Resistencia ligera de banda, fácil de montar en cualquier lugar."
     },
     "lean_away_cable_lateral_raise": {
       "name": "Elevación Lateral Inclinada en Polea",
-      "variationNote": "Inclinarse lejos de la polea amplía el recorrido inferior."
+      "variationNote": "Inclinarse lejos de la polea amplía el recorrido inferior.",
+      "ratingNote": "Inclinarse hacia fuera aumenta el recorrido del deltoides lateral."
     },
     "resistance_band_curl": {
       "name": "Curl con Banda Elástica",
@@ -1216,5 +1260,32 @@
     "variations_one": "{{count}} variante",
     "variations_other": "{{count}} variantes",
     "comparedWith": "Comparado con {{name}}: {{note}}"
+  },
+  "rating": {
+    "ourRating": "Nuestra valoración",
+    "overall": "General",
+    "scoreOfFive": "{{score}} / 5",
+    "weight": "{{weight}}% de peso",
+    "disclaimer": "Las valoraciones son nuestras puntuaciones editoriales, no mediciones científicas.",
+    "close": "Cerrar",
+    "factors": {
+      "stimulus": "Estímulo",
+      "stability": "Estabilidad",
+      "ease": "Facilidad",
+      "joints": "Articulaciones",
+      "access": "Acceso"
+    },
+    "evidence": "Evidencia",
+    "evidenceLevels": {
+      "growth_study": "Estudio de crecimiento",
+      "emg_only": "Solo EMG",
+      "consensus": "Consenso de expertos"
+    },
+    "evidenceNote": "El EMG muestra actividad muscular, que no siempre predice el crecimiento. «Consenso de expertos» significa que no se encontró un estudio directo.",
+    "sources": "Fuentes",
+    "evidenceCaveats": {
+      "chaves2020": "Basado en un estudio pequeño en hombres no entrenados. Los resultados deben confirmarse.",
+      "larsen2025": "Basado en un estudio de 8 semanas. Los resultados deben confirmarse."
+    }
   }
 }

@@ -1,10 +1,12 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
-import { Alert, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, Linking, Modal, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { router } from 'expo-router';
-import { EXERCISES, type Equipment, type Exercise, type ExerciseLevel, type MuscleGroup } from '@/data/exercises';
+import { EXERCISES, type Equipment, type EvidenceLevel, type Exercise, type ExerciseEvidence, type ExerciseLevel, type MuscleGroup } from '@/data/exercises';
+import { RATING_FACTORS, RATING_WEIGHTS, compareByOverall, effectiveTier, overallScore, starRating } from '@/data/rating';
+import { SOURCES } from '@/data/sources';
 import { SPLITS, SPLIT_CATEGORIES, type Split, type SplitCategory, type SplitDay } from '@/data/splits';
 import { CUSTOM_SPLITS_STORAGE_KEY, type CustomSplit } from '@/data/custom-splits';
 import { CustomRoutineBuilder } from '@/components/custom-routine-builder';
@@ -21,7 +23,11 @@ type PickerEntry =
   | { kind: 'exercise'; exercise: Exercise };
 
 const TIER_COLOR = { S: '#E8B400', A: '#4C9AFF', B: '#8A8F98' };
-const TIER_RANK = { S: 0, A: 1, B: 2 } as const;
+const EVIDENCE_COLOR: Record<EvidenceLevel, string> = {
+  growth_study: '#2E7D32',
+  emg_only: '#C77700',
+  consensus: '#8A8F98',
+};
 const LEVEL_COLOR: Record<ExerciseLevel, string> = {
   easier: '#2E7D32',
   standard: '#4C9AFF',
@@ -93,6 +99,108 @@ function familyBaseOf(exercise: Exercise): Exercise | undefined {
   return EXERCISES.find((item) => item.isBase && item.family === exercise.family);
 }
 
+function RatingBadge({ exercise, onPress }: { exercise: Exercise; onPress: () => void }) {
+  const { t } = useTranslation();
+  const overall = overallScore(exercise.ratings);
+  if (overall === null) return null;
+  return (
+    <TouchableOpacity
+      style={s.ratingBadge}
+      onPress={onPress}
+      accessibilityRole="button"
+      accessibilityLabel={t('rating.ourRating')}>
+      <Text style={s.ratingBadgeText}>★ {starRating(overall).toFixed(1)}</Text>
+    </TouchableOpacity>
+  );
+}
+
+function evidenceCaveatKey(evidence?: ExerciseEvidence): string | undefined {
+  if (!evidence) return undefined;
+  if (evidence.sources.includes('chaves2020')) return 'rating.evidenceCaveats.chaves2020';
+  if (evidence.sources.includes('larsen2025')) return 'rating.evidenceCaveats.larsen2025';
+  return undefined;
+}
+
+function RatingSheet({ exercise, onClose }: { exercise: Exercise | null; onClose: () => void }) {
+  const { t } = useTranslation();
+  const overall = exercise ? overallScore(exercise.ratings) : null;
+  const caveatKey = exercise ? evidenceCaveatKey(exercise.evidence) : undefined;
+  return (
+    <Modal visible={!!exercise && overall !== null} transparent animationType="slide" onRequestClose={onClose}>
+      <View style={s.sheetBackdrop}>
+        <View style={s.sheet}>
+          {exercise && overall !== null && (
+            <ScrollView showsVerticalScrollIndicator={false}>
+              <Text style={s.sheetTitle}>{t(`exercises.${exercise.id}.name`)}</Text>
+              <Text style={s.sheetLabel}>{t('rating.ourRating')}</Text>
+              <View style={s.sheetScoreRow}>
+                <Text style={s.sheetStars}>★ {starRating(overall).toFixed(1)}</Text>
+                <View style={s.sheetOverall}>
+                  <Text style={s.sheetOverallLabel}>{t('rating.overall')}</Text>
+                  <Text style={s.sheetScore}>{t('rating.scoreOfFive', { score: overall.toFixed(1) })}</Text>
+                </View>
+              </View>
+              <View style={s.factorList}>
+                {RATING_FACTORS.map((factor) => {
+                  const score = exercise.ratings[factor] ?? 0;
+                  return (
+                    <View key={factor} style={s.factorRow}>
+                      <View style={s.factorHeader}>
+                        <Text style={s.factorName}>{t(`rating.factors.${factor}`)}</Text>
+                        <Text style={s.factorWeight}>{t('rating.weight', { weight: RATING_WEIGHTS[factor] * 100 })}</Text>
+                        <Text style={s.factorScore}>{score}</Text>
+                      </View>
+                      <View style={s.factorTrack}>
+                        <View style={[s.factorFill, { flex: score }]} />
+                        <View style={{ flex: Math.max(0, 5 - score) }} />
+                      </View>
+                    </View>
+                  );
+                })}
+              </View>
+              {exercise.ratingNote && <Text style={s.sheetNote}>{t(exercise.ratingNote)}</Text>}
+              {exercise.evidence && (
+                <>
+                  <View style={s.evidenceRow}>
+                    <Text style={s.evidenceLabel}>{t('rating.evidence')}</Text>
+                    <View style={[s.evidenceChip, { backgroundColor: EVIDENCE_COLOR[exercise.evidence.level] }]}>
+                      <Text style={s.evidenceChipText}>{t(`rating.evidenceLevels.${exercise.evidence.level}`)}</Text>
+                    </View>
+                  </View>
+                  <Text style={s.evidenceNote}>{t('rating.evidenceNote')}</Text>
+                  {caveatKey && <Text style={s.evidenceCaveat}>{t(caveatKey)}</Text>}
+                </>
+              )}
+              <Text style={s.sheetDisclaimer}>{t('rating.disclaimer')}</Text>
+              {exercise.evidence && exercise.evidence.sources.length > 0 && (
+                <View style={s.sourceList}>
+                  <Text style={s.sourceListLabel}>{t('rating.sources')}</Text>
+                  {exercise.evidence.sources.map((sourceId) => {
+                    const source = SOURCES[sourceId];
+                    return (
+                      <TouchableOpacity
+                        key={sourceId}
+                        onPress={() => {
+                          Linking.openURL(source.url).catch(() => {});
+                        }}
+                        accessibilityRole="link">
+                        <Text style={s.sourceLink}>{source.title} ({source.year})</Text>
+                      </TouchableOpacity>
+                    );
+                  })}
+                </View>
+              )}
+              <TouchableOpacity style={s.primary} onPress={onClose}>
+                <Text style={s.primaryText}>{t('rating.close')}</Text>
+              </TouchableOpacity>
+            </ScrollView>
+          )}
+        </View>
+      </View>
+    </Modal>
+  );
+}
+
 function familyMembersOf(family: string): Exercise[] {
   return EXERCISES.filter((item) => item.family === family);
 }
@@ -101,10 +209,12 @@ function ExerciseRow({
   exercise,
   selected,
   onPress,
+  onShowRating,
 }: {
   exercise: Exercise;
   selected: boolean;
   onPress: () => void;
+  onShowRating: () => void;
 }) {
   const { t } = useTranslation();
   const reason = t(`exercises.${exercise.id}.reason`, { defaultValue: '' });
@@ -117,16 +227,18 @@ function ExerciseRow({
       ? note
       : t('exercisePicker.comparedWith', { name: baseName, note });
   const showLevel = familyMembersOf(exercise.family).length > 1;
+  const tier = effectiveTier(exercise);
 
   return (
     <TouchableOpacity style={[s.card, selected && s.cardOn]} onPress={onPress}>
-      <View style={[s.badge, { backgroundColor: TIER_COLOR[exercise.tier] }]}>
-        <Text style={s.badgeText}>{exercise.tier}</Text>
+      <View style={[s.badge, { backgroundColor: TIER_COLOR[tier] }]}>
+        <Text style={s.badgeText}>{tier}</Text>
       </View>
       <View style={{ flex: 1, gap: 4 }}>
         <View style={s.variationTitleRow}>
           <Text style={s.cardText}>{t(`exercises.${exercise.id}.name`)}</Text>
           {showLevel && <LevelTag level={exercise.level} />}
+          <RatingBadge exercise={exercise} onPress={onShowRating} />
         </View>
         {baseName !== '' && <Text style={s.baseName}>{baseName}</Text>}
         {noteText !== '' ? <Text style={s.sub}>{noteText}</Text> : reason !== '' ? <Text style={s.sub}>{reason}</Text> : null}
@@ -143,6 +255,7 @@ function FamilyCard({
   onToggleExpand,
   selectedIds,
   onToggleExercise,
+  onShowRating,
 }: {
   base: Exercise;
   variations: Exercise[];
@@ -150,11 +263,13 @@ function FamilyCard({
   onToggleExpand: () => void;
   selectedIds: string[];
   onToggleExercise: (exerciseId: string) => void;
+  onShowRating: (exercise: Exercise) => void;
 }) {
   const { t } = useTranslation();
   const baseName = t(`exercises.${base.id}.name`);
   const baseReason = t(`exercises.${base.id}.reason`, { defaultValue: '' });
   const baseSelected = selectedIds.includes(base.id);
+  const baseTier = effectiveTier(base);
   const ladder = [base, ...variations]
     .map((exercise, index) => ({ exercise, index }))
     .sort((a, b) =>
@@ -165,11 +280,14 @@ function FamilyCard({
   return (
     <View style={[s.familyBlock, baseSelected && s.cardOn]}>
       <TouchableOpacity style={s.familyBaseRow} onPress={() => onToggleExercise(base.id)}>
-        <View style={[s.badge, { backgroundColor: TIER_COLOR[base.tier] }]}>
-          <Text style={s.badgeText}>{base.tier}</Text>
+        <View style={[s.badge, { backgroundColor: TIER_COLOR[baseTier] }]}>
+          <Text style={s.badgeText}>{baseTier}</Text>
         </View>
         <View style={{ flex: 1, gap: 4 }}>
-          <Text style={s.cardText}>{baseName}</Text>
+          <View style={s.variationTitleRow}>
+            <Text style={s.cardText}>{baseName}</Text>
+            <RatingBadge exercise={base} onPress={() => onShowRating(base)} />
+          </View>
           {baseReason !== '' && <Text style={s.sub}>{baseReason}</Text>}
         </View>
         <Text style={s.check}>{baseSelected ? '✓' : ''}</Text>
@@ -197,6 +315,7 @@ function FamilyCard({
               <View style={s.variationTitleRow}>
                 <Text style={s.variationName}>{t(`exercises.${exercise.id}.name`)}</Text>
                 <LevelTag level={exercise.level} />
+                <RatingBadge exercise={exercise} onPress={() => onShowRating(exercise)} />
               </View>
               {noteText !== '' && <Text style={s.sub}>{noteText}</Text>}
             </View>
@@ -346,6 +465,7 @@ export default function Home() {
   const [muscleFilter, setMuscleFilter] = useState<MuscleGroup | 'all'>('all');
   const [equipmentFilter, setEquipmentFilter] = useState<Equipment | 'all'>('all');
   const [expandedFamilies, setExpandedFamilies] = useState<Record<string, boolean>>({});
+  const [ratingExercise, setRatingExercise] = useState<Exercise | null>(null);
   const [category, setCategory] = useState<SplitCategory | 'all' | 'my_routines'>('all');
   const [logging, setLogging] = useState(false);
   const [picked, setPicked] = useState<Record<string, string[]>>({});
@@ -497,11 +617,7 @@ export default function Home() {
       if (!base) continue;
       const variations = familyMembersOf(family).filter((item) => item.id !== base.id);
       if (variations.length === 0) continue;
-      const tier = variations.reduce<'S' | 'A' | 'B'>(
-        (best, item) => TIER_RANK[item.tier] < TIER_RANK[best] ? item.tier : best,
-        base.tier,
-      );
-      familyGroups.set(family, { base, variations, tier });
+      familyGroups.set(family, { base, variations, tier: effectiveTier(base) });
     }
   }
   const pickerEntries: Record<'S' | 'A' | 'B', PickerEntry[]> = { S: [], A: [], B: [] };
@@ -513,8 +629,16 @@ export default function Home() {
       renderedFamilies.add(exercise.family);
       pickerEntries[group.tier].push({ kind: 'family', base: group.base, variations: group.variations });
     } else {
-      pickerEntries[exercise.tier].push({ kind: 'exercise', exercise });
+      pickerEntries[effectiveTier(exercise)].push({ kind: 'exercise', exercise });
     }
+  }
+  const entryExercise = (entry: PickerEntry): Exercise =>
+    entry.kind === 'family' ? entry.base : entry.exercise;
+  for (const tier of ['S', 'A', 'B'] as const) {
+    pickerEntries[tier] = pickerEntries[tier]
+      .map((entry, index) => ({ entry, index }))
+      .sort((a, b) => compareByOverall(entryExercise(a.entry), entryExercise(b.entry)) || a.index - b.index)
+      .map((item) => item.entry);
   }
   const normalizedSearch = splitSearch.trim().toLocaleLowerCase();
   const myRoutines = category === 'my_routines';
@@ -677,6 +801,7 @@ export default function Home() {
                     }))}
                     selectedIds={pickedNow}
                     onToggleExercise={toggle}
+                    onShowRating={setRatingExercise}
                   />
                 ) : (
                   <ExerciseRow
@@ -684,6 +809,7 @@ export default function Home() {
                     exercise={entry.exercise}
                     selected={pickedNow.includes(entry.exercise.id)}
                     onPress={() => toggle(entry.exercise.id)}
+                    onShowRating={() => setRatingExercise(entry.exercise)}
                   />
                 )
               )
@@ -716,6 +842,7 @@ export default function Home() {
           </>
         )}
       </ScrollView>
+      <RatingSheet exercise={ratingExercise} onClose={() => setRatingExercise(null)} />
     </SafeAreaView>
   );
 }
@@ -744,6 +871,8 @@ const s = StyleSheet.create({
   baseName: { fontSize: 12, fontWeight: '600', color: '#8A8F98' },
   levelTag: { paddingHorizontal: 8, paddingVertical: 3, borderRadius: 8 },
   levelTagText: { fontSize: 11, fontWeight: '700', color: '#fff' },
+  ratingBadge: { paddingHorizontal: 8, paddingVertical: 3, borderRadius: 8, backgroundColor: '#FFF4D6' },
+  ratingBadgeText: { fontSize: 12, fontWeight: '700', color: '#8A6100' },
   cardText: { fontSize: 17, fontWeight: '600' },
   sub: { fontSize: 13, color: '#666' },
   splitMeta: { fontSize: 12, fontWeight: '600', color: '#4C9AFF', marginTop: 2 },
@@ -789,4 +918,32 @@ const s = StyleSheet.create({
   languageBtnActive: { backgroundColor: '#2B7A0B' },
   languageBtnText: { fontSize: 14, fontWeight: '600', color: '#333' },
   languageBtnTextActive: { color: '#fff' },
+  sheetBackdrop: { flex: 1, justifyContent: 'flex-end', backgroundColor: 'rgba(0,0,0,0.35)' },
+  sheet: { backgroundColor: '#fff', borderTopLeftRadius: 20, borderTopRightRadius: 20, padding: 20, gap: 10, maxHeight: '88%' },
+  sheetTitle: { fontSize: 20, fontWeight: '700' },
+  sheetLabel: { fontSize: 13, fontWeight: '600', color: '#666' },
+  sheetScoreRow: { flexDirection: 'row', alignItems: 'flex-end', gap: 14 },
+  sheetStars: { fontSize: 30, fontWeight: '700', color: '#8A6100' },
+  sheetOverall: { gap: 2, paddingBottom: 3 },
+  sheetOverallLabel: { fontSize: 12, fontWeight: '600', color: '#666' },
+  sheetScore: { fontSize: 18, fontWeight: '700' },
+  factorList: { gap: 10, marginTop: 4 },
+  factorRow: { gap: 5 },
+  factorHeader: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  factorName: { flex: 1, fontSize: 14, fontWeight: '600' },
+  factorWeight: { fontSize: 12, color: '#8A8F98' },
+  factorScore: { fontSize: 14, fontWeight: '700', minWidth: 16, textAlign: 'right' },
+  factorTrack: { flexDirection: 'row', height: 8, borderRadius: 4, overflow: 'hidden', backgroundColor: '#E3E5E8' },
+  factorFill: { backgroundColor: '#2B7A0B', borderRadius: 4 },
+  sheetNote: { fontSize: 14, color: '#444', marginTop: 4 },
+  sheetDisclaimer: { fontSize: 12, color: '#8A8F98' },
+  evidenceRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 2 },
+  evidenceLabel: { fontSize: 13, fontWeight: '600', color: '#666' },
+  evidenceChip: { paddingHorizontal: 8, paddingVertical: 3, borderRadius: 8 },
+  evidenceChipText: { fontSize: 11, fontWeight: '700', color: '#fff' },
+  evidenceNote: { fontSize: 12, color: '#666' },
+  evidenceCaveat: { fontSize: 12, color: '#8A6100', fontStyle: 'italic' },
+  sourceList: { gap: 6, marginTop: 2 },
+  sourceListLabel: { fontSize: 13, fontWeight: '600', color: '#666' },
+  sourceLink: { fontSize: 13, color: '#2873B9', textDecorationLine: 'underline' },
 });

@@ -50,16 +50,19 @@
     "incline_db_press": {
       "name": "Incline Dumbbell Press",
       "reason": "Great upper chest stimulus",
-      "variationNote": "Incline angle shifts emphasis toward the upper chest."
+      "variationNote": "Incline angle shifts emphasis toward the upper chest.",
+      "ratingNote": "Targets the upper chest with a bench-supported position."
     },
     "flat_bb_bench": {
       "name": "Flat Barbell Bench Press",
-      "reason": "Heavy compound for chest and triceps"
+      "reason": "Heavy compound for chest and triceps",
+      "ratingNote": "Loads the chest heavily with a stable bench setup."
     },
     "cable_lateral_raise": {
       "name": "Cable Lateral Raise",
       "reason": "Constant tension on side delts",
-      "variationNote": "Cable keeps tension through the full range of the raise."
+      "variationNote": "Cable keeps tension through the full range of the raise.",
+      "ratingNote": "Constant cable tension for the side delts."
     },
     "overhead_triceps_ext": {
       "name": "Overhead Triceps Extension",
@@ -67,17 +70,20 @@
     },
     "pushups": {
       "name": "Push-ups",
-      "reason": "Convenient but hard to load"
+      "reason": "Convenient but hard to load",
+      "ratingNote": "Accessible chest and triceps work with a plank-based position."
     },
     "lat_pulldown": {
       "name": "Lat Pulldown",
       "reason": "Easy to load, strong lat stimulus",
-      "variationNote": "Seated vertical pull with a weight stack and fixed path."
+      "variationNote": "Seated vertical pull with a weight stack and fixed path.",
+      "ratingNote": "Guided pull with strong support and easy positioning."
     },
     "chest_supported_row": {
       "name": "Chest-Supported Row",
       "reason": "Targets back with little lower-back fatigue",
-      "variationNote": "Chest pad supports the torso and reduces lower-back demand."
+      "variationNote": "Chest pad supports the torso and reduces lower-back demand.",
+      "ratingNote": "Chest pad removes lower-back demand."
     },
     "incline_db_curl": {
       "name": "Incline Dumbbell Curl",
@@ -117,7 +123,8 @@
     "seated_cable_row": {
       "name": "Seated Cable Row",
       "reason": "Mid-back thickness",
-      "variationNote": "Seated cable row with a stable torso and constant tension."
+      "variationNote": "Seated cable row with a stable torso and constant tension.",
+      "ratingNote": "Supported row with steady cable tension."
     },
     "dumbbell_curl": {
       "name": "Dumbbell Curl",
@@ -134,62 +141,79 @@
     },
     "flat_db_press": {
       "name": "Flat Dumbbell Press",
-      "variationNote": "Flat press with dumbbells; each arm stabilizes independently."
+      "variationNote": "Flat press with dumbbells; each arm stabilizes independently.",
+      "ratingNote": "Good chest loading with independent arms and a stable bench."
     },
     "incline_bb_press": {
       "name": "Incline Barbell Bench Press",
-      "variationNote": "Incline angle with a barbell; both hands move on one bar."
+      "variationNote": "Incline angle with a barbell; both hands move on one bar.",
+      "ratingNote": "Heavy upper-chest loading, but the bar path needs control."
     },
     "cable_fly": {
-      "name": "Cable Fly"
+      "name": "Cable Fly",
+      "ratingNote": "Cable tension through the range with moderate stability demands."
     },
     "pec_deck": {
       "name": "Pec Deck",
-      "variationNote": "Fixed-path fly with the arms supported by pads."
+      "variationNote": "Fixed-path fly with the arms supported by pads.",
+      "ratingNote": "Isolates the chest with strong machine support."
     },
     "dips": {
-      "name": "Dips"
+      "name": "Dips",
+      "ratingNote": "Strong chest and triceps loading on parallel bars."
     },
     "pullups": {
-      "name": "Pull-ups"
+      "name": "Pull-ups",
+      "ratingNote": "High back stimulus from bodyweight, with limited stability."
     },
     "barbell_row": {
-      "name": "Barbell Row"
+      "name": "Barbell Row",
+      "ratingNote": "Heavy back loading, but the bent-over position needs control."
     },
     "one_arm_db_row": {
       "name": "One-Arm Dumbbell Row",
-      "variationNote": "One arm at a time with the free hand braced on a bench."
+      "variationNote": "One arm at a time with the free hand braced on a bench.",
+      "ratingNote": "Bench support keeps the row stable while loading one side."
     },
     "straight_arm_pulldown": {
-      "name": "Straight-Arm Pulldown"
+      "name": "Straight-Arm Pulldown",
+      "ratingNote": "Isolates the lats with cable support."
     },
     "t_bar_row": {
       "name": "T-Bar Row",
-      "variationNote": "Row with a T-bar handle; both hands share one load."
+      "variationNote": "Row with a T-bar handle; both hands share one load.",
+      "ratingNote": "Heavy row with a fixed bar path but a bent-over setup."
     },
     "overhead_press": {
-      "name": "Overhead Press"
+      "name": "Overhead Press",
+      "ratingNote": "Loads the shoulders overhead with a free bar path."
     },
     "seated_db_press": {
       "name": "Seated Dumbbell Shoulder Press",
-      "variationNote": "Seated press with a back pad and one dumbbell per arm."
+      "variationNote": "Seated press with a back pad and one dumbbell per arm.",
+      "ratingNote": "Bench support with independent dumbbell pressing."
     },
     "db_lateral_raise": {
-      "name": "Dumbbell Lateral Raise"
+      "name": "Dumbbell Lateral Raise",
+      "ratingNote": "Direct side-delt work with light, controllable load."
     },
     "machine_lateral_raise": {
       "name": "Machine Lateral Raise",
-      "variationNote": "Machine guides the arm path with the torso fixed."
+      "variationNote": "Machine guides the arm path with the torso fixed.",
+      "ratingNote": "Machine support holds the arm path steady."
     },
     "front_raise": {
-      "name": "Front Raise"
+      "name": "Front Raise",
+      "ratingNote": "Targets the front delts, which pressing already trains."
     },
     "arnold_press": {
       "name": "Arnold Press",
-      "variationNote": "Starts with palms facing in and rotates outward during the press."
+      "variationNote": "Starts with palms facing in and rotates outward during the press.",
+      "ratingNote": "Rotation adds coordination demand to shoulder pressing."
     },
     "upright_row": {
-      "name": "Upright Row"
+      "name": "Upright Row",
+      "ratingNote": "Pulls the bar close to the body, which many people find awkward."
     },
     "hammer_curl": {
       "name": "Hammer Curl",
@@ -348,31 +372,38 @@
     },
     "decline_bb_press": {
       "name": "Decline Barbell Bench Press",
-      "variationNote": "Decline angle shortens the pressing range and emphasizes the lower chest."
+      "variationNote": "Decline angle shortens the pressing range and emphasizes the lower chest.",
+      "ratingNote": "Chest loading with a shorter range and a stable bench."
     },
     "decline_db_press": {
       "name": "Decline Dumbbell Press",
-      "variationNote": "Decline angle with dumbbells; each arm stabilizes independently."
+      "variationNote": "Decline angle with dumbbells; each arm stabilizes independently.",
+      "ratingNote": "Comfortable decline angle with independent dumbbells."
     },
     "machine_chest_press": {
       "name": "Machine Chest Press",
-      "variationNote": "Machine-guided press with a fixed path and no spotter needed."
+      "variationNote": "Machine-guided press with a fixed path and no spotter needed.",
+      "ratingNote": "Guided path makes it stable and easy to learn."
     },
     "knee_pushup": {
       "name": "Knee Push-ups",
-      "variationNote": "Knees on the floor support part of the body weight."
+      "variationNote": "Knees on the floor support part of the body weight.",
+      "ratingNote": "Easier push-up variation with less bodyweight to move."
     },
     "incline_pushup": {
       "name": "Incline Push-ups",
-      "variationNote": "Hands elevated, which reduces the load."
+      "variationNote": "Hands elevated, which reduces the load.",
+      "ratingNote": "Higher hand position makes the push-up easier."
     },
     "decline_pushup": {
       "name": "Decline Push-ups",
-      "variationNote": "Feet elevated, which increases the load."
+      "variationNote": "Feet elevated, which increases the load.",
+      "ratingNote": "Feet raised increases the load on the upper body."
     },
     "band_assisted_pushup": {
       "name": "Band-Assisted Push-ups",
-      "variationNote": "A resistance band assists the push from below."
+      "variationNote": "A resistance band assists the push from below.",
+      "ratingNote": "A band assists the push-up so less bodyweight is lifted."
     },
     "diamond_pushup": {
       "name": "Diamond Push-ups",
@@ -380,55 +411,68 @@
     },
     "deficit_pushup": {
       "name": "Deficit Push-ups",
-      "variationNote": "Hands on raised blocks for a deeper range of motion."
+      "variationNote": "Hands on raised blocks for a deeper range of motion.",
+      "ratingNote": "Extra range at the bottom makes it harder to control."
     },
     "machine_assisted_dip": {
       "name": "Machine-Assisted Dips",
-      "variationNote": "Assist platform offsets part of the body weight."
+      "variationNote": "Assist platform offsets part of the body weight.",
+      "ratingNote": "Assisted dip with a stable machine setup."
     },
     "ring_dips": {
       "name": "Ring Dips",
-      "variationNote": "Rings move freely, so more stabilization is required."
+      "variationNote": "Rings move freely, so more stabilization is required.",
+      "ratingNote": "Very demanding dip variation because the rings move."
     },
     "weighted_dips": {
       "name": "Weighted Dips",
-      "variationNote": "Added weight increases the load."
+      "variationNote": "Added weight increases the load.",
+      "ratingNote": "Adds load to dips for more stimulus with less stability."
     },
     "high_to_low_cable_fly": {
       "name": "High-to-Low Cable Fly",
-      "variationNote": "Pulleys set high; arms pull down and together."
+      "variationNote": "Pulleys set high; arms pull down and together.",
+      "ratingNote": "Cable fly angled for the lower chest."
     },
     "low_to_high_cable_fly": {
       "name": "Low-to-High Cable Fly",
-      "variationNote": "Pulleys set low; arms pull up and together."
+      "variationNote": "Pulleys set low; arms pull up and together.",
+      "ratingNote": "Cable fly angled for the upper chest."
     },
     "db_fly": {
       "name": "Dumbbell Fly",
-      "variationNote": "Dumbbells move in a free arc without cable support."
+      "variationNote": "Dumbbells move in a free arc without cable support.",
+      "ratingNote": "Isolation move that needs control at the stretched position."
     },
     "assisted_pullup": {
       "name": "Machine-Assisted Pull-ups",
-      "variationNote": "Machine assistance offsets part of the body weight."
+      "variationNote": "Machine assistance offsets part of the body weight.",
+      "ratingNote": "Machine assistance makes pull-ups more accessible."
     },
     "band_assisted_pullup": {
       "name": "Band-Assisted Pull-ups",
-      "variationNote": "A resistance band assists the pull."
+      "variationNote": "A resistance band assists the pull.",
+      "ratingNote": "A band reduces bodyweight for pull-ups."
     },
     "machine_shoulder_press": {
       "name": "Machine Shoulder Press",
-      "variationNote": "Machine-guided press with a fixed path."
+      "variationNote": "Machine-guided press with a fixed path.",
+      "ratingNote": "Fixed path makes overhead pressing stable and simple."
     },
     "push_press": {
       "name": "Push Press",
-      "variationNote": "A short leg drive helps start the overhead press."
+      "variationNote": "A short leg drive helps start the overhead press.",
+      "ratingNote": "Leg drive moves more weight but needs timing and balance."
     },
     "band_lateral_raise": {
       "name": "Band Lateral Raise",
-      "variationNote": "A resistance band provides light resistance."
+      "variationNote": "A resistance band provides light resistance.",
+      "ratingNote": "Light band resistance that is easy to set up anywhere."
     },
     "lean_away_cable_lateral_raise": {
       "name": "Lean-Away Cable Lateral Raise",
-      "variationNote": "Leaning away from the cable increases the bottom range."
+      "variationNote": "Leaning away from the cable increases the bottom range.",
+      "ratingNote": "Leaning away increases the range on the side delt."
     },
     "resistance_band_curl": {
       "name": "Resistance Band Curl",
@@ -1216,5 +1260,32 @@
     "variations_one": "{{count}} variation",
     "variations_other": "{{count}} variations",
     "comparedWith": "Compared with {{name}}: {{note}}"
+  },
+  "rating": {
+    "ourRating": "Our rating",
+    "overall": "Overall",
+    "scoreOfFive": "{{score}} / 5",
+    "weight": "{{weight}}% weight",
+    "disclaimer": "Ratings are our editorial scores, not scientific measurements.",
+    "close": "Close",
+    "factors": {
+      "stimulus": "Stimulus",
+      "stability": "Stability",
+      "ease": "Ease",
+      "joints": "Joints",
+      "access": "Access"
+    },
+    "evidence": "Evidence",
+    "evidenceLevels": {
+      "growth_study": "Growth study",
+      "emg_only": "EMG only",
+      "consensus": "Expert consensus"
+    },
+    "evidenceNote": "EMG shows muscle activity, which does not always predict growth. 'Expert consensus' means no direct study was found.",
+    "sources": "Sources",
+    "evidenceCaveats": {
+      "chaves2020": "Based on one small study in untrained men. Results need confirming.",
+      "larsen2025": "Based on one 8-week study. Results need confirming."
+    }
   }
 }
